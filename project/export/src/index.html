@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FileMayor — Launch kit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail" data-bg-color="#f5f1e8">
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#f5f1e8"/>
+  <text x="200" y="170" font-family="Times New Roman, serif" font-size="48" fill="#171513" text-anchor="middle" font-style="italic">Folders,</text>
+  <text x="200" y="220" font-family="Times New Roman, serif" font-size="48" fill="#a8552a" text-anchor="middle" font-style="italic">on command.</text>
+  <line x1="120" y1="260" x2="280" y2="260" stroke="#171513" stroke-opacity="0.18" stroke-width="1"/>
+  <text x="200" y="290" font-family="ui-monospace, monospace" font-size="12" fill="#7c766b" text-anchor="middle" letter-spacing="3">LAUNCH KIT · v4.0.1</text>
+</svg>
+</template>
+<style>
+  :root{
+    --bg:#f5f1e8; --bg-deep:#efe9dc;
+    --ink:#171513; --ink-soft:#3a342d; --muted:#7c766b;
+    --rule:rgba(23,21,19,.16);
+    --accent:#a8552a; --term:#a3c977; --dark:#0f0d0a;
+    --serif:"Instrument Serif", "Times New Roman", serif;
+    --sans:"Geist", ui-sans-serif, system-ui, sans-serif;
+    --mono:"Geist Mono", ui-monospace, Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--sans);min-height:100vh;}
+  body{
+    background:
+      radial-gradient(ellipse at 70% -10%, rgba(168,85,42,.07), transparent 60%),
+      radial-gradient(ellipse at 0% 100%, rgba(163,201,119,.05), transparent 50%),
+      var(--bg);
+  }
+  .wrap{ max-width:1180px; margin:0 auto; padding:64px 56px 96px; }
+
+  .chrome{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:var(--mono); font-size:14px; letter-spacing:.06em;
+    color:var(--muted); border-bottom:1px solid var(--rule); padding-bottom:18px;
+  }
+  .wm{ font-family:var(--serif); font-size:28px; letter-spacing:-.01em; }
+  .wm .d{ color:var(--accent); }
+  .wm-by{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-left:10px; }
+
+  .hero{ padding:96px 0 80px; border-bottom:1px solid var(--rule); }
+  .eyebrow{ font-family:var(--mono); font-size:14px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+  h1{ font-family:var(--serif); font-size:108px; line-height:.95; letter-spacing:-.025em; font-weight:400; margin:18px 0 0; }
+  h1 .ital{ font-style:italic; }
+  h1 .accent{ color:var(--accent); }
+  .sub{ font-size:24px; line-height:1.4; color:var(--ink-soft); max-width:780px; margin-top:32px; }
+
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:64px; border-top:1px solid var(--rule); border-left:1px solid var(--rule); }
+  .card{
+    display:block; padding:48px 44px 44px;
+    border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
+    text-decoration:none; color:inherit;
+    position:relative;
+    background:transparent;
+    transition:background .2s, transform .2s;
+    min-height:340px;
+  }
+  .card:hover{ background:var(--bg-deep); }
+  .card .ix{ font-family:var(--mono); font-size:13px; letter-spacing:.18em; color:var(--muted); }
+  .card .title{ font-family:var(--serif); font-size:64px; line-height:1; letter-spacing:-.015em; margin:14px 0 12px; }
+  .card .title .ital{ font-style:italic; }
+  .card .desc{ font-size:19px; line-height:1.45; color:var(--ink-soft); max-width:480px; }
+  .card .meta{ font-family:var(--mono); font-size:14px; color:var(--muted); margin-top:24px; letter-spacing:.06em; }
+  .card .arr{
+    position:absolute; right:36px; bottom:36px;
+    font-family:var(--serif); font-size:48px; color:var(--accent);
+    line-height:1;
+    transition:transform .2s;
+  }
+  .card:hover .arr{ transform:translate(6px,-6px); }
+
+  .row{ display:flex; gap:8px; margin-top:18px; flex-wrap:wrap; }
+  .chip{
+    display:inline-block; font-family:var(--mono); font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted);
+    padding:6px 12px; border:1px solid var(--rule); border-radius:999px;
+  }
+  .chip.live{ color:var(--accent); border-color:rgba(168,85,42,.4); }
+  .chip.live::before{ content:"●  "; color:var(--accent); }
+
+  .notes{ margin-top:48px; padding:36px 0 0; border-top:1px solid var(--rule); display:grid; grid-template-columns:160px 1fr; gap:48px; }
+  .notes h3{ font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:0; font-weight:400; }
+  .notes ul{ margin:0; padding:0; list-style:none; }
+  .notes li{ font-size:18px; line-height:1.5; color:var(--ink-soft); padding:10px 0; border-top:1px solid rgba(23,21,19,.08); }
+  .notes li:first-child{ border-top:0; }
+  .notes .mono{ font-family:var(--mono); color:var(--accent); }
+
+  footer{ margin-top:80px; padding-top:24px; border-top:1px solid var(--rule); display:flex; justify-content:space-between; font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:.06em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="chrome">
+    <span><span class="wm">FileMayor<span class="d">.</span></span><span class="wm-by">by Chevza</span></span>
+    <span>launch kit · v4.0.1</span>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Launch kit · pitch deck + social carousels</div>
+    <h1>Folders,<br><span class="ital">on command.</span></h1>
+    <p class="sub">
+      A pitch deck for investors and engineers, and a five-carousel social kit
+      for the launch. One system, two surfaces — built off the live filemayor.com aesthetic.
+    </p>
+    <div class="row">
+      <span class="chip live">v4.0.1 · live</span>
+      <span class="chip">25k+ npm installs</span>
+      <span class="chip">+700 / week</span>
+      <span class="chip">CLI · Desktop · PWA · MCP</span>
+    </div>
+  </section>
+
+  <div class="grid">
+
+    <a class="card" href="FileMayor Pitch Deck.html">
+      <div class="ix">01 · DECK</div>
+      <div class="title">Pitch <span class="ital">deck.</span></div>
+      <div class="desc">
+        16 slides, 1920×1080. Investor- and engineer-targeted in one deck.
+        Opens bold, settles into calm body, closes with the ask. Speaker notes included.
+      </div>
+      <div class="row">
+        <span class="chip">16 slides</span>
+        <span class="chip">1920 × 1080</span>
+        <span class="chip">speaker notes</span>
+      </div>
+      <div class="meta">filemayor pitch deck.html</div>
+      <div class="arr">↗</div>
+    </a>
+
+    <a class="card" href="FileMayor Social Carousels.html">
+      <div class="ix">02 · CAROUSELS</div>
+      <div class="title">Social <span class="ital">launch kit.</span></div>
+      <div class="desc">
+        Five carousels × seven slides each at 1080×1350 (works on LinkedIn, X, Instagram).
+        Pan, zoom, reorder, and open any slide fullscreen on the design canvas.
+      </div>
+      <div class="row">
+        <span class="chip">5 carousels</span>
+        <span class="chip">35 slides</span>
+        <span class="chip">1080 × 1350</span>
+      </div>
+      <div class="meta">filemayor social carousels.html</div>
+      <div class="arr">↗</div>
+    </a>
+
+    <a class="card" href="FileMayor Brand Book.html" style="grid-column:1 / -1;">
+      <div class="ix">03 · BRAND BOOK</div>
+      <div class="title">Brand <span class="ital">identity.</span></div>
+      <div class="desc">
+        Full 29-page brand book — essence, voice, naming, logo, color, type, motifs,
+        imagery, layout, and applications. Public-facing reference for internal use,
+        partners, investors, and press.
+      </div>
+      <div class="row">
+        <span class="chip">29 pages</span>
+        <span class="chip">1920 × 1080</span>
+        <span class="chip">v1.0 · May 2026</span>
+        <span class="chip">internal · partners · press · public</span>
+      </div>
+      <div class="meta">filemayor brand book.html</div>
+      <div class="arr">↗</div>
+    </a>
+
+  </div>
+
+  <div class="notes">
+    <h3>Carousel set</h3>
+    <ul>
+      <li><span class="mono">01 ·</span> <strong>Hero — Suggest vs. Act.</strong> Manifesto carousel. Mixed audience.</li>
+      <li><span class="mono">02 ·</span> <strong>Five Verbs Walkthrough.</strong> Real CLI output. Developer-leaning.</li>
+      <li><span class="mono">03 ·</span> <strong>Founder Story.</strong> Solo, from South Africa, two years on the engine.</li>
+      <li><span class="mono">04 ·</span> <strong>Before / After ~/Downloads.</strong> 1,248 files → 3.1 seconds. Most shareable.</li>
+      <li><span class="mono">05 ·</span> <strong>MCP + Claude.</strong> Setup in 30 seconds. Highest virality with AI builders.</li>
+    </ul>
+  </div>
+
+  <div class="notes">
+    <h3>How to use</h3>
+    <ul>
+      <li>Open the deck and present from the browser — <span class="mono">→</span> / <span class="mono">←</span> to navigate, <span class="mono">P</span> to print as PDF.</li>
+      <li>Open the carousels page, click any slide to focus, screenshot or print to export individual frames.</li>
+      <li>Both files inherit the warm-cream + terminal-green aesthetic from filemayor.com so anything you mix is on-brand.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span>© 2026 Lehlohonolo Goodwill Nchefu (Chevza)</span>
+    <span>Built in South Africa · privacy-first by default</span>
+  </footer>
+
+</div>
+</body>
+</html>
