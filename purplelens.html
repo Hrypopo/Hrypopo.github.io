@@ -140,6 +140,13 @@ section{ padding:130px 0; }
 .showcase .sc-in{ position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad); width:100%; }
 .sc-quote{ font-family:var(--serif); font-style:italic; font-size:clamp(30px,4.6vw,62px); line-height:1.08; letter-spacing:-.02em; max-width:18ch; margin:0; }
 .sc-by{ font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--plum-soft); margin-top:26px; }
+.img.bw{ filter:grayscale(1) contrast(1.12); }
+.iconoclast::after{ background:linear-gradient(90deg, rgba(10,8,12,.85), rgba(10,8,12,.3)); }
+.ico-kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.85); margin:0 0 22px; display:flex; align-items:center; gap:14px; }
+.ico-kicker::before{ content:''; width:38px; height:1px; background:rgba(255,255,255,.6); display:inline-block; }
+.iconoclast .sc-quote{ font-style:normal; }
+.iconoclast .sc-quote em{ font-style:italic; color:var(--plum-soft); }
+.ico-body{ font-size:17px; line-height:1.62; color:rgba(255,255,255,.86); max-width:470px; margin:26px 0 28px; }
 
 /* ── fine art (dark) ───────────────────────────────── */
 #fineart{ background:var(--plum-deep); color:#efe6f2; }
@@ -278,6 +285,7 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
       <div class="filters" id="filters">
         <button class="filter active" data-cat="all">All</button>
         <button class="filter" data-cat="portrait">Portraits</button>
+        <button class="filter" data-cat="iconoclast">Iconoclast</button>
         <button class="filter" data-cat="commercial">Commercial</button>
         <button class="filter" data-cat="event">Weddings</button>
         <button class="filter" data-cat="fineart">Fine art</button>
@@ -285,7 +293,7 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
     </div>
     <!-- Swap in real photos: change each .img background-image URL to your own image. -->
     <div class="gallery" id="gallery">
-      <div class="tile" data-cat="portrait"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-p1/800/1067'),linear-gradient(140deg,#3a2440,#9a7488)"></div><figcaption class="cap"><span>Natural-light portrait</span><span class="t">Portrait</span></figcaption></figure></div>
+      <div class="tile" data-cat="portrait iconoclast"><figure class="shot r-tall"><div class="img bw" style="background-image:url('https://picsum.photos/seed/pl-p1/800/1067'),linear-gradient(140deg,#262430,#8a8490)"></div><figcaption class="cap"><span>Unposed</span><span class="t">Iconoclast</span></figcaption></figure></div>
       <div class="tile" data-cat="commercial"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-c1/800/800'),linear-gradient(150deg,#6e4332,#d6bd9c)"></div><figcaption class="cap"><span>Ceramics, in studio</span><span class="t">Commercial</span></figcaption></figure></div>
       <div class="tile" data-cat="event"><figure class="shot r-wide"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-e1/900/675'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>First dance</span><span class="t">Wedding</span></figcaption></figure></div>
       <div class="tile" data-cat="fineart"><figure class="shot r-xtall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-f1/800/1200'),linear-gradient(150deg,#241a2a,#7a5560)"></div><figcaption class="cap"><span>Dusk, highveld</span><span class="t">Fine art</span></figcaption></figure></div>
@@ -293,7 +301,7 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
       <div class="tile" data-cat="commercial"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-c2/800/1067'),linear-gradient(140deg,#55514a,#cfc4ac)"></div><figcaption class="cap"><span>Brand campaign</span><span class="t">Commercial</span></figcaption></figure></div>
       <div class="tile" data-cat="event"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-e2/800/800'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>The ceremony</span><span class="t">Event</span></figcaption></figure></div>
       <div class="tile" data-cat="fineart"><figure class="shot r-wide"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-f2/900/675'),linear-gradient(135deg,#5e3a4a,#d4b8a0)"></div><figcaption class="cap"><span>Still life in amber</span><span class="t">Fine art</span></figcaption></figure></div>
-      <div class="tile" data-cat="portrait"><figure class="shot r-wide"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-p3/900/675'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>Editorial · movement</span><span class="t">Portrait</span></figcaption></figure></div>
+      <div class="tile" data-cat="portrait iconoclast"><figure class="shot r-wide"><div class="img bw" style="background-image:url('https://picsum.photos/seed/pl-p3/900/675'),linear-gradient(155deg,#262430,#8a8490)"></div><figcaption class="cap"><span>Defiance</span><span class="t">Iconoclast</span></figcaption></figure></div>
       <div class="tile" data-cat="commercial"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-c3/800/1067'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>Lookbook</span><span class="t">Commercial</span></figcaption></figure></div>
       <div class="tile" data-cat="event"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-e3/800/800'),linear-gradient(140deg,#3a2440,#9a7488)"></div><figcaption class="cap"><span>Golden-hour couple</span><span class="t">Wedding</span></figcaption></figure></div>
       <div class="tile" data-cat="fineart"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-f3/800/1067'),linear-gradient(135deg,#4a3558,#c8a89c)"></div><figcaption class="cap"><span>Texture study</span><span class="t">Fine art</span></figcaption></figure></div>
@@ -301,12 +309,14 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
   </div>
 </section>
 
-<!-- ═══ SHOWCASE ═══ -->
-<section class="showcase">
-  <div class="img" style="background-image:url('https://picsum.photos/seed/pl-show-3/1920/1280'),linear-gradient(135deg,#2c1d34,#8a5a4a)"></div>
+<!-- ═══ ICONOCLAST (a portrait series within PurpleLens) ═══ -->
+<section class="showcase iconoclast" id="iconoclast">
+  <div class="img bw" style="background-image:url('https://picsum.photos/seed/pl-icon-7/1920/1280'),linear-gradient(135deg,#161416,#5a5560)"></div>
   <div class="sc-in">
-    <p class="sc-quote">"She didn't pose. She just remembered something, and I was ready."</p>
-    <div class="sc-by">From a portrait sitting · Maboneng</div>
+    <div class="ico-kicker">Iconoclast — a PurpleLens portrait series</div>
+    <p class="sc-quote">Portraits that <em>refuse to behave.</em></p>
+    <p class="ico-body">High-contrast, rule-breaking portraiture for people who don't pose. Stark light, real faces, zero corporate gloss — the bold end of the portrait work, shot in black and white.</p>
+    <a href="#book" class="btn btn-solid">Sit for one</a>
   </div>
 </section>
 
@@ -347,7 +357,7 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
     <div class="pkg-grid">
       <div class="pkg">
         <div class="pn">Portraits</div><div class="pf">From <b>R1,800</b> / session</div>
-        <ul><li>60–90 min, studio or location</li><li>Two outfit / look changes</li><li>15 edited high-res images</li><li>Private online gallery</li><li>Print &amp; licensing add-ons</li></ul>
+        <ul><li>60–90 min, studio or location</li><li>Two outfit / look changes</li><li>15 edited high-res images</li><li>Iconoclast B&amp;W direction on request</li><li>Private online gallery + print add-ons</li></ul>
         <a href="#book" class="btn btn-plum">Enquire</a>
       </div>
       <div class="pkg">
@@ -429,7 +439,7 @@ filters.addEventListener('click',e=>{
   filters.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));
   b.classList.add('active');
   const c=b.dataset.cat;
-  tiles.forEach(t=>t.classList.toggle('hide',c!=='all'&&t.dataset.cat!==c));
+  tiles.forEach(t=>t.classList.toggle('hide',c!=='all'&&!t.dataset.cat.split(' ').includes(c)));
 });
 
 document.getElementById('bookForm').addEventListener('submit',e=>{
