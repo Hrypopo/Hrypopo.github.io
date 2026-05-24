@@ -4,230 +4,222 @@
 <meta charset="utf-8">
 <title>PurpleLens — Photography Studio · Johannesburg</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PurpleLens — portraits, brand & commercial, weddings, and fine-art prints, made in warm deliberate light. A studio by Chevza, Johannesburg.">
+<meta name="description" content="PurpleLens — a Johannesburg photography studio. Portraits, brand & commercial, weddings, and fine-art prints, made in warm, deliberate light.">
 <meta property="og:title" content="PurpleLens — Photography Studio">
 <meta property="og:description" content="Portraits · Commercial · Weddings · Fine-art prints. Made in warm, deliberate light. Johannesburg.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ─── tokens (leans on FileMayor cream, adds plum) ───── */
 :root{
-  --bg:        #f5f1e8;
-  --bg-2:      #efe8da;
-  --paper:     #fbf8f2;
-  --ink:       #1a1512;
-  --ink-soft:  #4a423a;
-  --muted:     #8a8073;
-  --rule:      rgba(26,21,18,.14);
-  --plum:      #6e4a7c;
-  --plum-deep: #2c1d34;
-  --plum-soft: #9a7aa6;
-  --gold:      #b07c4a;
-  --serif:     "Instrument Serif","Times New Roman",serif;
-  --sans:      "Geist",ui-sans-serif,system-ui,sans-serif;
-  --mono:      "Geist Mono",ui-monospace,Menlo,monospace;
-  --max:       1240px;
-  --pad:       56px;
-  --nav-h:     70px;
+  --bg:#f3eee3; --bg-2:#ece4d6; --paper:#fbf8f2;
+  --ink:#181310; --ink-soft:#4a423a; --muted:#897f70;
+  --rule:rgba(24,19,16,.13);
+  --plum:#6a4478; --plum-deep:#241629; --plum-soft:#b79ac2; --gold:#bb8350;
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:"Geist",ui-sans-serif,system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --max:1320px; --pad:48px; --nav-h:76px;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
-@media(max-width:768px){ :root{ --pad:22px; } }
+@media(max-width:768px){ :root{ --pad:20px; } }
 
 *,*::before,*::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+img{ max-width:100%; display:block; }
 
-/* grain layer for tactile, film feel */
-body::before{
-  content:''; position:fixed; inset:0; pointer-events:none; z-index:900; opacity:.03;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:900; opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-.wrap{ max-width:var(--max); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad); }
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
 
-/* ─── nav ────────────────────────────────────────────── */
-nav{
-  position:fixed; top:0; left:0; right:0; height:var(--nav-h); z-index:100;
-  display:flex; align-items:center; padding:0 var(--pad);
-  transition:background .25s, border-color .25s, backdrop-filter .25s;
-  border-bottom:1px solid transparent;
-}
-nav.scrolled{ background:rgba(245,241,232,.86); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-color:var(--rule); }
+/* ── photo primitive ───────────────────────────────── */
+.shot{ position:relative; overflow:hidden; background:#cbbfb1; }
+.shot .img{ position:absolute; inset:0; background-size:cover; background-position:center;
+  filter:saturate(.9) contrast(1.03); transition:transform 1.1s var(--ease); will-change:transform; }
+.shot::before{ content:''; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:linear-gradient(165deg, rgba(36,22,41,.46), rgba(187,131,80,.16) 55%, rgba(36,22,41,.4));
+  mix-blend-mode:multiply; }
+a.shot:hover .img, .tile:hover .img, .pcard:hover .img{ transform:scale(1.06); }
+.cap{ position:absolute; left:0; right:0; bottom:0; z-index:3; padding:18px 18px 16px;
+  display:flex; justify-content:space-between; align-items:flex-end; gap:12px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#fff;
+  background:linear-gradient(to top, rgba(18,8,22,.72), transparent);
+  opacity:0; transform:translateY(10px); transition:opacity .4s var(--ease), transform .4s var(--ease); }
+.tile:hover .cap, a.shot:hover .cap{ opacity:1; transform:translateY(0); }
+.cap .t{ color:var(--plum-soft); }
+
+/* ── nav ───────────────────────────────────────────── */
+nav{ position:fixed; inset:0 0 auto 0; height:var(--nav-h); z-index:100;
+  display:flex; align-items:center; padding:0 var(--pad); color:#fff;
+  transition:background .3s, color .3s, border-color .3s, backdrop-filter .3s; border-bottom:1px solid transparent; }
+nav.scrolled{ background:rgba(243,238,227,.9); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); color:var(--ink); border-color:var(--rule); }
 .nav-in{ max-width:var(--max); width:100%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
-.logo{ font-family:var(--serif); font-size:24px; letter-spacing:-.01em; color:var(--ink); text-decoration:none; }
-.logo .d{ color:var(--plum); }
-.nav-links{ display:flex; align-items:center; gap:6px; list-style:none; margin:0; padding:0; }
-.nav-links a{ font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; padding:7px 13px; border-radius:6px; transition:color .2s, background .2s; }
-.nav-links a:hover{ color:var(--ink); background:rgba(110,74,124,.08); }
-.nav-cta{ background:var(--plum) !important; color:#fff !important; }
-.nav-cta:hover{ background:var(--plum-deep) !important; color:#fff !important; }
+.logo{ font-family:var(--serif); font-size:25px; letter-spacing:-.01em; color:inherit; text-decoration:none; }
+.logo .d{ color:var(--plum-soft); }
+nav.scrolled .logo .d{ color:var(--plum); }
+.nav-links{ display:flex; align-items:center; gap:4px; list-style:none; margin:0; padding:0; }
+.nav-links a{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:inherit; opacity:.82; text-decoration:none; padding:8px 14px; border-radius:6px; transition:opacity .2s, background .2s; }
+.nav-links a:hover{ opacity:1; background:rgba(255,255,255,.12); }
+nav.scrolled .nav-links a:hover{ background:rgba(106,68,120,.1); }
+.nav-cta{ border:1px solid currentColor; opacity:1 !important; border-radius:999px !important; }
+.nav-cta:hover{ background:#fff !important; color:var(--plum-deep) !important; }
 @media(max-width:880px){ .nav-links a:not(.nav-cta){ display:none; } }
 
-/* ─── hero ───────────────────────────────────────────── */
-#hero{ padding:calc(var(--nav-h) + 72px) 0 96px; }
-.hero-grid{ display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; }
-.eyebrow{ font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--plum); display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
-.eyebrow::before{ content:''; width:30px; height:1px; background:var(--plum); display:inline-block; }
-h1.hero-h{ font-family:var(--serif); font-size:clamp(60px,8.5vw,116px); line-height:.92; letter-spacing:-.03em; font-weight:400; margin:0 0 28px; }
-h1.hero-h em{ font-style:italic; color:var(--plum); }
-.hero-sub{ font-size:clamp(18px,1.7vw,21px); line-height:1.6; color:var(--ink-soft); max-width:480px; margin:0 0 38px; }
-.hero-cta{ display:flex; gap:14px; flex-wrap:wrap; }
-.btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:14px 26px; border-radius:8px; transition:transform .25s cubic-bezier(.16,1,.3,1), background .2s, color .2s, border-color .2s; }
+/* ── hero ──────────────────────────────────────────── */
+#hero{ position:relative; height:100vh; min-height:640px; overflow:hidden; color:#fff; display:flex; }
+#hero .img{ position:absolute; inset:0; background-size:cover; background-position:center; animation:kb 22s ease-in-out infinite alternate; }
+@keyframes kb{ from{ transform:scale(1) } to{ transform:scale(1.12) } }
+#hero::after{ content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(20,10,24,.55) 0%, rgba(20,10,24,.15) 35%, rgba(20,10,24,.65) 100%); }
+.hero-in{ position:relative; z-index:3; width:100%; max-width:var(--max); margin:auto; padding:0 var(--pad) 56px;
+  display:flex; flex-direction:column; justify-content:flex-end; height:100%; }
+.hero-kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:rgba(255,255,255,.85);
+  margin:0 0 22px; display:flex; align-items:center; gap:14px; }
+.hero-kicker::before{ content:''; width:38px; height:1px; background:rgba(255,255,255,.6); display:inline-block; }
+h1.hero-h{ font-family:var(--serif); font-weight:400; font-size:clamp(64px,11vw,168px); line-height:.86; letter-spacing:-.035em; margin:0; max-width:14ch; }
+h1.hero-h em{ font-style:italic; color:var(--plum-soft); }
+.hero-foot{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-top:40px; flex-wrap:wrap; }
+.hero-foot .lede{ font-size:clamp(16px,1.5vw,19px); line-height:1.55; color:rgba(255,255,255,.88); max-width:440px; }
+.hero-foot .meta{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.7); text-align:right; }
+.hero-cta{ display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; }
+.btn{ display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:14px 26px; border-radius:8px; transition:transform .3s var(--ease), background .25s, color .25s, border-color .25s; }
 .btn:hover{ transform:translateY(-3px); }
-.btn-solid{ background:var(--plum); color:#fff; }
-.btn-solid:hover{ background:var(--plum-deep); }
-.btn-out{ color:var(--ink); border:1px solid var(--rule); }
-.btn-out:hover{ border-color:var(--plum); color:var(--plum); }
+.btn-solid{ background:#fff; color:var(--plum-deep); }
+.btn-solid:hover{ background:var(--plum-soft); color:var(--plum-deep); }
+.btn-line{ color:#fff; border:1px solid rgba(255,255,255,.5); }
+.btn-line:hover{ border-color:#fff; background:rgba(255,255,255,.1); }
+.btn-plum{ background:var(--plum); color:#fff; } .btn-plum:hover{ background:var(--plum-deep); }
+.btn-dark{ color:var(--ink); border:1px solid var(--rule); } .btn-dark:hover{ border-color:var(--plum); color:var(--plum); }
+@media(max-width:560px){ .hero-foot .meta{ display:none; } }
 
-/* featured hero frame */
-.hero-frame{ position:relative; }
-.hero-frame .shot{ aspect-ratio:4/5; }
-.hero-frame .badge{
-  position:absolute; bottom:-18px; left:-18px;
-  background:var(--paper); border:1px solid var(--rule); border-radius:10px;
-  padding:14px 18px; font-family:var(--mono); font-size:12px; color:var(--ink-soft);
-  box-shadow:0 12px 40px rgba(44,29,52,.12);
-}
-.hero-frame .badge strong{ color:var(--plum); font-weight:500; }
-@media(max-width:820px){ .hero-grid{ grid-template-columns:1fr; gap:48px; } }
+/* ── marquee ───────────────────────────────────────── */
+.strip{ background:var(--plum-deep); color:#efe6f2; overflow:hidden; padding:16px 0; }
+.strip-in{ display:flex; white-space:nowrap; font-family:var(--mono); font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; animation:slide 30s linear infinite; }
+.strip-in span{ display:inline-flex; gap:40px; padding-right:40px; }
+.strip-in b{ color:var(--plum-soft); font-weight:500; }
+@keyframes slide{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
 
-/* ─── duotone photo placeholders ─────────────────────── */
-.shot{
-  position:relative; overflow:hidden; border-radius:4px; background:#cabfb0;
-  display:block; width:100%;
-}
-.shot::after{ content:''; position:absolute; inset:0; opacity:.5; mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E"); }
-.shot .cap{
-  position:absolute; left:0; right:0; bottom:0; z-index:2;
-  padding:16px 16px 14px; display:flex; justify-content:space-between; align-items:flex-end;
-  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#fff;
-  background:linear-gradient(to top, rgba(20,12,24,.6), transparent);
-  opacity:0; transform:translateY(8px); transition:opacity .3s, transform .3s;
-}
-.shot:hover .cap{ opacity:1; transform:translateY(0); }
-.shot .cap .tag{ color:var(--plum-soft); }
-/* duotone palettes */
-.duo-1{ background:linear-gradient(140deg,#3a2440,#9a7488); }
-.duo-2{ background:linear-gradient(150deg,#6e4332,#d6bd9c); }
-.duo-3{ background:linear-gradient(160deg,#2c1d34,#b07c4a); }
-.duo-4{ background:linear-gradient(135deg,#4a3558,#c8a89c); }
-.duo-5{ background:linear-gradient(150deg,#241a2a,#7a5560); }
-.duo-6{ background:linear-gradient(140deg,#55514a,#cfc4ac); }
-.duo-7{ background:linear-gradient(155deg,#412c4e,#a98a72); }
-.duo-8{ background:linear-gradient(135deg,#5e3a4a,#d4b8a0); }
+/* ── section shells ────────────────────────────────── */
+section{ padding:130px 0; }
+.kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; }
+.s-title{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,5.2vw,76px); line-height:.98; letter-spacing:-.025em; margin:0; }
+.s-title em{ font-style:italic; color:var(--plum); }
+.s-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:28px; margin-bottom:48px; }
 
-/* ─── section header ─────────────────────────────────── */
-section{ padding:104px 0; }
-.sec-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; }
-.sec-title{ font-family:var(--serif); font-size:clamp(40px,5vw,68px); line-height:.98; letter-spacing:-.02em; font-weight:400; margin:0; }
-.sec-title em{ font-style:italic; color:var(--plum); }
-.sec-kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+/* ── intro statement ───────────────────────────────── */
+#intro{ padding:120px 0; }
+.intro-grid{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+.intro-lead{ font-family:var(--serif); font-size:clamp(30px,3.4vw,46px); line-height:1.16; letter-spacing:-.015em; margin:0; }
+.intro-lead em{ font-style:italic; color:var(--plum); }
+.intro-body p{ font-size:17px; line-height:1.75; color:var(--ink-soft); margin:0 0 18px; }
+.intro-stats{ display:flex; gap:40px; margin-top:30px; flex-wrap:wrap; }
+.istat .n{ font-family:var(--serif); font-size:40px; line-height:1; letter-spacing:-.02em; color:var(--plum); }
+.istat .l{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+@media(max-width:820px){ .intro-grid{ grid-template-columns:1fr; gap:32px; } }
 
-/* ─── gallery ────────────────────────────────────────── */
+/* ── gallery ───────────────────────────────────────── */
 #work{ background:var(--bg-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
 .filters{ display:flex; gap:8px; flex-wrap:wrap; }
-.filter{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:8px 16px; cursor:pointer; transition:all .2s; }
+.filter{ font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:9px 17px; cursor:pointer; transition:all .2s; }
 .filter:hover{ border-color:var(--plum); color:var(--plum); }
 .filter.active{ background:var(--plum); border-color:var(--plum); color:#fff; }
-
-.gallery{ columns:3; column-gap:18px; margin-top:8px; }
-.gallery .tile{ break-inside:avoid; margin-bottom:18px; }
-.gallery .tile.hide{ display:none; }
-.tile .shot.t-tall{ aspect-ratio:3/4; }
-.tile .shot.t-square{ aspect-ratio:1/1; }
-.tile .shot.t-wide{ aspect-ratio:4/3; }
-@media(max-width:900px){ .gallery{ columns:2; } }
+.gallery{ columns:3; column-gap:20px; }
+.tile{ break-inside:avoid; margin-bottom:20px; border-radius:3px; }
+.tile.hide{ display:none; }
+.tile .shot{ border-radius:3px; }
+.r-tall{ aspect-ratio:3/4; } .r-sq{ aspect-ratio:1/1; } .r-wide{ aspect-ratio:4/3; } .r-xtall{ aspect-ratio:2/3; }
+@media(max-width:920px){ .gallery{ columns:2; } }
 @media(max-width:560px){ .gallery{ columns:1; } }
 
-/* ─── dark fine-art band ─────────────────────────────── */
-#fineart{ background:var(--plum-deep); color:#f3ecf2; }
-#fineart .sec-title{ color:#fff; }
-#fineart .sec-title em{ color:var(--plum-soft); }
-#fineart .sec-kicker{ color:var(--plum-soft); }
-.fa-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px; }
-.fa-grid .shot{ aspect-ratio:3/4; }
-.fa-note{ margin-top:32px; font-size:15px; color:#c8bacb; max-width:560px; line-height:1.6; }
+/* ── full-bleed showcase ───────────────────────────── */
+.showcase{ position:relative; height:78vh; min-height:520px; overflow:hidden; color:#fff; display:flex; align-items:center; }
+.showcase .img{ position:absolute; inset:0; background-size:cover; background-position:center; }
+.showcase::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,10,24,.7), rgba(20,10,24,.2)); z-index:1; }
+.showcase .sc-in{ position:relative; z-index:2; max-width:var(--max); margin:0 auto; padding:0 var(--pad); width:100%; }
+.sc-quote{ font-family:var(--serif); font-style:italic; font-size:clamp(30px,4.6vw,62px); line-height:1.08; letter-spacing:-.02em; max-width:18ch; margin:0; }
+.sc-by{ font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--plum-soft); margin-top:26px; }
+.img.bw{ filter:grayscale(1) contrast(1.12); }
+.iconoclast::after{ background:linear-gradient(90deg, rgba(10,8,12,.85), rgba(10,8,12,.3)); }
+.ico-kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.85); margin:0 0 22px; display:flex; align-items:center; gap:14px; }
+.ico-kicker::before{ content:''; width:38px; height:1px; background:rgba(255,255,255,.6); display:inline-block; }
+.iconoclast .sc-quote{ font-style:normal; }
+.iconoclast .sc-quote em{ font-style:italic; color:var(--plum-soft); }
+.ico-body{ font-size:17px; line-height:1.62; color:rgba(255,255,255,.86); max-width:470px; margin:26px 0 28px; }
+
+/* ── fine art (dark) ───────────────────────────────── */
+#fineart{ background:var(--plum-deep); color:#efe6f2; }
+#fineart .s-title{ color:#fff; } #fineart .s-title em{ color:var(--plum-soft); } #fineart .kicker{ color:var(--plum-soft); }
+.fa-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.fa-grid .shot{ aspect-ratio:3/4; border-radius:3px; }
+.fa-note{ margin-top:34px; font-size:15px; line-height:1.65; color:#cbbcd0; max-width:560px; }
 @media(max-width:760px){ .fa-grid{ grid-template-columns:1fr 1fr; } }
 
-/* ─── prints / shop ──────────────────────────────────── */
-.print-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-.print{ display:flex; flex-direction:column; }
-.print .shot{ aspect-ratio:4/5; margin-bottom:16px; }
-.print h3{ font-family:var(--serif); font-size:24px; font-weight:400; margin:0 0 4px; letter-spacing:-.01em; }
-.print .meta{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
-.print .row{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:14px; border-top:1px solid var(--rule); }
-.print .price{ font-family:var(--serif); font-size:26px; }
-.print .price .cur{ font-size:15px; color:var(--muted); vertical-align:super; }
-.buy{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--plum); background:transparent; border:1px solid var(--plum); border-radius:6px; padding:8px 14px; cursor:pointer; transition:all .2s; }
+/* ── prints ────────────────────────────────────────── */
+.print-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+.pcard{ display:flex; flex-direction:column; }
+.pcard .shot{ aspect-ratio:4/5; margin-bottom:16px; border-radius:3px; }
+.pcard h3{ font-family:var(--serif); font-weight:400; font-size:25px; letter-spacing:-.01em; margin:0 0 4px; }
+.pcard .pm{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.pcard .prow{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; padding-top:14px; border-top:1px solid var(--rule); }
+.price{ font-family:var(--serif); font-size:27px; } .price .c{ font-size:14px; color:var(--muted); vertical-align:super; }
+.buy{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--plum); background:transparent; border:1px solid var(--plum); border-radius:6px; padding:9px 14px; cursor:pointer; transition:all .2s; }
 .buy:hover{ background:var(--plum); color:#fff; }
-.shop-note{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:32px; letter-spacing:.04em; }
-@media(max-width:900px){ .print-grid{ grid-template-columns:1fr 1fr; gap:32px; } }
+.shop-note{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:34px; letter-spacing:.03em; }
+@media(max-width:920px){ .print-grid{ grid-template-columns:1fr 1fr; gap:32px; } }
 @media(max-width:480px){ .print-grid{ grid-template-columns:1fr; } }
 
-/* ─── services / rates ───────────────────────────────── */
+/* ── rates ─────────────────────────────────────────── */
 #rates{ background:var(--bg-2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
-.pkg-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--rule); border-left:1px solid var(--rule); }
-.pkg{ border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:36px 32px 32px; background:var(--paper); transition:background .2s; display:flex; flex-direction:column; }
+.pkg-grid{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--rule); border-left:1px solid var(--rule); }
+.pkg{ border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:40px 34px; background:var(--paper); display:flex; flex-direction:column; transition:background .25s; }
 .pkg:hover{ background:#fff; }
-.pkg .pk-name{ font-family:var(--serif); font-size:30px; letter-spacing:-.01em; margin:0 0 6px; }
-.pkg .pk-from{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
-.pkg .pk-from b{ color:var(--plum); font-weight:500; font-size:20px; font-family:var(--serif); letter-spacing:0; }
-.pkg ul{ list-style:none; margin:0 0 28px; padding:0; }
-.pkg li{ font-size:15px; line-height:1.5; color:var(--ink-soft); padding:9px 0; border-top:1px solid rgba(26,21,18,.08); padding-left:22px; position:relative; }
-.pkg li:first-child{ border-top:0; }
-.pkg li::before{ content:'+'; position:absolute; left:0; color:var(--plum); font-family:var(--mono); }
+.pkg .pn{ font-family:var(--serif); font-size:32px; letter-spacing:-.01em; margin:0 0 6px; }
+.pkg .pf{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:26px; }
+.pkg .pf b{ font-family:var(--serif); font-size:22px; letter-spacing:0; color:var(--plum); font-weight:400; }
+.pkg ul{ list-style:none; margin:0 0 30px; padding:0; }
+.pkg li{ font-size:15px; line-height:1.5; color:var(--ink-soft); padding:10px 0 10px 22px; border-top:1px solid rgba(24,19,16,.08); position:relative; }
+.pkg li:first-child{ border-top:0; } .pkg li::before{ content:'+'; position:absolute; left:0; color:var(--plum); font-family:var(--mono); }
 .pkg .btn{ margin-top:auto; justify-content:center; }
 @media(max-width:820px){ .pkg-grid{ grid-template-columns:1fr; } }
 
-/* ─── about ──────────────────────────────────────────── */
-.about-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center; }
-.about-frame .shot{ aspect-ratio:4/5; }
-.about-lead{ font-family:var(--serif); font-size:clamp(26px,3vw,38px); line-height:1.18; letter-spacing:-.01em; margin:0 0 24px; }
+/* ── about ─────────────────────────────────────────── */
+.about-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:center; }
+.about-frame .shot{ aspect-ratio:4/5; border-radius:3px; }
+.about-lead{ font-family:var(--serif); font-size:clamp(26px,3vw,40px); line-height:1.16; letter-spacing:-.01em; margin:0 0 24px; }
 .about-lead em{ font-style:italic; color:var(--plum); }
-.about-body p{ font-size:17px; line-height:1.7; color:var(--ink-soft); margin:0 0 18px; }
+.about-body p{ font-size:17px; line-height:1.72; color:var(--ink-soft); margin:0 0 18px; }
 .about-body strong{ color:var(--ink); font-weight:500; }
-@media(max-width:820px){ .about-grid{ grid-template-columns:1fr; gap:40px; } }
+@media(max-width:820px){ .about-grid{ grid-template-columns:1fr; gap:36px; } }
 
-/* ─── booking / contact ──────────────────────────────── */
-#book{ background:var(--plum-deep); color:#f3ecf2; }
-#book .sec-title{ color:#fff; }
-#book .sec-title em{ color:var(--plum-soft); }
-#book .sec-kicker{ color:var(--plum-soft); }
+/* ── booking (dark) ────────────────────────────────── */
+#book{ background:var(--plum-deep); color:#efe6f2; }
+#book .s-title{ color:#fff; } #book .s-title em{ color:var(--plum-soft); } #book .kicker{ color:var(--plum-soft); }
 .book-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
-.book-intro p{ font-size:17px; line-height:1.7; color:#cbbccd; max-width:420px; }
-.book-meta{ margin-top:32px; display:flex; flex-direction:column; gap:14px; }
-.book-meta a{ display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:14px; color:#e8dded; text-decoration:none; transition:color .2s; }
-.book-meta a:hover{ color:#fff; }
-.book-meta svg{ width:17px; height:17px; opacity:.7; }
+.book-intro p{ font-size:17px; line-height:1.7; color:#cbbcd0; max-width:420px; }
+.book-meta{ margin-top:30px; display:flex; flex-direction:column; gap:14px; }
+.book-meta a{ display:flex; align-items:center; gap:11px; font-family:var(--mono); font-size:14px; color:#e8dded; text-decoration:none; transition:color .2s; }
+.book-meta a:hover{ color:#fff; } .book-meta svg{ width:17px; height:17px; opacity:.7; }
 form{ display:grid; gap:16px; }
 .f-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 label{ display:block; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--plum-soft); margin-bottom:7px; }
-input,select,textarea{ width:100%; font-family:var(--sans); font-size:15px; color:#fff; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:8px; padding:12px 14px; transition:border-color .2s, background .2s; }
+input,select,textarea{ width:100%; font-family:var(--sans); font-size:15px; color:#fff; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:8px; padding:13px 14px; transition:border-color .2s, background .2s; }
 input::placeholder,textarea::placeholder{ color:rgba(255,255,255,.4); }
 input:focus,select:focus,textarea:focus{ outline:none; border-color:var(--plum-soft); background:rgba(255,255,255,.1); }
-select option{ color:#1a1512; }
-textarea{ resize:vertical; min-height:96px; }
-.submit{ font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; background:#fff; color:var(--plum-deep); border:none; border-radius:8px; padding:15px; cursor:pointer; transition:transform .25s cubic-bezier(.16,1,.3,1), background .2s; }
-.submit:hover{ transform:translateY(-2px); background:var(--plum-soft); color:#fff; }
-.form-note{ font-family:var(--mono); font-size:11px; color:var(--plum-soft); letter-spacing:.04em; }
-@media(max-width:820px){ .book-grid{ grid-template-columns:1fr; gap:40px; } .f-row{ grid-template-columns:1fr; } }
+select option{ color:#181310; } textarea{ resize:vertical; min-height:100px; }
+.submit{ font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; background:#fff; color:var(--plum-deep); border:none; border-radius:8px; padding:16px; cursor:pointer; transition:transform .3s var(--ease), background .2s, color .2s; }
+.submit:hover{ transform:translateY(-2px); background:var(--plum-soft); }
+.form-note{ font-family:var(--mono); font-size:11px; color:var(--plum-soft); letter-spacing:.03em; }
+@media(max-width:820px){ .book-grid{ grid-template-columns:1fr; gap:36px; } .f-row{ grid-template-columns:1fr; } }
 
-/* ─── footer ─────────────────────────────────────────── */
-footer{ background:#1a1220; color:#b7a9bd; padding:48px var(--pad); }
+/* ── footer ────────────────────────────────────────── */
+footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
 .foot-in{ max-width:var(--max); margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
-.foot-in .logo{ color:#fff; }
+.foot-in .logo{ color:#fff; } .foot-in .logo .d{ color:var(--plum-soft); }
 .foot-links{ display:flex; gap:22px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; }
-.foot-links a{ color:#b7a9bd; text-decoration:none; transition:color .2s; }
-.foot-links a:hover{ color:#fff; }
-.foot-copy{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:#7d6f83; width:100%; text-align:center; margin-top:8px; }
-
-/* marquee strip */
-.strip{ border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); background:var(--paper); overflow:hidden; }
-.strip-in{ display:flex; gap:48px; padding:18px 0; font-family:var(--mono); font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); white-space:nowrap; animation:slide 28s linear infinite; }
-.strip-in span{ display:inline-flex; gap:48px; }
-.strip-in b{ color:var(--plum); font-weight:500; }
-@keyframes slide{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.foot-links a{ color:#b3a3ba; text-decoration:none; transition:color .2s; } .foot-links a:hover{ color:#fff; }
+.foot-copy{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:#6f6276; width:100%; text-align:center; margin-top:6px; }
 </style>
 </head>
 <body>
@@ -239,7 +231,7 @@ footer{ background:#1a1220; color:#b7a9bd; padding:48px var(--pad); }
       <li><a href="#work">Galleries</a></li>
       <li><a href="#prints">Prints</a></li>
       <li><a href="#rates">Rates</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#about">Studio</a></li>
       <li><a href="#book" class="nav-cta">Book a shoot</a></li>
     </ul>
   </div>
@@ -247,253 +239,180 @@ footer{ background:#1a1220; color:#b7a9bd; padding:48px var(--pad); }
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">PurpleLens · Photography · Johannesburg</div>
-      <h1 class="hero-h">Light, held<br><em>still.</em></h1>
-      <p class="hero-sub">
-        Portraits, brands, weddings, and fine-art prints — made in warm,
-        deliberate light. A studio that treats every frame like it matters.
-      </p>
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-solid">View galleries</a>
-        <a href="#book" class="btn btn-out">Book a shoot</a>
+  <div class="img" style="background-image:url('https://picsum.photos/seed/pl-hero-9/1920/1280'),linear-gradient(150deg,#2c1d34,#7a5468)"></div>
+  <div class="hero-in">
+    <p class="hero-kicker">PurpleLens — Photography Studio · Johannesburg</p>
+    <h1 class="hero-h">Light, held <em>still.</em></h1>
+    <div class="hero-foot">
+      <div>
+        <p class="lede">Portraits, brands, weddings, and fine-art prints — made in warm, deliberate light. A studio that treats every frame like it matters.</p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-solid">View galleries</a>
+          <a href="#book" class="btn btn-line">Book a shoot</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-frame">
-      <div class="shot duo-1" style="aspect-ratio:4/5;">
-        <div class="cap"><span>Studio portrait</span><span class="tag">PL · 001</span></div>
-      </div>
-      <div class="badge">Booking <strong>2026</strong> · Jo'burg &amp; travel</div>
+      <div class="meta">Est. 2026<br>Studio &amp; location<br>Available for travel</div>
     </div>
   </div>
 </section>
 
-<!-- marquee -->
-<div class="strip">
-  <div class="strip-in">
-    <span><b>Portraits</b> · Brand &amp; commercial · <b>Weddings</b> · Editorial · <b>Fine-art prints</b> · Events · <b>Studio &amp; location</b> · Johannesburg · &nbsp;</span>
-    <span aria-hidden="true"><b>Portraits</b> · Brand &amp; commercial · <b>Weddings</b> · Editorial · <b>Fine-art prints</b> · Events · <b>Studio &amp; location</b> · Johannesburg · &nbsp;</span>
+<div class="strip"><div class="strip-in">
+  <span><b>Portraits</b> — Brand &amp; commercial — <b>Weddings</b> — Editorial — <b>Fine-art prints</b> — Events — <b>Studio &amp; location</b> — Johannesburg —</span>
+  <span aria-hidden="true"><b>Portraits</b> — Brand &amp; commercial — <b>Weddings</b> — Editorial — <b>Fine-art prints</b> — Events — <b>Studio &amp; location</b> — Johannesburg —</span>
+</div></div>
+
+<!-- ═══ INTRO ═══ -->
+<section id="intro">
+  <div class="wrap intro-grid">
+    <p class="intro-lead">A photograph should feel like the moment did — <em>unhurried, true,</em> and a little bit golden.</p>
+    <div class="intro-body">
+      <p>PurpleLens is a one-person studio in Johannesburg, working across portraits, brand &amp; commercial, weddings, and a personal line of fine-art prints. The thread through all of it is light: warm, patient, deliberate.</p>
+      <p>No rushed shutters, no manufactured smiles — just the frame everyone else walks past, made to last.</p>
+      <div class="intro-stats">
+        <div class="istat"><div class="n">4</div><div class="l">disciplines</div></div>
+        <div class="istat"><div class="n">/25</div><div class="l">print editions</div></div>
+        <div class="istat"><div class="n">48h</div><div class="l">reply on enquiries</div></div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- ═══ GALLERIES ═══ -->
 <section id="work">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker">Selected work</div>
-        <h2 class="sec-title">The <em>galleries.</em></h2>
-      </div>
+    <div class="s-head">
+      <div><div class="kicker">Selected work</div><h2 class="s-title">The <em>galleries.</em></h2></div>
       <div class="filters" id="filters">
         <button class="filter active" data-cat="all">All</button>
         <button class="filter" data-cat="portrait">Portraits</button>
+        <button class="filter" data-cat="iconoclast">Iconoclast</button>
         <button class="filter" data-cat="commercial">Commercial</button>
-        <button class="filter" data-cat="event">Weddings &amp; events</button>
+        <button class="filter" data-cat="event">Weddings</button>
         <button class="filter" data-cat="fineart">Fine art</button>
       </div>
     </div>
-
-    <!-- To use real photos: replace each .shot's gradient class with an <img> or set a background-image. -->
+    <!-- Swap in real photos: change each .img background-image URL to your own image. -->
     <div class="gallery" id="gallery">
-      <div class="tile" data-cat="portrait"><div class="shot duo-1 t-tall"><div class="cap"><span>Natural-light portrait</span><span class="tag">Portrait</span></div></div></div>
-      <div class="tile" data-cat="commercial"><div class="shot duo-2 t-square"><div class="cap"><span>Product · ceramics</span><span class="tag">Commercial</span></div></div></div>
-      <div class="tile" data-cat="event"><div class="shot duo-3 t-wide"><div class="cap"><span>First dance</span><span class="tag">Wedding</span></div></div></div>
-      <div class="tile" data-cat="fineart"><div class="shot duo-5 t-tall"><div class="cap"><span>Dusk, highveld</span><span class="tag">Fine art</span></div></div></div>
-      <div class="tile" data-cat="portrait"><div class="shot duo-4 t-square"><div class="cap"><span>Studio headshot</span><span class="tag">Portrait</span></div></div></div>
-      <div class="tile" data-cat="commercial"><div class="shot duo-6 t-tall"><div class="cap"><span>Brand campaign</span><span class="tag">Commercial</span></div></div></div>
-      <div class="tile" data-cat="event"><div class="shot duo-7 t-square"><div class="cap"><span>Ceremony</span><span class="tag">Event</span></div></div></div>
-      <div class="tile" data-cat="fineart"><div class="shot duo-8 t-wide"><div class="cap"><span>Still life in amber</span><span class="tag">Fine art</span></div></div></div>
-      <div class="tile" data-cat="portrait"><div class="shot duo-7 t-wide"><div class="cap"><span>Editorial · movement</span><span class="tag">Portrait</span></div></div></div>
-      <div class="tile" data-cat="commercial"><div class="shot duo-3 t-tall"><div class="cap"><span>Lookbook</span><span class="tag">Commercial</span></div></div></div>
-      <div class="tile" data-cat="event"><div class="shot duo-1 t-square"><div class="cap"><span>Golden hour couple</span><span class="tag">Wedding</span></div></div></div>
-      <div class="tile" data-cat="fineart"><div class="shot duo-4 t-tall"><div class="cap"><span>Texture study</span><span class="tag">Fine art</span></div></div></div>
+      <div class="tile" data-cat="portrait iconoclast"><figure class="shot r-tall"><div class="img bw" style="background-image:url('https://picsum.photos/seed/pl-p1/800/1067'),linear-gradient(140deg,#262430,#8a8490)"></div><figcaption class="cap"><span>Unposed</span><span class="t">Iconoclast</span></figcaption></figure></div>
+      <div class="tile" data-cat="commercial"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-c1/800/800'),linear-gradient(150deg,#6e4332,#d6bd9c)"></div><figcaption class="cap"><span>Ceramics, in studio</span><span class="t">Commercial</span></figcaption></figure></div>
+      <div class="tile" data-cat="event"><figure class="shot r-wide"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-e1/900/675'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>First dance</span><span class="t">Wedding</span></figcaption></figure></div>
+      <div class="tile" data-cat="fineart"><figure class="shot r-xtall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-f1/800/1200'),linear-gradient(150deg,#241a2a,#7a5560)"></div><figcaption class="cap"><span>Dusk, highveld</span><span class="t">Fine art</span></figcaption></figure></div>
+      <div class="tile" data-cat="portrait"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-p2/800/800'),linear-gradient(135deg,#4a3558,#c8a89c)"></div><figcaption class="cap"><span>Studio headshot</span><span class="t">Portrait</span></figcaption></figure></div>
+      <div class="tile" data-cat="commercial"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-c2/800/1067'),linear-gradient(140deg,#55514a,#cfc4ac)"></div><figcaption class="cap"><span>Brand campaign</span><span class="t">Commercial</span></figcaption></figure></div>
+      <div class="tile" data-cat="event"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-e2/800/800'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>The ceremony</span><span class="t">Event</span></figcaption></figure></div>
+      <div class="tile" data-cat="fineart"><figure class="shot r-wide"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-f2/900/675'),linear-gradient(135deg,#5e3a4a,#d4b8a0)"></div><figcaption class="cap"><span>Still life in amber</span><span class="t">Fine art</span></figcaption></figure></div>
+      <div class="tile" data-cat="portrait iconoclast"><figure class="shot r-wide"><div class="img bw" style="background-image:url('https://picsum.photos/seed/pl-p3/900/675'),linear-gradient(155deg,#262430,#8a8490)"></div><figcaption class="cap"><span>Defiance</span><span class="t">Iconoclast</span></figcaption></figure></div>
+      <div class="tile" data-cat="commercial"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-c3/800/1067'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>Lookbook</span><span class="t">Commercial</span></figcaption></figure></div>
+      <div class="tile" data-cat="event"><figure class="shot r-sq"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-e3/800/800'),linear-gradient(140deg,#3a2440,#9a7488)"></div><figcaption class="cap"><span>Golden-hour couple</span><span class="t">Wedding</span></figcaption></figure></div>
+      <div class="tile" data-cat="fineart"><figure class="shot r-tall"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-f3/800/1067'),linear-gradient(135deg,#4a3558,#c8a89c)"></div><figcaption class="cap"><span>Texture study</span><span class="t">Fine art</span></figcaption></figure></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FINE ART BAND (dark) ═══ -->
+<!-- ═══ ICONOCLAST (a portrait series within PurpleLens) ═══ -->
+<section class="showcase iconoclast" id="iconoclast">
+  <div class="img bw" style="background-image:url('https://picsum.photos/seed/pl-icon-7/1920/1280'),linear-gradient(135deg,#161416,#5a5560)"></div>
+  <div class="sc-in">
+    <div class="ico-kicker">Iconoclast — a PurpleLens portrait series</div>
+    <p class="sc-quote">Portraits that <em>refuse to behave.</em></p>
+    <p class="ico-body">High-contrast, rule-breaking portraiture for people who don't pose. Stark light, real faces, zero corporate gloss — the bold end of the portrait work, shot in black and white.</p>
+    <a href="#book" class="btn btn-solid">Sit for one</a>
+  </div>
+</section>
+
+<!-- ═══ FINE ART ═══ -->
 <section id="fineart">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker">Limited series</div>
-        <h2 class="sec-title">Fine-art, <em>framed in dark.</em></h2>
-      </div>
-    </div>
+    <div class="s-head"><div><div class="kicker">Limited series</div><h2 class="s-title">Fine-art, <em>framed in dark.</em></h2></div></div>
     <div class="fa-grid">
-      <div class="shot duo-5"><div class="cap"><span>Aloe I</span><span class="tag">Edition /25</span></div></div>
-      <div class="shot duo-3"><div class="cap"><span>Smoke &amp; gold</span><span class="tag">Edition /25</span></div></div>
-      <div class="shot duo-7"><div class="cap"><span>Quiet window</span><span class="tag">Edition /25</span></div></div>
+      <figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-fa1/800/1067'),linear-gradient(150deg,#241a2a,#7a5560)"></div><figcaption class="cap"><span>Aloe I</span><span class="t">Edition /25</span></figcaption></figure>
+      <figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-fa2/800/1067'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>Smoke &amp; gold</span><span class="t">Edition /25</span></figcaption></figure>
+      <figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-fa3/800/1067'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>Quiet window</span><span class="t">Edition /25</span></figcaption></figure>
     </div>
     <p class="fa-note">Signed, numbered limited editions on archival cotton rag. Each release is a run of 25 — once they're gone, the negative is retired.</p>
   </div>
 </section>
 
-<!-- ═══ PRINTS / SHOP ═══ -->
+<!-- ═══ PRINTS ═══ -->
 <section id="prints">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker">Shop</div>
-        <h2 class="sec-title">Prints for <em>your walls.</em></h2>
-      </div>
-      <a href="#book" class="btn btn-out">Commission a piece</a>
+    <div class="s-head">
+      <div><div class="kicker">Shop</div><h2 class="s-title">Prints for <em>your walls.</em></h2></div>
+      <a href="#book" class="btn btn-dark">Commission a piece</a>
     </div>
     <div class="print-grid">
-      <div class="print">
-        <div class="shot duo-3 "><div class="cap"><span>Dusk, highveld</span><span class="tag">A2</span></div></div>
-        <h3>Dusk, Highveld</h3>
-        <div class="meta">Archival · A2 / A1 / A0</div>
-        <div class="row"><span class="price"><span class="cur">R</span>1,450</span><button class="buy" data-item="Dusk, Highveld">Add to cart</button></div>
-      </div>
-      <div class="print">
-        <div class="shot duo-5 "><div class="cap"><span>Smoke &amp; gold</span><span class="tag">A2</span></div></div>
-        <h3>Smoke &amp; Gold</h3>
-        <div class="meta">Archival · A2 / A1 / A0</div>
-        <div class="row"><span class="price"><span class="cur">R</span>1,450</span><button class="buy" data-item="Smoke &amp; Gold">Add to cart</button></div>
-      </div>
-      <div class="print">
-        <div class="shot duo-8 "><div class="cap"><span>Still life in amber</span><span class="tag">A2</span></div></div>
-        <h3>Still Life, Amber</h3>
-        <div class="meta">Archival · A2 / A1 / A0</div>
-        <div class="row"><span class="price"><span class="cur">R</span>1,650</span><button class="buy" data-item="Still Life, Amber">Add to cart</button></div>
-      </div>
-      <div class="print">
-        <div class="shot duo-7 "><div class="cap"><span>Quiet window</span><span class="tag">A2</span></div></div>
-        <h3>Quiet Window</h3>
-        <div class="meta">Archival · A2 / A1 / A0</div>
-        <div class="row"><span class="price"><span class="cur">R</span>1,450</span><button class="buy" data-item="Quiet Window">Add to cart</button></div>
-      </div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr1/700/875'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>Dusk, Highveld</span><span class="t">A2</span></figcaption></figure><h3>Dusk, Highveld</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><button class="buy" data-item="Dusk, Highveld">Add to cart</button></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr2/700/875'),linear-gradient(150deg,#241a2a,#7a5560)"></div><figcaption class="cap"><span>Smoke &amp; Gold</span><span class="t">A2</span></figcaption></figure><h3>Smoke &amp; Gold</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><button class="buy" data-item="Smoke &amp; Gold">Add to cart</button></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr3/700/875'),linear-gradient(135deg,#5e3a4a,#d4b8a0)"></div><figcaption class="cap"><span>Still Life, Amber</span><span class="t">A2</span></figcaption></figure><h3>Still Life, Amber</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,650</span><button class="buy" data-item="Still Life, Amber">Add to cart</button></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr4/700/875'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>Quiet Window</span><span class="t">A2</span></figcaption></figure><h3>Quiet Window</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><button class="buy" data-item="Quiet Window">Add to cart</button></div></div>
     </div>
-    <p class="shop-note">Museum-grade cotton rag · shipped worldwide, rolled in a archival tube · framing on request. Checkout wires up to Stripe / Paystack when you're ready.</p>
+    <p class="shop-note">Museum-grade cotton rag · shipped worldwide, rolled in an archival tube · framing on request. Checkout wires up to Stripe / Paystack when you're ready.</p>
   </div>
 </section>
 
-<!-- ═══ RATES / PACKAGES ═══ -->
+<!-- ═══ RATES ═══ -->
 <section id="rates">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker">Sessions &amp; rates</div>
-        <h2 class="sec-title">Book the <em>right light.</em></h2>
-      </div>
-    </div>
+    <div class="s-head"><div><div class="kicker">Sessions &amp; rates</div><h2 class="s-title">Book the <em>right light.</em></h2></div></div>
     <div class="pkg-grid">
       <div class="pkg">
-        <div class="pk-name">Portraits</div>
-        <div class="pk-from">From <b>R1,800</b> / session</div>
-        <ul>
-          <li>60–90 min, studio or location</li>
-          <li>2 outfit / look changes</li>
-          <li>15 edited high-res images</li>
-          <li>Online gallery to download</li>
-          <li>Print &amp; licensing add-ons</li>
-        </ul>
-        <a href="#book" class="btn btn-solid">Enquire</a>
+        <div class="pn">Portraits</div><div class="pf">From <b>R1,800</b> / session</div>
+        <ul><li>60–90 min, studio or location</li><li>Two outfit / look changes</li><li>15 edited high-res images</li><li>Iconoclast B&amp;W direction on request</li><li>Private online gallery + print add-ons</li></ul>
+        <a href="#book" class="btn btn-plum">Enquire</a>
       </div>
       <div class="pkg">
-        <div class="pk-name">Brand &amp; commercial</div>
-        <div class="pk-from">From <b>R6,500</b> / half-day</div>
-        <ul>
-          <li>Half- or full-day shoots</li>
-          <li>Product, lookbook, founder &amp; team</li>
-          <li>Art direction &amp; shot list</li>
-          <li>Retouched, web + print exports</li>
-          <li>Commercial usage license</li>
-        </ul>
-        <a href="#book" class="btn btn-solid">Enquire</a>
+        <div class="pn">Brand &amp; commercial</div><div class="pf">From <b>R6,500</b> / half-day</div>
+        <ul><li>Half- or full-day shoots</li><li>Product, lookbook, founder &amp; team</li><li>Art direction &amp; shot list</li><li>Retouched web + print exports</li><li>Commercial usage license</li></ul>
+        <a href="#book" class="btn btn-plum">Enquire</a>
       </div>
       <div class="pkg">
-        <div class="pk-name">Weddings &amp; events</div>
-        <div class="pk-from">From <b>R12,000</b> / day</div>
-        <ul>
-          <li>Up to 10 hours coverage</li>
-          <li>Second shooter available</li>
-          <li>300+ edited images</li>
-          <li>Highlight gallery in 7 days</li>
-          <li>Album &amp; fine-art print options</li>
-        </ul>
-        <a href="#book" class="btn btn-solid">Enquire</a>
+        <div class="pn">Weddings &amp; events</div><div class="pf">From <b>R12,000</b> / day</div>
+        <ul><li>Up to 10 hours coverage</li><li>Second shooter available</li><li>300+ edited images</li><li>Highlight gallery in 7 days</li><li>Album &amp; fine-art print options</li></ul>
+        <a href="#book" class="btn btn-plum">Enquire</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ ABOUT ═══ -->
+<!-- ═══ STUDIO / ABOUT ═══ -->
 <section id="about">
   <div class="wrap about-grid">
-    <div class="about-frame">
-      <div class="shot duo-4"><div class="cap"><span>Behind the lens</span><span class="tag">Chevza</span></div></div>
-    </div>
+    <div class="about-frame"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-me-2/800/1000'),linear-gradient(135deg,#4a3558,#c8a89c)"></div><figcaption class="cap"><span>Behind the lens</span><span class="t">Chevza</span></figcaption></figure></div>
     <div>
-      <div class="sec-kicker">Behind the lens</div>
+      <div class="kicker">The studio</div>
       <p class="about-lead">PurpleLens is a one-person studio that chases <em>warm, honest light</em> — in faces, in products, in the spaces between people.</p>
       <div class="about-body">
-        <p>
-          I'm <strong>Lehlohonolo 'Chevza' Nchefu</strong>, a maker and photographer
-          based in <strong>Johannesburg</strong>. PurpleLens grew out of a simple
-          belief: a photograph should feel like the moment did — unhurried, true,
-          and a little bit golden.
-        </p>
-        <p>
-          I shoot portraits, brand &amp; commercial work, weddings, and a personal
-          line of fine-art prints. Whether it's a founder's headshot or a couple's
-          first dance, the approach is the same — patience, warmth, and an eye for
-          the frame everyone else walks past.
-        </p>
+        <p>I'm <strong>Lehlohonolo 'Chevza' Nchefu</strong>, a maker and photographer based in <strong>Johannesburg</strong>. PurpleLens grew out of a simple belief: a photograph should feel like the moment did — unhurried, true, and a little bit golden.</p>
+        <p>Whether it's a founder's headshot, a brand's lookbook, or a couple's first dance, the approach is the same — patience, warmth, and an eye for the frame everyone else walks past.</p>
       </div>
-      <a href="#book" class="btn btn-solid" style="margin-top:8px;">Start a project</a>
+      <a href="#book" class="btn btn-plum" style="margin-top:6px">Start a project</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ BOOKING / CONTACT (dark) ═══ -->
+<!-- ═══ BOOK ═══ -->
 <section id="book">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-kicker">Let's make something</div>
-        <h2 class="sec-title">Book a <em>shoot.</em></h2>
-      </div>
-    </div>
+    <div class="s-head"><div><div class="kicker">Let's make something</div><h2 class="s-title">Book a <em>shoot.</em></h2></div></div>
     <div class="book-grid">
       <div class="book-intro">
         <p>Tell me a little about what you have in mind and I'll come back within 48 hours with availability, a quote, and a few ideas.</p>
         <div class="book-meta">
-          <a href="mailto:hloninchefu@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-            hloninchefu@gmail.com
-          </a>
-          <a href="#" >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
-            @purplelens
-          </a>
-          <a href="#">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
-            Johannesburg · available for travel
-          </a>
+          <a href="mailto:hloninchefu@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>hloninchefu@gmail.com</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>@purplelens</a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>Johannesburg · available for travel</a>
         </div>
       </div>
       <form id="bookForm" novalidate>
         <div class="f-row">
-          <div><label for="name">Name</label><input id="name" name="name" placeholder="Your name"></div>
-          <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com"></div>
+          <div><label for="name">Name</label><input id="name" placeholder="Your name"></div>
+          <div><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com"></div>
         </div>
         <div class="f-row">
-          <div>
-            <label for="type">Shoot type</label>
-            <select id="type" name="type">
-              <option>Portrait</option>
-              <option>Brand / commercial</option>
-              <option>Wedding / event</option>
-              <option>Fine-art print enquiry</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div><label for="date">Preferred date</label><input id="date" name="date" type="date"></div>
+          <div><label for="type">Shoot type</label><select id="type"><option>Portrait</option><option>Brand / commercial</option><option>Wedding / event</option><option>Fine-art print enquiry</option><option>Something else</option></select></div>
+          <div><label for="date">Preferred date</label><input id="date" type="date"></div>
         </div>
-        <div><label for="msg">Tell me about it</label><textarea id="msg" name="msg" placeholder="Location, vibe, what it's for…"></textarea></div>
+        <div><label for="msg">Tell me about it</label><textarea id="msg" placeholder="Location, vibe, what it's for…"></textarea></div>
         <button class="submit" type="submit">Send enquiry</button>
         <p class="form-note">Opens your email app with the details ready to send. Hook up Formspree / Resend later for direct delivery.</p>
       </form>
@@ -504,47 +423,36 @@ footer{ background:#1a1220; color:#b7a9bd; padding:48px var(--pad); }
 <footer>
   <div class="foot-in">
     <a href="#hero" class="logo">PurpleLens<span class="d">.</span></a>
-    <div class="foot-links">
-      <a href="#work">Galleries</a>
-      <a href="#prints">Prints</a>
-      <a href="#rates">Rates</a>
-      <a href="#book">Book</a>
-    </div>
+    <div class="foot-links"><a href="#work">Galleries</a><a href="#prints">Prints</a><a href="#rates">Rates</a><a href="#book">Book</a></div>
     <div class="foot-copy">© 2026 PurpleLens · a Chevza studio · Johannesburg, South Africa</div>
   </div>
 </footer>
 
 <script>
-/* nav scrolled state */
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 16), { passive:true });
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>16),{passive:true});
 
-/* gallery filter (degrades to all-visible without JS) */
-const filters = document.getElementById('filters');
-const tiles = [...document.querySelectorAll('#gallery .tile')];
-filters.addEventListener('click', e => {
-  const btn = e.target.closest('.filter');
-  if (!btn) return;
-  filters.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
-  btn.classList.add('active');
-  const cat = btn.dataset.cat;
-  tiles.forEach(t => t.classList.toggle('hide', cat !== 'all' && t.dataset.cat !== cat));
+const filters=document.getElementById('filters');
+const tiles=[...document.querySelectorAll('#gallery .tile')];
+filters.addEventListener('click',e=>{
+  const b=e.target.closest('.filter'); if(!b)return;
+  filters.querySelectorAll('.filter').forEach(f=>f.classList.remove('active'));
+  b.classList.add('active');
+  const c=b.dataset.cat;
+  tiles.forEach(t=>t.classList.toggle('hide',c!=='all'&&!t.dataset.cat.split(' ').includes(c)));
 });
 
-/* booking form -> prefilled mailto */
-document.getElementById('bookForm').addEventListener('submit', e => {
+document.getElementById('bookForm').addEventListener('submit',e=>{
   e.preventDefault();
-  const v = id => encodeURIComponent(document.getElementById(id).value || '—');
-  const subject = encodeURIComponent('PurpleLens booking — ' + (document.getElementById('type').value));
-  const body = `Name: ${v('name')}%0AEmail: ${v('email')}%0AShoot: ${v('type')}%0ADate: ${v('date')}%0A%0A${v('msg')}`;
-  window.location.href = `mailto:hloninchefu@gmail.com?subject=${subject}&body=${body}`;
+  const v=id=>encodeURIComponent(document.getElementById(id).value||'—');
+  const s=encodeURIComponent('PurpleLens booking — '+document.getElementById('type').value);
+  const b=`Name: ${v('name')}%0AEmail: ${v('email')}%0AShoot: ${v('type')}%0ADate: ${v('date')}%0A%0A${v('msg')}`;
+  location.href=`mailto:hloninchefu@gmail.com?subject=${s}&body=${b}`;
 });
 
-/* simple cart stub */
-let cart = 0;
-document.querySelectorAll('.buy').forEach(b => b.addEventListener('click', () => {
-  cart++; b.textContent = 'Added ✓';
-  setTimeout(() => b.textContent = 'Add to cart', 1400);
+document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',()=>{
+  const o=b.textContent; b.textContent='Added ✓';
+  setTimeout(()=>b.textContent=o,1400);
 }));
 </script>
 </body>
