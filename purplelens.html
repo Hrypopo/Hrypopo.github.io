@@ -164,7 +164,7 @@ section{ padding:130px 0; }
 .pcard .pm{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
 .pcard .prow{ display:flex; align-items:center; justify-content:space-between; margin-top:14px; padding-top:14px; border-top:1px solid var(--rule); }
 .price{ font-family:var(--serif); font-size:27px; } .price .c{ font-size:14px; color:var(--muted); vertical-align:super; }
-.buy{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--plum); background:transparent; border:1px solid var(--plum); border-radius:6px; padding:9px 14px; cursor:pointer; transition:all .2s; }
+.buy{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--plum); background:transparent; border:1px solid var(--plum); border-radius:6px; padding:9px 14px; cursor:pointer; text-decoration:none; display:inline-block; transition:all .2s; }
 .buy:hover{ background:var(--plum); color:#fff; }
 .shop-note{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:34px; letter-spacing:.03em; }
 @media(max-width:920px){ .print-grid{ grid-template-columns:1fr 1fr; gap:32px; } }
@@ -341,12 +341,12 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
       <a href="#book" class="btn btn-dark">Commission a piece</a>
     </div>
     <div class="print-grid">
-      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr1/700/875'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>Dusk, Highveld</span><span class="t">A2</span></figcaption></figure><h3>Dusk, Highveld</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><button class="buy" data-item="Dusk, Highveld">Add to cart</button></div></div>
-      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr2/700/875'),linear-gradient(150deg,#241a2a,#7a5560)"></div><figcaption class="cap"><span>Smoke &amp; Gold</span><span class="t">A2</span></figcaption></figure><h3>Smoke &amp; Gold</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><button class="buy" data-item="Smoke &amp; Gold">Add to cart</button></div></div>
-      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr3/700/875'),linear-gradient(135deg,#5e3a4a,#d4b8a0)"></div><figcaption class="cap"><span>Still Life, Amber</span><span class="t">A2</span></figcaption></figure><h3>Still Life, Amber</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,650</span><button class="buy" data-item="Still Life, Amber">Add to cart</button></div></div>
-      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr4/700/875'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>Quiet Window</span><span class="t">A2</span></figcaption></figure><h3>Quiet Window</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><button class="buy" data-item="Quiet Window">Add to cart</button></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr1/700/875'),linear-gradient(160deg,#2c1d34,#b07c4a)"></div><figcaption class="cap"><span>Dusk, Highveld</span><span class="t">A2</span></figcaption></figure><h3>Dusk, Highveld</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><a class="buy" href="https://paystack.com/pay/YOUR-PAYSTACK-LINK-DUSK" target="_blank" rel="noopener">Buy print →</a></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr2/700/875'),linear-gradient(150deg,#241a2a,#7a5560)"></div><figcaption class="cap"><span>Smoke &amp; Gold</span><span class="t">A2</span></figcaption></figure><h3>Smoke &amp; Gold</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><a class="buy" href="https://paystack.com/pay/YOUR-PAYSTACK-LINK-SMOKE" target="_blank" rel="noopener">Buy print →</a></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr3/700/875'),linear-gradient(135deg,#5e3a4a,#d4b8a0)"></div><figcaption class="cap"><span>Still Life, Amber</span><span class="t">A2</span></figcaption></figure><h3>Still Life, Amber</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,650</span><a class="buy" href="https://paystack.com/pay/YOUR-PAYSTACK-LINK-AMBER" target="_blank" rel="noopener">Buy print →</a></div></div>
+      <div class="pcard"><figure class="shot"><div class="img" style="background-image:url('https://picsum.photos/seed/pl-pr4/700/875'),linear-gradient(155deg,#412c4e,#a98a72)"></div><figcaption class="cap"><span>Quiet Window</span><span class="t">A2</span></figcaption></figure><h3>Quiet Window</h3><div class="pm">Archival · A2 / A1 / A0</div><div class="prow"><span class="price"><span class="c">R</span>1,450</span><a class="buy" href="https://paystack.com/pay/YOUR-PAYSTACK-LINK-WINDOW" target="_blank" rel="noopener">Buy print →</a></div></div>
     </div>
-    <p class="shop-note">Museum-grade cotton rag · shipped worldwide, rolled in an archival tube · framing on request. Checkout wires up to Stripe / Paystack when you're ready.</p>
+    <p class="shop-note">Museum-grade cotton rag · shipped worldwide, rolled in an archival tube · framing on request. Secure checkout via Paystack.</p>
   </div>
 </section>
 
@@ -401,20 +401,25 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
           <a href="mailto:hloninchefu@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>hloninchefu@gmail.com</a>
           <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>@purplelens</a>
           <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>Johannesburg · available for travel</a>
+          <a href="https://cal.com/YOUR-CAL-HANDLE" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Check live availability →</a>
         </div>
       </div>
-      <form id="bookForm" novalidate>
+      <form id="bookForm">
+        <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY">
+        <input type="hidden" name="subject" value="New PurpleLens booking enquiry">
+        <input type="hidden" name="from_name" value="PurpleLens website">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px">
         <div class="f-row">
-          <div><label for="name">Name</label><input id="name" placeholder="Your name"></div>
-          <div><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com"></div>
+          <div><label for="name">Name</label><input id="name" name="name" placeholder="Your name" required></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required></div>
         </div>
         <div class="f-row">
-          <div><label for="type">Shoot type</label><select id="type"><option>Portrait</option><option>Brand / commercial</option><option>Wedding / event</option><option>Fine-art print enquiry</option><option>Something else</option></select></div>
-          <div><label for="date">Preferred date</label><input id="date" type="date"></div>
+          <div><label for="type">Shoot type</label><select id="type" name="shoot_type"><option>Portrait</option><option>Iconoclast B&amp;W portrait</option><option>Brand / commercial</option><option>Wedding / event</option><option>Fine-art print enquiry</option><option>Something else</option></select></div>
+          <div><label for="date">Preferred date</label><input id="date" name="preferred_date" type="date"></div>
         </div>
-        <div><label for="msg">Tell me about it</label><textarea id="msg" placeholder="Location, vibe, what it's for…"></textarea></div>
+        <div><label for="msg">Tell me about it</label><textarea id="msg" name="message" placeholder="Location, vibe, what it's for…"></textarea></div>
         <button class="submit" type="submit">Send enquiry</button>
-        <p class="form-note">Opens your email app with the details ready to send. Hook up Formspree / Resend later for direct delivery.</p>
+        <p class="form-note" id="formNote">Sends straight to the studio inbox — you'll get a reply within 48 hours.</p>
       </form>
     </div>
   </div>
@@ -442,18 +447,23 @@ filters.addEventListener('click',e=>{
   tiles.forEach(t=>t.classList.toggle('hide',c!=='all'&&!t.dataset.cat.split(' ').includes(c)));
 });
 
-document.getElementById('bookForm').addEventListener('submit',e=>{
+const form=document.getElementById('bookForm');
+const fnote=document.getElementById('formNote');
+form.addEventListener('submit',async e=>{
   e.preventDefault();
-  const v=id=>encodeURIComponent(document.getElementById(id).value||'—');
-  const s=encodeURIComponent('PurpleLens booking — '+document.getElementById('type').value);
-  const b=`Name: ${v('name')}%0AEmail: ${v('email')}%0AShoot: ${v('type')}%0ADate: ${v('date')}%0A%0A${v('msg')}`;
-  location.href=`mailto:hloninchefu@gmail.com?subject=${s}&body=${b}`;
+  if(form.access_key.value.includes('YOUR-')){
+    fnote.textContent='⚠ Form not connected yet — add your free Web3Forms key (see PURPLELENS-SETUP).';
+    fnote.style.color='#e3b7c2'; return;
+  }
+  const btn=form.querySelector('.submit'); const orig=btn.textContent;
+  btn.textContent='Sending…'; btn.disabled=true;
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)});
+    const data=await res.json();
+    if(data.success){ form.reset(); fnote.textContent='✓ Sent — thank you. I’ll reply within 48 hours.'; btn.textContent='Sent ✓'; }
+    else{ fnote.textContent='That didn’t go through — please email hloninchefu@gmail.com directly.'; btn.textContent=orig; btn.disabled=false; }
+  }catch(err){ fnote.textContent='Network issue — please email hloninchefu@gmail.com directly.'; btn.textContent=orig; btn.disabled=false; }
 });
-
-document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',()=>{
-  const o=b.textContent; b.textContent='Added ✓';
-  setTimeout(()=>b.textContent=o,1400);
-}));
 </script>
 </body>
 </html>
