@@ -220,9 +220,50 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
 .foot-links{ display:flex; gap:22px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; }
 .foot-links a{ color:#b3a3ba; text-decoration:none; transition:color .2s; } .foot-links a:hover{ color:#fff; }
 .foot-copy{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:#6f6276; width:100%; text-align:center; margin-top:6px; }
+
+/* ── preloader ── */
+#pre{ position:fixed; inset:0; z-index:10000; background:var(--plum-deep); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:24px; transition:opacity .6s var(--ease), visibility .6s; }
+#pre.done{ opacity:0; visibility:hidden; }
+.pre-word{ font-family:var(--serif); font-size:clamp(40px,7vw,84px); letter-spacing:-.02em; color:#fff; line-height:1; overflow:hidden; }
+.pre-word span{ display:inline-block; transform:translateY(110%); animation:preUp .9s var(--ease) forwards; }
+.pre-word .d{ color:var(--plum-soft); }
+@keyframes preUp{ to{ transform:translateY(0); } }
+.pre-bar{ width:min(260px,60vw); height:2px; background:rgba(255,255,255,.18); position:relative; overflow:hidden; }
+.pre-bar i{ position:absolute; inset:0 100% 0 0; background:var(--plum-soft); transition:right .2s linear; }
+
+/* ── custom cursor ── */
+.cursor,.cursor-d{ position:fixed; top:0; left:0; z-index:9500; pointer-events:none; border-radius:50%; mix-blend-mode:difference; will-change:transform; }
+.cursor{ width:34px; height:34px; border:1px solid #fff; margin:-17px 0 0 -17px; transition:width .25s var(--ease),height .25s var(--ease),margin .25s var(--ease),background .25s; }
+.cursor-d{ width:5px; height:5px; background:#fff; margin:-2.5px 0 0 -2.5px; }
+.cursor.grow{ width:68px; height:68px; margin:-34px 0 0 -34px; background:rgba(255,255,255,.12); }
+body.has-cursor *{ cursor:none !important; }
+@media(hover:none),(max-width:880px){ .cursor,.cursor-d{ display:none; } }
+
+/* ── reveal ── */
+.js [data-r]{ opacity:0; transform:translateY(30px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.js [data-r].in{ opacity:1; transform:none; }
+.js [data-r][data-d="1"]{ transition-delay:.08s; } .js [data-r][data-d="2"]{ transition-delay:.18s; }
+
+/* ── lightbox ── */
+#lb{ position:fixed; inset:0; z-index:9800; background:rgba(20,10,24,.94); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:5vw; opacity:0; visibility:hidden; transition:opacity .4s var(--ease), visibility .4s; }
+#lb.open{ opacity:1; visibility:visible; }
+#lb .frame{ max-width:1100px; width:100%; aspect-ratio:3/2; background-size:cover; background-position:center; border-radius:4px; transform:scale(.96); transition:transform .5s var(--ease); box-shadow:0 40px 120px rgba(0,0,0,.6); }
+#lb.open .frame{ transform:scale(1); }
+#lb .cl{ position:absolute; inset:0; }
+#lb .x{ position:absolute; top:28px; right:32px; z-index:2; font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#fff; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); border-radius:999px; padding:9px 18px; cursor:pointer; }
+#lb .lbcap{ position:absolute; bottom:28px; left:0; right:0; text-align:center; font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--plum-soft); }
+.tile{ cursor:pointer; }
+@media(prefers-reduced-motion:reduce){ .js [data-r]{ opacity:1 !important; transform:none !important; } #pre{ display:none; } .pre-word span{ animation:none; transform:none; } *{ animation-duration:.001ms !important; } }
 </style>
 </head>
 <body>
+
+<div id="pre">
+  <div class="pre-word"><span>PurpleLens<span class="d">.</span></span></div>
+  <div class="pre-bar"><i id="preFill"></i></div>
+</div>
+<div class="cursor" id="cur"></div>
+<div class="cursor-d" id="curD"></div>
 
 <nav id="nav">
   <div class="nav-in">
@@ -264,8 +305,8 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
 <!-- ═══ INTRO ═══ -->
 <section id="intro">
   <div class="wrap intro-grid">
-    <p class="intro-lead">A photograph should feel like the moment did — <em>unhurried, true,</em> and a little bit golden.</p>
-    <div class="intro-body">
+    <p class="intro-lead" data-r>A photograph should feel like the moment did — <em>unhurried, true,</em> and a little bit golden.</p>
+    <div class="intro-body" data-r data-d="1">
       <p>PurpleLens is a one-person studio in Johannesburg, working across portraits, brand &amp; commercial, weddings, and a personal line of fine-art prints. The thread through all of it is light: warm, patient, deliberate.</p>
       <p>No rushed shutters, no manufactured smiles — just the frame everyone else walks past, made to last.</p>
       <div class="intro-stats">
@@ -433,7 +474,51 @@ footer{ background:#150d1a; color:#b3a3ba; padding:54px var(--pad); }
   </div>
 </footer>
 
+<div id="lb"><div class="cl"></div><button class="x">Close ✕</button><div class="frame" id="lbFrame"></div><div class="lbcap" id="lbCap"></div></div>
+
 <script>
+(function(){
+  const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  /* preloader */
+  const pre=document.getElementById('pre'), fill=document.getElementById('preFill');
+  if(reduced){ pre&&pre.classList.add('done'); }
+  else{ let p=0; const t=setInterval(()=>{ p+=Math.random()*18+8; if(p>=100){p=100;clearInterval(t);setTimeout(()=>pre.classList.add('done'),300);} fill.style.right=(100-p)+'%'; },100);
+    setTimeout(()=>pre.classList.add('done'),2400); }
+
+  /* reveal */
+  function rev(){ document.querySelectorAll('[data-r]:not(.in)').forEach(el=>{ if(el.getBoundingClientRect().top<innerHeight+80) el.classList.add('in'); }); }
+  rev();
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} }),{threshold:.05});
+  document.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
+  setTimeout(()=>document.querySelectorAll('[data-r]').forEach(el=>el.classList.add('in')),2800);
+
+  /* custom cursor */
+  if(!reduced && matchMedia('(hover:hover)').matches && innerWidth>880){
+    document.body.classList.add('has-cursor');
+    const cur=document.getElementById('cur'), dot=document.getElementById('curD');
+    let cx=innerWidth/2,cy=innerHeight/2,dx=cx,dy=cy;
+    addEventListener('mousemove',e=>{ cx=e.clientX;cy=e.clientY; dot.style.transform=`translate(${cx}px,${cy}px)`; },{passive:true});
+    (function loop(){ dx+=(cx-dx)*.18; dy+=(cy-dy)*.18; cur.style.transform=`translate(${dx}px,${dy}px)`; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a,button,.tile,.filter,input,select,textarea,[data-cursor]').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cur.classList.add('grow'));
+      el.addEventListener('mouseleave',()=>cur.classList.remove('grow'));
+    });
+  }
+
+  /* lightbox */
+  const lb=document.getElementById('lb'), lbF=document.getElementById('lbFrame'), lbC=document.getElementById('lbCap');
+  function openLb(img,cap){ lbF.style.backgroundImage=img; lbC.textContent=cap; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  document.querySelectorAll('#gallery .tile').forEach(t=>{ t.addEventListener('click',()=>{
+    const im=t.querySelector('.img'); const cap=t.querySelector('.cap span'); if(im) openLb(getComputedStyle(im).backgroundImage, cap?cap.textContent:''); });
+  });
+  lb.querySelector('.cl').addEventListener('click',closeLb);
+  lb.querySelector('.x').addEventListener('click',closeLb);
+  addEventListener('keydown',e=>{ if(e.key==='Escape')closeLb(); });
+})();
+
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>16),{passive:true});
 
