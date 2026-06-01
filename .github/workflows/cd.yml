@@ -1,10 +1,14 @@
 name: CD Pipeline
 
+# DISABLED: no package.json / staging env yet — auto-triggers are off so this
+# doesn't fail on every push. Re-enable the push/tags block once the build and
+# deploy targets exist. Until then it can still be run manually from Actions.
 on:
-  push:
-    branches: [ main ]
-    tags:
-      - 'v*'
+  workflow_dispatch:
+  # push:
+  #   branches: [ main ]
+  #   tags:
+  #     - 'v*'
 
 jobs:
   deploy-staging:

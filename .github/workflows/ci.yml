@@ -1,10 +1,14 @@
 name: CI Pipeline
 
+# DISABLED: no package.json yet — auto-triggers are off so this doesn't fail
+# on every push. Re-enable the push/pull_request block once the app build
+# exists. Until then it can still be run manually from the Actions tab.
 on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
+  workflow_dispatch:
+  # push:
+  #   branches: [ main, develop ]
+  # pull_request:
+  #   branches: [ main, develop ]
 
 jobs:
   lint:
