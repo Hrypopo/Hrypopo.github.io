@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hrypopo.github.io/sitemap.xml
+Sitemap: https://chevza.com/sitemap.xml
