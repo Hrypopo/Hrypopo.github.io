@@ -2,7 +2,7 @@
 
 Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — solo founder from Johannesburg, South Africa, building privacy-first software and bold creative brands.
 
-**Live at [chevza.com](https://chevza.com)** (hrypopo.github.io redirects there)
+**Live at [hrypopo.github.io](https://hrypopo.github.io)**
 
 ## Site map
 
