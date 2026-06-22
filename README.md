@@ -12,6 +12,7 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 | [`filemayor.html`](filemayor.html) | FileMayor launch kit — pitch deck · social carousels · brand book |
 | [`purplelens.html`](purplelens.html) | PurpleLens photography studio — portraits, commercial, weddings, prints |
 | [`aether.html`](aether.html) | AETHER — subterranean megacity concept, with an interactive 3D cross-section. Whitepaper → 3D model → film |
+| [`aether-whitepaper.html`](aether-whitepaper.html) | AETHER whitepaper — physics, math, economics, tokenomics & narrative, with TOC + scroll-spy |
 | [`404.html`](404.html) | Custom not-found page, on brand |
 | `project/` | FileMayor design source files (deck, carousels, brand book) |
 | `assets/` | Favicon + generated Open Graph social cards |
