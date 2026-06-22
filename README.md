@@ -11,6 +11,7 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 | [`index.html`](index.html) | Studio homepage — dark editorial, custom cursor, live venture previews |
 | [`filemayor.html`](filemayor.html) | FileMayor launch kit — pitch deck · social carousels · brand book |
 | [`purplelens.html`](purplelens.html) | PurpleLens photography studio — portraits, commercial, weddings, prints |
+| [`aether.html`](aether.html) | AETHER — subterranean megacity concept, with an interactive 3D cross-section. Whitepaper → 3D model → film |
 | [`404.html`](404.html) | Custom not-found page, on brand |
 | `project/` | FileMayor design source files (deck, carousels, brand book) |
 | `assets/` | Favicon + generated Open Graph social cards |
@@ -19,6 +20,7 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 
 - **FileMayor** — AI-native file organisation for the command line. Local-first, privacy-first, six-layer security (The Chevza Doctrine). 25k+ npm installs. → [filemayor.com](https://filemayor.com)
 - **PurpleLens** — Johannesburg photography studio. Home of the *Iconoclast* black-and-white portrait series.
+- **AETHER** — a speculative $100B concept for a self-powered subterranean megacity (SMR core, autonomous maglev, tokenised tunnels). Taken from whitepaper → interactive 3D model → sci-fi film.
 - **PurpleBos · PurpleRugs · Praxis** — in the works.
 
 ## Engineering notes

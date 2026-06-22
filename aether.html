@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AETHER — The Subterranean City · A Chevza Concept</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AETHER — a self-powered subterranean megacity. SMR thermal core, autonomous maglev arteries, tokenised commercial tunnels, agritech & IP exports. A $100B concept taken from whitepaper to 3D model to film.">
+<meta property="og:title" content="AETHER — The Subterranean City">
+<meta property="og:description" content="Whitepaper → 3D model → movie. A self-powered, reactor-cored, maglev-threaded city built downward. A Chevza concept for builders who think in centuries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hrypopo.github.io/aether.html">
+<meta property="og:site_name" content="AETHER">
+<meta property="og:image" content="https://hrypopo.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AETHER — the subterranean city. Whitepaper to 3D model to movie.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AETHER — The Subterranean City">
+<meta name="twitter:description" content="A $100B subterranean megacity concept — whitepaper → 3D model → movie.">
+<meta name="twitter:image" content="https://hrypopo.github.io/assets/og-card.png">
+<meta name="author" content="Lehlohonolo 'Chevza' Nchefu">
+<meta name="theme-color" content="#05070d">
+<link rel="canonical" href="https://hrypopo.github.io/aether.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "AETHER — The Subterranean City",
+  "description": "A speculative concept for a self-powered subterranean megacity: SMR thermal core, autonomous maglev transit, tokenised commercial tunnels, agritech and IP exports — developed from whitepaper to 3D model to film.",
+  "url": "https://hrypopo.github.io/aether.html",
+  "image": "https://hrypopo.github.io/assets/og-card.png",
+  "genre": ["Science fiction", "Speculative architecture", "Concept design"],
+  "creator": { "@type": "Person", "name": "Lehlohonolo Nchefu", "alternateName": "Chevza", "url": "https://hrypopo.github.io/" },
+  "isPartOf": { "@type": "Organization", "name": "Chevza", "url": "https://hrypopo.github.io/" },
+  "about": ["Small Modular Reactors", "Maglev transit", "Subterranean architecture", "Tokenomics", "Agritech", "Science fiction film"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#04060b; --bg:#070a12; --bg-2:#0a0e18; --panel:#0d1322; --paper:#10182a;
+  --ink:#e9eefa; --ink-soft:#a7b2c8; --muted:#697389;
+  --rule:rgba(180,200,235,.12); --rule-2:rgba(180,200,235,.07);
+  --reactor:#46e0d0; --reactor-deep:#0d3c3a; --plasma:#ff8a3d; --maglev:#6f8cff; --gold:#d9b46a;
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:"Geist",ui-sans-serif,system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --max:1320px; --pad:48px; --nav-h:76px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+@media(max-width:768px){ :root{ --pad:20px; } }
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+img{ max-width:100%; display:block; }
+::selection{ background:rgba(70,224,208,.28); color:#fff; }
+
+/* film grain */
+body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:900; opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"); }
+/* scanline / cinematic vignette */
+body::after{ content:''; position:fixed; inset:0; pointer-events:none; z-index:899;
+  background:radial-gradient(130% 100% at 50% 0%, transparent 55%, rgba(0,0,0,.5)); }
+
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); position:relative; z-index:2; }
+
+/* ── nav ───────────────────────────────────────────── */
+nav{ position:fixed; inset:0 0 auto 0; height:var(--nav-h); z-index:100;
+  display:flex; align-items:center; padding:0 var(--pad); color:#fff;
+  transition:background .3s, border-color .3s, backdrop-filter .3s; border-bottom:1px solid transparent; }
+nav.scrolled{ background:rgba(7,10,18,.72); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-color:var(--rule); }
+.nav-in{ max-width:var(--max); width:100%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+.logo{ font-family:var(--serif); font-size:25px; letter-spacing:.04em; color:inherit; text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo .dot{ width:9px; height:9px; border-radius:50%; background:var(--reactor); box-shadow:0 0 12px var(--reactor); animation:pulse 2.6s var(--ease) infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(.7); } }
+.nav-links{ display:flex; align-items:center; gap:4px; list-style:none; margin:0; padding:0; }
+.nav-links a{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:inherit; opacity:.78; text-decoration:none; padding:8px 14px; border-radius:6px; transition:opacity .2s, background .2s; }
+.nav-links a:hover{ opacity:1; background:rgba(180,200,235,.08); }
+.nav-cta{ border:1px solid var(--reactor); color:var(--reactor) !important; opacity:1 !important; border-radius:999px !important; }
+.nav-cta:hover{ background:var(--reactor) !important; color:var(--void) !important; }
+@media(max-width:920px){ .nav-links a:not(.nav-cta){ display:none; } }
+
+/* ── hero ──────────────────────────────────────────── */
+#hero{ position:relative; min-height:100vh; overflow:hidden; display:flex; align-items:flex-end;
+  background:radial-gradient(120% 90% at 50% -10%, #0f1b2e 0%, var(--void) 60%); }
+#hero .depthlines{ position:absolute; inset:0; z-index:0; opacity:.5;
+  background:
+    radial-gradient(80% 120% at 50% 120%, rgba(70,224,208,.18), transparent 60%),
+    repeating-linear-gradient(180deg, transparent 0 78px, rgba(111,140,255,.06) 78px 79px); }
+#hero .glow{ position:absolute; left:50%; bottom:-30vh; transform:translateX(-50%); width:90vw; height:90vw; max-width:1100px; max-height:1100px; border-radius:50%; z-index:0;
+  background:radial-gradient(circle, rgba(70,224,208,.22), rgba(255,138,61,.05) 40%, transparent 62%); filter:blur(20px); animation:breathe 9s var(--ease) infinite alternate; }
+@keyframes breathe{ from{ opacity:.7; transform:translateX(-50%) scale(.96); } to{ opacity:1; transform:translateX(-50%) scale(1.05); } }
+.hero-in{ position:relative; z-index:3; width:100%; max-width:var(--max); margin:0 auto; padding:140px var(--pad) 64px; }
+.hero-kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--reactor);
+  margin:0 0 26px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.hero-kicker::before{ content:''; width:42px; height:1px; background:var(--reactor); display:inline-block; }
+h1.hero-h{ font-family:var(--serif); font-weight:400; font-size:clamp(72px,15vw,232px); line-height:.84; letter-spacing:.01em; margin:0; text-transform:uppercase;
+  background:linear-gradient(180deg,#fff 0%, #cdd8ec 55%, #5d7596 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-sub{ font-family:var(--serif); font-style:italic; font-size:clamp(24px,3.4vw,46px); line-height:1.1; color:var(--reactor); margin:14px 0 0; letter-spacing:0; }
+.hero-foot{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-top:46px; flex-wrap:wrap; }
+.hero-foot .lede{ font-size:clamp(16px,1.5vw,19px); line-height:1.6; color:var(--ink-soft); max-width:520px; }
+.hero-cta{ display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+.hero-foot .meta{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); text-align:right; line-height:2; }
+.scrollcue{ position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:4; font-family:var(--mono); font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); display:flex; flex-direction:column; align-items:center; gap:10px; }
+.scrollcue i{ width:1px; height:42px; background:linear-gradient(var(--reactor),transparent); animation:drop 1.8s var(--ease) infinite; }
+@keyframes drop{ 0%{ transform:scaleY(0); transform-origin:top; } 50%{ transform:scaleY(1); transform-origin:top; } 51%{ transform:scaleY(1); transform-origin:bottom; } 100%{ transform:scaleY(0); transform-origin:bottom; } }
+@media(max-width:560px){ .hero-foot .meta{ display:none; } .scrollcue{ display:none; } }
+
+.btn{ display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:14px 26px; border-radius:8px; cursor:pointer; transition:transform .3s var(--ease), background .25s, color .25s, border-color .25s, box-shadow .25s; border:1px solid transparent; }
+.btn:hover{ transform:translateY(-3px); }
+.btn-solid{ background:var(--reactor); color:var(--void); box-shadow:0 10px 40px -12px rgba(70,224,208,.6); }
+.btn-solid:hover{ background:#67ffee; box-shadow:0 16px 50px -12px rgba(70,224,208,.8); }
+.btn-line{ color:var(--ink); border-color:rgba(180,200,235,.4); }
+.btn-line:hover{ border-color:var(--ink); background:rgba(180,200,235,.07); }
+.btn-amber{ background:var(--plasma); color:var(--void); } .btn-amber:hover{ background:#ffa15e; }
+
+/* ── marquee ───────────────────────────────────────── */
+.strip{ background:var(--void); color:var(--ink-soft); overflow:hidden; padding:16px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.strip-in{ display:flex; white-space:nowrap; font-family:var(--mono); font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; animation:slide 36s linear infinite; }
+.strip-in span{ display:inline-flex; gap:36px; padding-right:36px; }
+.strip-in b{ color:var(--reactor); font-weight:500; }
+@keyframes slide{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+
+/* ── section shells ────────────────────────────────── */
+section{ padding:clamp(90px,12vw,150px) 0; position:relative; }
+.kicker{ font-family:var(--mono); font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--reactor); margin-bottom:18px; display:flex; align-items:center; gap:12px; }
+.kicker::before{ content:''; width:26px; height:1px; background:var(--reactor); }
+.s-title{ font-family:var(--serif); font-weight:400; font-size:clamp(42px,5.6vw,84px); line-height:.98; letter-spacing:-.02em; margin:0; }
+.s-title em{ font-style:italic; color:var(--reactor); }
+.s-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:28px; margin-bottom:54px; flex-wrap:wrap; }
+.s-head p{ max-width:42ch; color:var(--ink-soft); font-size:16px; line-height:1.65; margin:0; }
+
+/* ── thesis ────────────────────────────────────────── */
+#thesis{ background:linear-gradient(180deg, var(--bg), var(--bg-2)); border-bottom:1px solid var(--rule); }
+.thesis-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:72px; align-items:start; }
+.thesis-lead{ font-family:var(--serif); font-size:clamp(30px,3.6vw,52px); line-height:1.12; letter-spacing:-.015em; margin:0; }
+.thesis-lead em{ font-style:italic; color:var(--reactor); }
+.thesis-body p{ font-size:17px; line-height:1.8; color:var(--ink-soft); margin:0 0 18px; }
+.thesis-body strong{ color:var(--ink); font-weight:500; }
+.thesis-stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:14px; overflow:hidden; margin-top:30px; }
+.tstat{ background:var(--panel); padding:26px 24px; }
+.tstat .n{ font-family:var(--serif); font-size:clamp(34px,4vw,52px); line-height:1; letter-spacing:-.02em; color:#fff; }
+.tstat .n .u{ color:var(--reactor); }
+.tstat .l{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:9px; line-height:1.5; }
+@media(max-width:880px){ .thesis-grid{ grid-template-columns:1fr; gap:40px; } }
+
+/* ── 3D model ──────────────────────────────────────── */
+#model{ background:var(--void); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); overflow:hidden; }
+.model-grid{ display:grid; grid-template-columns:.92fr 1.08fr; gap:56px; align-items:center; }
+.stage{ position:relative; aspect-ratio:1/1; border:1px solid var(--rule); border-radius:18px; overflow:hidden;
+  background:radial-gradient(120% 120% at 50% 30%, #0c1626, #04060b 70%); box-shadow:inset 0 0 120px rgba(70,224,208,.08); }
+.stage canvas{ display:block; width:100%; height:100%; touch-action:none; cursor:grab; }
+.stage canvas:active{ cursor:grabbing; }
+.stage .hud{ position:absolute; left:16px; top:16px; right:16px; display:flex; justify-content:space-between; pointer-events:none;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+.stage .hud .live{ color:var(--reactor); }
+.stage .hint{ position:absolute; left:0; right:0; bottom:14px; text-align:center; font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); pointer-events:none; }
+.stage .legend{ position:absolute; right:16px; bottom:36px; display:flex; flex-direction:column; gap:7px; pointer-events:none; }
+.stage .legend span{ font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); display:flex; align-items:center; gap:7px; }
+.stage .legend i{ width:9px; height:9px; border-radius:2px; display:inline-block; }
+.model-copy h3{ font-family:var(--serif); font-weight:400; font-size:clamp(28px,3.2vw,40px); line-height:1.08; margin:0 0 18px; }
+.model-copy h3 em{ font-style:italic; color:var(--reactor); }
+.model-copy p{ font-size:16.5px; line-height:1.75; color:var(--ink-soft); margin:0 0 22px; }
+.layer-list{ list-style:none; margin:0 0 28px; padding:0; }
+.layer-list li{ display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:baseline; padding:14px 0; border-top:1px solid var(--rule-2); }
+.layer-list li:first-child{ border-top:0; }
+.layer-list .lv{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--reactor); }
+.layer-list .lt{ font-size:15px; color:var(--ink); }
+.layer-list .lt b{ font-weight:500; } .layer-list .lt span{ color:var(--muted); display:block; font-size:13.5px; margin-top:3px; }
+@media(max-width:880px){ .model-grid{ grid-template-columns:1fr; gap:36px; } .model-copy{ order:-1; } }
+
+/* ── systems / whitepaper ──────────────────────────── */
+#systems{ background:var(--bg-2); }
+.sys-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:16px; overflow:hidden; }
+.sys{ background:var(--panel); padding:34px 30px; transition:background .3s; position:relative; }
+.sys:hover{ background:var(--paper); }
+.sys .ix{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--muted); margin-bottom:22px; display:flex; justify-content:space-between; }
+.sys .ix b{ color:var(--reactor); font-weight:500; }
+.sys h3{ font-family:var(--serif); font-weight:400; font-size:27px; line-height:1.1; margin:0 0 12px; }
+.sys p{ font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0 0 18px; }
+.sys .spec{ list-style:none; margin:0; padding:0; }
+.sys .spec li{ font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:var(--muted); padding:7px 0 7px 18px; position:relative; border-top:1px solid var(--rule-2); }
+.sys .spec li::before{ content:'›'; position:absolute; left:0; color:var(--reactor); }
+.sys .spec li b{ color:var(--ink); font-weight:500; }
+@media(max-width:880px){ .sys-grid{ grid-template-columns:1fr; } }
+
+/* ── pipeline ──────────────────────────────────────── */
+#pipeline{ background:var(--void); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.pipe{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.phase{ border:1px solid var(--rule); border-radius:16px; padding:36px 30px; background:linear-gradient(180deg,var(--panel),var(--bg)); position:relative; overflow:hidden; }
+.phase::after{ content:''; position:absolute; inset:0; opacity:.5; pointer-events:none; background:radial-gradient(120% 90% at 50% -20%, rgba(70,224,208,.1), transparent 60%); }
+.phase .pn{ font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--reactor); margin-bottom:20px; }
+.phase .icon{ width:46px; height:46px; margin-bottom:22px; color:var(--reactor); }
+.phase h3{ font-family:var(--serif); font-weight:400; font-size:30px; margin:0 0 10px; }
+.phase p{ font-size:15px; line-height:1.7; color:var(--ink-soft); margin:0 0 16px; }
+.phase .status{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:8px; }
+.phase .status::before{ content:''; width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 10px var(--gold); }
+.phase.done .status{ color:var(--reactor); } .phase.done .status::before{ background:var(--reactor); box-shadow:0 0 10px var(--reactor); }
+@media(max-width:880px){ .pipe{ grid-template-columns:1fr; } }
+
+/* ── financials ────────────────────────────────────── */
+#money{ background:var(--bg-2); }
+.money-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+.rev-list{ list-style:none; margin:0; padding:0; }
+.rev{ display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; padding:20px 0; border-top:1px solid var(--rule); }
+.rev:first-child{ border-top:0; }
+.rev .rt{ font-family:var(--serif); font-size:22px; } .rev .rt span{ display:block; font-family:var(--sans); font-size:13.5px; color:var(--muted); margin-top:4px; }
+.rev .rbar{ width:100%; }
+.rev .bar{ height:6px; border-radius:4px; background:var(--rule); overflow:hidden; margin-top:8px; }
+.rev .bar i{ display:block; height:100%; background:linear-gradient(90deg,var(--reactor),var(--maglev)); border-radius:4px; }
+.rev .rp{ font-family:var(--mono); font-size:12px; color:var(--reactor); text-align:right; }
+.roi{ border:1px solid var(--rule); border-radius:16px; background:var(--panel); padding:34px 32px; }
+.roi h3{ font-family:var(--serif); font-weight:400; font-size:28px; margin:0 0 8px; }
+.roi .sub{ font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+.roi-chart{ display:flex; align-items:flex-end; gap:6px; height:140px; margin-bottom:14px; }
+.roi-chart i{ flex:1; background:linear-gradient(180deg,var(--reactor),var(--reactor-deep)); border-radius:3px 3px 0 0; opacity:.85; min-height:4px; transition:height 1s var(--ease); }
+.roi-chart i.peak{ background:linear-gradient(180deg,var(--plasma),#5a2e12); }
+.roi-x{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; letter-spacing:.08em; color:var(--muted); }
+.roi-note{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:22px 0 0; }
+.roi-note b{ color:var(--ink); }
+@media(max-width:880px){ .money-grid{ grid-template-columns:1fr; gap:40px; } }
+
+/* ── film ──────────────────────────────────────────── */
+#film{ background:var(--void); border-top:1px solid var(--rule); }
+.film-hero{ position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--rule); padding:clamp(40px,7vw,84px) clamp(28px,5vw,64px); margin-bottom:56px;
+  background:radial-gradient(120% 140% at 80% 0%, #16243c, var(--void) 60%); }
+.film-hero::before{ content:''; position:absolute; inset:0; opacity:.4; background:repeating-linear-gradient(180deg, transparent 0 3px, rgba(0,0,0,.4) 3px 4px); pointer-events:none; }
+.film-hero .rating{ font-family:var(--mono); font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--plasma); margin:0 0 20px; }
+.film-hero .logline{ font-family:var(--serif); font-style:italic; font-size:clamp(28px,4.4vw,60px); line-height:1.06; letter-spacing:-.01em; margin:0; max-width:20ch; position:relative; }
+.film-hero .credits{ font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:30px; position:relative; }
+.acts{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:54px; }
+.act{ border:1px solid var(--rule); border-radius:14px; padding:30px 26px; background:var(--panel); }
+.act .an{ font-family:var(--mono); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--reactor); margin-bottom:16px; }
+.act h4{ font-family:var(--serif); font-weight:400; font-size:25px; margin:0 0 10px; }
+.act p{ font-size:14.5px; line-height:1.7; color:var(--ink-soft); margin:0; }
+.cast{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.char{ border-top:1px solid var(--rule); padding-top:20px; }
+.char .role{ font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.char h5{ font-family:var(--serif); font-weight:400; font-size:23px; margin:0 0 8px; }
+.char p{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0; }
+@media(max-width:880px){ .acts{ grid-template-columns:1fr; } .cast{ grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .cast{ grid-template-columns:1fr; } }
+
+/* ── invest / CTA ──────────────────────────────────── */
+#invest{ background:linear-gradient(180deg,var(--bg-2),var(--void)); border-top:1px solid var(--rule); }
+.invest-card{ position:relative; border:1px solid var(--rule); border-radius:24px; overflow:hidden; padding:clamp(48px,7vw,96px) var(--pad);
+  background:radial-gradient(120% 120% at 50% 0%, #122236, var(--void) 65%); text-align:center; }
+.invest-card .glowdot{ position:absolute; left:50%; top:-40%; transform:translateX(-50%); width:60vw; height:60vw; max-width:700px; max-height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(70,224,208,.22), transparent 60%); filter:blur(20px); pointer-events:none; }
+.invest-card .kicker{ justify-content:center; }
+.invest-card h2{ font-family:var(--serif); font-weight:400; font-size:clamp(40px,6vw,88px); line-height:.98; letter-spacing:-.02em; margin:0 0 22px; position:relative; }
+.invest-card h2 em{ font-style:italic; color:var(--reactor); }
+.invest-card p{ font-size:clamp(16px,1.6vw,19px); line-height:1.65; color:var(--ink-soft); max-width:60ch; margin:0 auto 34px; position:relative; }
+.invest-cta{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; }
+.invest-meta{ margin-top:40px; display:flex; gap:34px; justify-content:center; flex-wrap:wrap; font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--ink-soft); position:relative; }
+.invest-meta a{ color:var(--ink-soft); text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .2s; }
+.invest-meta a:hover{ color:var(--reactor); } .invest-meta svg{ width:15px; height:15px; opacity:.7; }
+
+/* ── footer ────────────────────────────────────────── */
+footer{ background:var(--void); color:var(--muted); padding:54px var(--pad); border-top:1px solid var(--rule); }
+.foot-in{ max-width:var(--max); margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+.foot-in .logo{ color:var(--ink); }
+.foot-links{ display:flex; gap:22px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; }
+.foot-links a{ color:var(--muted); text-decoration:none; transition:color .2s; } .foot-links a:hover{ color:var(--reactor); }
+.foot-copy{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:#4a5366; width:100%; text-align:center; margin-top:6px; }
+.foot-disc{ font-family:var(--mono); font-size:10.5px; letter-spacing:.04em; color:#3c4458; width:100%; text-align:center; margin-top:14px; max-width:80ch; margin-left:auto; margin-right:auto; line-height:1.7; }
+
+/* ── preloader ── */
+#pre{ position:fixed; inset:0; z-index:10000; background:var(--void); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:26px; transition:opacity .7s var(--ease), visibility .7s; }
+#pre.done{ opacity:0; visibility:hidden; }
+.pre-word{ font-family:var(--serif); font-size:clamp(52px,9vw,120px); letter-spacing:.08em; color:#fff; line-height:1; overflow:hidden; text-transform:uppercase; }
+.pre-word span{ display:inline-block; transform:translateY(110%); animation:preUp 1s var(--ease) forwards; }
+@keyframes preUp{ to{ transform:translateY(0); } }
+.pre-sub{ font-family:var(--mono); font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--reactor); opacity:0; animation:fade .8s ease .5s forwards; }
+@keyframes fade{ to{ opacity:.9; } }
+.pre-bar{ width:min(280px,60vw); height:2px; background:rgba(180,200,235,.16); position:relative; overflow:hidden; }
+.pre-bar i{ position:absolute; inset:0 100% 0 0; background:var(--reactor); box-shadow:0 0 12px var(--reactor); transition:right .2s linear; }
+
+/* ── custom cursor ── */
+.cursor,.cursor-d{ position:fixed; top:0; left:0; z-index:9500; pointer-events:none; border-radius:50%; will-change:transform; }
+.cursor{ width:34px; height:34px; border:1px solid var(--reactor); margin:-17px 0 0 -17px; transition:width .25s var(--ease),height .25s var(--ease),margin .25s var(--ease),background .25s; }
+.cursor-d{ width:5px; height:5px; background:var(--reactor); margin:-2.5px 0 0 -2.5px; }
+.cursor.grow{ width:64px; height:64px; margin:-32px 0 0 -32px; background:rgba(70,224,208,.1); }
+body.has-cursor *{ cursor:none !important; }
+@media(hover:none),(max-width:900px){ .cursor,.cursor-d{ display:none; } }
+
+/* ── reveal ── */
+.js [data-r]{ opacity:0; transform:translateY(32px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.js [data-r].in{ opacity:1; transform:none; }
+.js [data-r][data-d="1"]{ transition-delay:.08s; } .js [data-r][data-d="2"]{ transition-delay:.18s; } .js [data-r][data-d="3"]{ transition-delay:.28s; }
+@media(prefers-reduced-motion:reduce){ .js [data-r]{ opacity:1 !important; transform:none !important; } #pre{ display:none; } .pre-word span{ animation:none; transform:none; } *{ animation-duration:.001ms !important; } #hero .glow{ animation:none; } }
+</style>
+</head>
+<body>
+
+<div id="pre">
+  <div class="pre-word"><span>Aether</span></div>
+  <div class="pre-sub">Initialising descent…</div>
+  <div class="pre-bar"><i id="preFill"></i></div>
+</div>
+<div class="cursor" id="cur"></div>
+<div class="cursor-d" id="curD"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#hero" class="logo"><span class="dot"></span>AETHER</a>
+    <ul class="nav-links">
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#model">The Model</a></li>
+      <li><a href="#systems">Systems</a></li>
+      <li><a href="#money">Economics</a></li>
+      <li><a href="#film">The Film</a></li>
+      <li><a href="#invest" class="nav-cta">The Ask</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="depthlines"></div>
+  <div class="glow"></div>
+  <div class="hero-in">
+    <p class="hero-kicker">A Chevza Concept · Whitepaper → 3D → Film</p>
+    <h1 class="hero-h">Aether</h1>
+    <p class="hero-sub">The city we build downward.</p>
+    <div class="hero-foot">
+      <div>
+        <p class="lede">A self-powered subterranean megacity — a small modular reactor at its heart, autonomous maglev for arteries, tokenised commercial tunnels for a tax base, and agritech &amp; IP as its exports. The first city designed for a thousand-year horizon.</p>
+        <div class="hero-cta">
+          <a href="#model" class="btn btn-solid">Explore the model ↓</a>
+          <a href="#invest" class="btn btn-line">Read the thesis</a>
+        </div>
+      </div>
+      <div class="meta">Concept v1.0<br>$100B blueprint<br>Locked foundation</div>
+    </div>
+  </div>
+  <div class="scrollcue">Descend<i></i></div>
+</section>
+
+<div class="strip"><div class="strip-in">
+  <span><b>SMR thermal core</b> — Autonomous maglev — <b>Subterranean tunnels</b> — Tokenised containers — <b>Agritech exports</b> — IP &amp; compute — <b>30-year ROI</b> — Sci-fi film — <b>3D engine</b> —</span>
+  <span aria-hidden="true"><b>SMR thermal core</b> — Autonomous maglev — <b>Subterranean tunnels</b> — Tokenised containers — <b>Agritech exports</b> — IP &amp; compute — <b>30-year ROI</b> — Sci-fi film — <b>3D engine</b> —</span>
+</div></div>
+
+<!-- ═══ THESIS ═══ -->
+<section id="thesis">
+  <div class="wrap">
+    <div class="kicker" data-r>The executive thesis</div>
+    <div class="thesis-grid" style="margin-top:30px">
+      <p class="thesis-lead" data-r>We have spent a century building <em>upward and outward</em>. AETHER is the case for building <em>down</em> — where the temperature is stable, the energy is free, and the land is infinite.</p>
+      <div class="thesis-body" data-r data-d="1">
+        <p>This is the foundational DNA: the architectural skeleton that holds the entire concept together. It proves the logic, the physics, and the economics work before a single tunnel is bored.</p>
+        <p>A <strong>small modular reactor (SMR)</strong> supplies the city with constant baseload power and, critically, waste heat — which becomes the input for district climate control and year-round agritech. <strong>Autonomous maglev</strong> moves people and freight on a vectored routing mesh with no surface traffic. <strong>Tokenised commercial tunnels</strong> turn real estate into a programmable, liquid asset class that funds the build. And the city <strong>exports what it makes best</strong> — clean compute, food, and intellectual property.</p>
+        <p>If you handed this to a builder who thinks in centuries, this is the manifesto they would read on the flight.</p>
+        <div class="thesis-stats">
+          <div class="tstat"><div class="n">$<span class="u">100</span>B</div><div class="l">Concept valuation horizon</div></div>
+          <div class="tstat"><div class="n"><span class="u">30</span>yr</div><div class="l">Modelled ROI window</div></div>
+          <div class="tstat"><div class="n"><span class="u">1</span></div><div class="l">SMR thermal core</div></div>
+          <div class="tstat"><div class="n"><span class="u">∞</span></div><div class="l">Vertical land supply</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3D MODEL ═══ -->
+<section id="model">
+  <div class="wrap">
+    <div class="s-head" data-r>
+      <div><div class="kicker">The 3D model</div><h2 class="s-title">A city in <em>cross-section.</em></h2></div>
+      <p>Drag to rotate the cutaway. Nine descending strata wrap a glowing reactor core, threaded by the maglev helix. This is the seed geometry for the full 3D engine and film set.</p>
+    </div>
+    <div class="model-grid">
+      <div class="stage" data-r>
+        <canvas id="city" width="900" height="900" aria-label="Interactive 3D cross-section of the AETHER subterranean city"></canvas>
+        <div class="hud"><span class="live">● AETHER · live render</span><span id="rpm">rot 0.0°</span></div>
+        <div class="legend">
+          <span><i style="background:var(--reactor)"></i>Reactor core</span>
+          <span><i style="background:var(--maglev)"></i>Maglev helix</span>
+          <span><i style="background:#7f8aa3"></i>City strata</span>
+        </div>
+        <div class="hint">Drag to orbit · auto-rotates</div>
+      </div>
+      <div class="model-copy" data-r data-d="1">
+        <h3>Built like a <em>geode</em> — hard shell, luminous heart.</h3>
+        <p>The surface footprint is almost nothing. Everything that matters happens in the strata below: residential terraces, commercial tunnels, vertical farms, data vaults, and at the base, the reactor that powers all of it.</p>
+        <ul class="layer-list">
+          <li><span class="lv">L0</span><span class="lt"><b>Surface cap</b><span>Solar skin, air intake, the only thing you see from above.</span></span></li>
+          <li><span class="lv">L1–L3</span><span class="lt"><b>Residential terraces</b><span>Daylit by fibre-optic sun pipes; stable 21°C year-round.</span></span></li>
+          <li><span class="lv">L4–L6</span><span class="lt"><b>Commercial tunnels</b><span>The tokenised, tradable real-estate layer — the tax base.</span></span></li>
+          <li><span class="lv">L7–L8</span><span class="lt"><b>Agritech &amp; compute</b><span>Reactor waste-heat drives farms and liquid-cooled data vaults.</span></span></li>
+          <li><span class="lv">L9</span><span class="lt"><b>Reactor core</b><span>One SMR. Constant baseload. The luminous heart of the geode.</span></span></li>
+        </ul>
+        <a href="#systems" class="btn btn-line">See the systems ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SYSTEMS / WHITEPAPER ═══ -->
+<section id="systems">
+  <div class="wrap">
+    <div class="s-head" data-r>
+      <div><div class="kicker">The whitepaper · core systems</div><h2 class="s-title">Four systems, <em>one organism.</em></h2></div>
+      <p>The deep verticals — the physics and the spreadsheets behind the render. Figures below are concept-stage and to be replaced with the production model.</p>
+    </div>
+    <div class="sys-grid">
+      <div class="sys" data-r>
+        <div class="ix"><span>01 · Energy</span><b>SMR</b></div>
+        <h3>The thermal core</h3>
+        <p>A small modular reactor delivers constant baseload power. Its waste heat is not lost — it is piped as the primary input for climate control, agritech, and desalination.</p>
+        <ul class="spec">
+          <li>Output: <b>~300 MWe</b> baseload</li>
+          <li>Waste heat captured: <b>≈ 60%</b> reused</li>
+          <li>Thermal dissipation: closed-loop to strata</li>
+          <li>Footprint: sub-surface, sealed</li>
+        </ul>
+      </div>
+      <div class="sys" data-r data-d="1">
+        <div class="ix"><span>02 · Transit</span><b>MAGLEV</b></div>
+        <h3>Autonomous arteries</h3>
+        <p>People and freight ride a vectored maglev mesh. Routing is fully autonomous — no surface traffic, no signals, just continuous flow solved as a real-time vector problem.</p>
+        <ul class="spec">
+          <li>Topology: <b>helical + radial</b> mesh</li>
+          <li>Routing: autonomous vector solver</li>
+          <li>Surface roads required: <b>zero</b></li>
+          <li>Freight + transit on one spine</li>
+        </ul>
+      </div>
+      <div class="sys" data-r data-d="2">
+        <div class="ix"><span>03 · Structure</span><b>TUNNELS</b></div>
+        <h3>Subterranean shell</h3>
+        <p>The city is bored, not built. Engineered tunnel rings carry the structural load while keeping the interior at a stable temperature the surface can never offer.</p>
+        <ul class="spec">
+          <li>Strata: <b>9 load-bearing rings</b></li>
+          <li>Interior climate: <b>21°C</b> constant</li>
+          <li>Load model: ring-distributed</li>
+          <li>Daylight: fibre-optic sun pipes</li>
+        </ul>
+      </div>
+      <div class="sys" data-r>
+        <div class="ix"><span>04 · Economy</span><b>TOKENS</b></div>
+        <h3>Programmable tunnels</h3>
+        <p>Commercial tunnels are issued as on-chain containers — fractional, tradable, and revenue-bearing. Real estate becomes a liquid asset class that funds the build itself.</p>
+        <ul class="spec">
+          <li>Unit: <b>tokenised container</b></li>
+          <li>Micro-transactions on usage</li>
+          <li>Liquidity: fractional + tradable</li>
+          <li>Funds capex from day one</li>
+        </ul>
+      </div>
+      <div class="sys" data-r data-d="1">
+        <div class="ix"><span>05 · Output</span><b>EXPORTS</b></div>
+        <h3>What the city sells</h3>
+        <p>AETHER is a net exporter. Reactor-cheap power makes its compute and food globally competitive; its designs become licensable IP for the next city.</p>
+        <ul class="spec">
+          <li>Agritech: <b>year-round yield</b></li>
+          <li>Compute: liquid-cooled, low-cost</li>
+          <li>IP: the blueprint, licensed</li>
+          <li>Clean power: surplus to grid</li>
+        </ul>
+      </div>
+      <div class="sys" data-r data-d="2">
+        <div class="ix"><span>06 · Resilience</span><b>SEALED</b></div>
+        <h3>Built to outlast</h3>
+        <p>Underground means weatherproof, blast-tolerant, and thermally efficient by default. The city is engineered for a thousand-year horizon, not a quarterly one.</p>
+        <ul class="spec">
+          <li>Surface weather: <b>irrelevant</b></li>
+          <li>Thermal mass: vast, stable</li>
+          <li>Redundancy: ring isolation</li>
+          <li>Horizon: <b>1,000 years</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PIPELINE ═══ -->
+<section id="pipeline">
+  <div class="wrap">
+    <div class="s-head" data-r>
+      <div><div class="kicker">The production pipeline</div><h2 class="s-title">Whitepaper → 3D → <em>movie.</em></h2></div>
+      <p>One concept, three artifacts. Each stage feeds the next: the math defines the geometry, the geometry becomes the set, the set becomes the story.</p>
+    </div>
+    <div class="pipe">
+      <div class="phase done" data-r>
+        <div class="pn">Phase 01</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+        <h3>The Whitepaper</h3>
+        <p>The foundational DNA — physics, structure, and economics proven on paper. The skeleton everything else hangs on.</p>
+        <span class="status">Foundation locked</span>
+      </div>
+      <div class="phase" data-r data-d="1">
+        <div class="pn">Phase 02</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>The 3D Model</h3>
+        <p>The whitepaper becomes geometry — a navigable engine of the city, from cross-section render to walkable real-time world.</p>
+        <span class="status">In progress · seed live above</span>
+      </div>
+      <div class="phase" data-r data-d="2">
+        <div class="pn">Phase 03</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 9h6M2 15h6M16 9h6M16 15h6"/></svg>
+        <h3>The Film</h3>
+        <p>The set becomes story — a sci-fi feature and book that carry the concept to a billion people, not just a boardroom.</p>
+        <span class="status">In development</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINANCIALS ═══ -->
+<section id="money">
+  <div class="wrap">
+    <div class="s-head" data-r>
+      <div><div class="kicker">The economics</div><h2 class="s-title">A city that <em>pays for itself.</em></h2></div>
+      <p>Concept-stage model. The tokenised tunnels fund construction; exports compound the return across a 30-year horizon. Swap in the production spreadsheet before any raise.</p>
+    </div>
+    <div class="money-grid">
+      <div data-r>
+        <ul class="rev-list">
+          <li class="rev"><div class="rt">Tokenised tunnels<span>Fractional commercial real estate + usage fees</span><div class="bar"><i style="width:38%"></i></div></div><div class="rp">38%</div></li>
+          <li class="rev"><div class="rt">Compute &amp; data<span>Reactor-cheap, liquid-cooled vaults</span><div class="bar"><i style="width:24%"></i></div></div><div class="rp">24%</div></li>
+          <li class="rev"><div class="rt">Agritech exports<span>Year-round yield on waste heat</span><div class="bar"><i style="width:18%"></i></div></div><div class="rp">18%</div></li>
+          <li class="rev"><div class="rt">IP &amp; licensing<span>The blueprint, sold to the next city</span><div class="bar"><i style="width:12%"></i></div></div><div class="rp">12%</div></li>
+          <li class="rev"><div class="rt">Surplus power<span>Clean baseload sold to the grid</span><div class="bar"><i style="width:8%"></i></div></div><div class="rp">8%</div></li>
+        </ul>
+      </div>
+      <div class="roi" data-r data-d="1">
+        <h3>30-year ROI horizon</h3>
+        <div class="sub">Cumulative return · concept model</div>
+        <div class="roi-chart" id="roiChart">
+          <i style="height:6%"></i><i style="height:9%"></i><i style="height:13%"></i><i style="height:18%"></i><i style="height:24%"></i>
+          <i style="height:31%"></i><i style="height:40%"></i><i style="height:50%"></i><i style="height:62%"></i><i style="height:76%"></i><i class="peak" style="height:96%"></i>
+        </div>
+        <div class="roi-x"><span>Y0</span><span>Y10</span><span>Y20</span><span>Y30</span></div>
+        <p class="roi-note">Capex is front-loaded into the boring and the reactor; <b>token issuance offsets it from year one</b>. Once strata fill, export revenue compounds and the curve goes vertical. <b>Figures illustrative — replace with the production model.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FILM ═══ -->
+<section id="film">
+  <div class="wrap">
+    <div class="s-head" data-r>
+      <div><div class="kicker">The narrative · book &amp; film</div><h2 class="s-title">The cold spec, <em>made human.</em></h2></div>
+      <p>The same blueprint, told as a story — the people who build downward, and the legacy systems that fight them all the way.</p>
+    </div>
+    <div class="film-hero" data-r>
+      <p class="rating">AETHER · A Chevza Picture · Feature + Novel</p>
+      <p class="logline">When the surface becomes unlivable, one engineer bets everything on the city no one can see — and the world above does everything to bury it.</p>
+      <p class="credits">Logline · concept-stage · score, cast &amp; treatment TBD</p>
+    </div>
+    <div class="acts">
+      <div class="act" data-r>
+        <div class="an">Act I · The Descent</div>
+        <h4>Proof on paper</h4>
+        <p>An engineer-founder proves the physics and economics work. The reactor lights. The first strata are bored. Belief outruns the budget.</p>
+      </div>
+      <div class="act" data-r data-d="1">
+        <div class="an">Act II · The Resistance</div>
+        <h4>The world above</h4>
+        <p>Legacy energy, surface real estate, and the political machine move to stop a city they can't tax or control. The maglev becomes a battleground.</p>
+      </div>
+      <div class="act" data-r data-d="2">
+        <div class="an">Act III · The Light</div>
+        <h4>The geode opens</h4>
+        <p>The tokenised tunnels fill, exports flow, and a buried city becomes the most valuable place on Earth — and a blueprint anyone can copy.</p>
+      </div>
+    </div>
+    <div class="cast">
+      <div class="char" data-r><div class="role">Protagonist</div><h5>The Founder</h5><p>The engineer who thinks in centuries and bets the whole horizon on going down.</p></div>
+      <div class="char" data-r data-d="1"><div class="role">The system</div><h5>The Incumbent</h5><p>Surface power and capital — everything AETHER quietly makes obsolete.</p></div>
+      <div class="char" data-r data-d="2"><div class="role">The heart</div><h5>The City</h5><p>AETHER itself — a character that wakes, breathes heat, and learns.</p></div>
+      <div class="char" data-r data-d="3"><div class="role">The bridge</div><h5>The First Citizen</h5><p>The one who chooses to live below, and shows the surface what it's missing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INVEST ═══ -->
+<section id="invest">
+  <div class="wrap">
+    <div class="invest-card">
+      <div class="glowdot"></div>
+      <div class="kicker" data-r>The ask</div>
+      <h2 data-r data-d="1">Build the <em>first one</em> with us.</h2>
+      <p data-r data-d="2">The foundation is locked. The next chapter is the full production whitepaper, the navigable 3D engine, and the film treatment. We're looking for one partner who thinks in centuries — not quarters — to take AETHER from blueprint to broken ground.</p>
+      <div class="invest-cta" data-r data-d="2">
+        <a href="mailto:hloninchefu@gmail.com?subject=AETHER%20—%20Investor%20enquiry" class="btn btn-solid">Request the deck</a>
+        <a href="#model" class="btn btn-line">Re-explore the model</a>
+      </div>
+      <div class="invest-meta" data-r data-d="3">
+        <a href="mailto:hloninchefu@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>hloninchefu@gmail.com</a>
+        <a href="https://hrypopo.github.io/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>A Chevza venture</a>
+        <span>Johannesburg · concept v1.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <a href="#hero" class="logo">AETHER</a>
+    <div class="foot-links"><a href="#thesis">Thesis</a><a href="#model">Model</a><a href="#systems">Systems</a><a href="#film">Film</a><a href="index.html">Chevza ↗</a></div>
+    <div class="foot-copy">© 2026 Chevza · AETHER is a speculative concept · Johannesburg, South Africa</div>
+    <div class="foot-disc">AETHER is a forward-looking concept and creative work. Technical specifications, financial figures, and the 30-year ROI model are illustrative and concept-stage — not engineering guarantees, financial advice, or an offer of securities. Replace all figures with a production model before any raise.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  /* preloader */
+  const pre=document.getElementById('pre'), fill=document.getElementById('preFill');
+  if(reduced){ pre&&pre.classList.add('done'); }
+  else{ let p=0; const t=setInterval(()=>{ p+=Math.random()*16+7; if(p>=100){p=100;clearInterval(t);setTimeout(()=>pre.classList.add('done'),320);} fill.style.right=(100-p)+'%'; },95);
+    setTimeout(()=>pre.classList.add('done'),2600); }
+
+  /* nav scrolled */
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>16),{passive:true});
+
+  /* reveal */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} }),{threshold:.06});
+  document.querySelectorAll('[data-r]').forEach(el=>io.observe(el));
+  setTimeout(()=>document.querySelectorAll('[data-r]').forEach(el=>el.classList.add('in')),3000);
+
+  /* custom cursor */
+  if(!reduced && matchMedia('(hover:hover)').matches && innerWidth>900){
+    document.body.classList.add('has-cursor');
+    const cur=document.getElementById('cur'), dot=document.getElementById('curD');
+    let cx=innerWidth/2,cy=innerHeight/2,dx=cx,dy=cy;
+    addEventListener('mousemove',e=>{ cx=e.clientX;cy=e.clientY; dot.style.transform=`translate(${cx}px,${cy}px)`; },{passive:true});
+    (function loop(){ dx+=(cx-dx)*.18; dy+=(cy-dy)*.18; cur.style.transform=`translate(${dx}px,${dy}px)`; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a,button,.sys,.phase,.act,.char,.stage').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cur.classList.add('grow'));
+      el.addEventListener('mouseleave',()=>cur.classList.remove('grow'));
+    });
+  }
+
+  /* ───────── interactive 3D city cross-section (dependency-free canvas) ───────── */
+  const canvas=document.getElementById('city');
+  if(canvas && canvas.getContext){
+    const ctx=canvas.getContext('2d');
+    let W=canvas.width, H=canvas.height, DPR=Math.min(devicePixelRatio||1,2);
+    function size(){
+      const r=canvas.getBoundingClientRect();
+      W=Math.max(2,Math.round(r.width*DPR)); H=Math.max(2,Math.round(r.height*DPR));
+      canvas.width=W; canvas.height=H;
+    }
+    size(); addEventListener('resize',size,{passive:true});
+
+    // Build geometry: 9 strata rings of varying radius descending a central spine,
+    // a glowing reactor core at the base, and a maglev helix threading the levels.
+    const LEVELS=10, SEG=26, RUNIT=1;
+    const radii=[1.02,1.0,.94,.86,.82,.72,.6,.46,.3,.16]; // surface → core
+    const rings=[];
+    for(let l=0;l<LEVELS;l++){
+      const y=(l/(LEVELS-1))*2-1;        // -1 (top) .. 1 (bottom)
+      const rad=radii[l]*1.0;
+      const ring=[];
+      for(let s=0;s<SEG;s++){
+        const a=(s/SEG)*Math.PI*2;
+        ring.push([Math.cos(a)*rad, y, Math.sin(a)*rad]);
+      }
+      rings.push({y, rad, pts:ring});
+    }
+    // maglev helix points
+    const helix=[];
+    for(let i=0;i<=LEVELS*SEG*0.5;i++){
+      const t=i/(LEVELS*SEG*0.5);
+      const y=t*2-1;
+      const rad=(1.02-(t*0.86));
+      const a=t*Math.PI*2*3.2;
+      helix.push([Math.cos(a)*rad, y, Math.sin(a)*rad]);
+    }
+
+    let rotY=0.5, rotX=-0.42, autoV=0.0045, dragV=0, vY=0;
+    let dragging=false, lastX=0, lastY=0;
+    const rpm=document.getElementById('rpm');
+
+    function project(p){
+      // rotate Y
+      let x=p[0], y=p[1], z=p[2];
+      let cx=Math.cos(rotY), sx=Math.sin(rotY);
+      let x1=x*cx - z*sx, z1=x*sx + z*cx;
+      // rotate X (tilt)
+      let cy=Math.cos(rotX), sy=Math.sin(rotX);
+      let y1=y*cy - z1*sy, z2=y*sy + z1*cy;
+      const fov=3.2, scale=Math.min(W,H)*0.34;
+      const f=fov/(fov+z2);
+      return { x:W/2 + x1*scale*f, y:H/2 + y1*scale*f, z:z2, f };
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+
+      // depth gridlines (subtle vertical wells)
+      // draw rings back-to-front by sorting via average z
+      const order=[];
+      rings.forEach((ring,idx)=>{
+        let zsum=0; const proj=ring.pts.map(p=>{ const q=project(p); zsum+=q.z; return q; });
+        order.push({idx, z:zsum/ring.pts.length, proj, ring});
+      });
+      order.sort((a,b)=>b.z-a.z);
+
+      // vertical struts (spine to rings) drawn first, faint
+      ctx.lineWidth=1*DPR;
+      for(const o of order){
+        const a=o.ring.rad;
+        // connect a few struts down the spine
+      }
+
+      // helix (maglev) behind/below — draw as glowing polyline
+      ctx.save();
+      ctx.lineWidth=2.2*DPR; ctx.strokeStyle='rgba(111,140,255,.55)';
+      ctx.shadowColor='rgba(111,140,255,.7)'; ctx.shadowBlur=12*DPR;
+      ctx.beginPath();
+      helix.forEach((p,i)=>{ const q=project(p); i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y); });
+      ctx.stroke();
+      ctx.restore();
+
+      // rings + vertical connectors
+      order.forEach(o=>{
+        const depth=(o.z+1.6)/3.2; // 0..1-ish
+        const alpha=0.18+Math.max(0,Math.min(1,depth))*0.62;
+        const lvl=o.idx; const isCore=lvl>=LEVELS-1;
+        ctx.lineWidth=(isCore?2.2:1.3)*DPR;
+        ctx.strokeStyle=isCore?`rgba(70,224,208,${0.9})`:`rgba(150,170,205,${alpha})`;
+        ctx.beginPath();
+        o.proj.forEach((q,i)=>{ i?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y); });
+        ctx.closePath(); ctx.stroke();
+
+        // nodes
+        o.proj.forEach((q,i)=>{
+          if(i%2!==0 && !isCore) return;
+          const r=(isCore?2.2:1.3)*DPR*(q.f);
+          ctx.beginPath(); ctx.fillStyle=isCore?'rgba(70,224,208,.95)':`rgba(180,200,235,${alpha})`;
+          ctx.arc(q.x,q.y,Math.max(.6,r),0,Math.PI*2); ctx.fill();
+        });
+
+        // connect to next inner ring (struts) for structure feel
+        if(lvl<LEVELS-1){
+          const inner=order.find(x=>x.idx===lvl+1);
+          if(inner){
+            ctx.lineWidth=0.8*DPR; ctx.strokeStyle=`rgba(120,140,175,${alpha*0.5})`;
+            ctx.beginPath();
+            for(let s=0;s<SEG;s+=2){
+              const a=o.proj[s], b=inner.proj[s%inner.proj.length];
+              if(a&&b){ ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); }
+            }
+            ctx.stroke();
+          }
+        }
+      });
+
+      // reactor core glow at base center
+      const core=project([0,1,0]);
+      const g=ctx.createRadialGradient(core.x,core.y,0,core.x,core.y,Math.min(W,H)*0.16);
+      g.addColorStop(0,'rgba(103,255,238,.95)');
+      g.addColorStop(.4,'rgba(70,224,208,.45)');
+      g.addColorStop(1,'rgba(70,224,208,0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(core.x,core.y,Math.min(W,H)*0.16,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='rgba(255,255,255,.95)'; ctx.beginPath(); ctx.arc(core.x,core.y,4*DPR,0,Math.PI*2); ctx.fill();
+
+      if(rpm) rpm.textContent='rot '+((rotY*180/Math.PI)%360).toFixed(0).replace('-','')+'°';
+    }
+
+    function tick(){
+      if(!dragging){
+        rotY+=autoV+vY;
+        vY*=0.93; if(Math.abs(vY)<0.0002) vY=0;
+      }
+      // clamp tilt
+      rotX=Math.max(-1.1,Math.min(-0.05,rotX));
+      draw();
+      requestAnimationFrame(tick);
+    }
+
+    // pointer interaction
+    function down(e){ dragging=true; const p=e.touches?e.touches[0]:e; lastX=p.clientX; lastY=p.clientY; vY=0; }
+    function move(e){
+      if(!dragging) return;
+      const p=e.touches?e.touches[0]:e;
+      const dx=(p.clientX-lastX), dy=(p.clientY-lastY);
+      rotY+=dx*0.008; rotX+=dy*0.006; vY=dx*0.0006;
+      lastX=p.clientX; lastY=p.clientY;
+      if(e.cancelable) e.preventDefault();
+    }
+    function up(){ dragging=false; }
+    canvas.addEventListener('mousedown',down); addEventListener('mousemove',move); addEventListener('mouseup',up);
+    canvas.addEventListener('touchstart',down,{passive:true}); canvas.addEventListener('touchmove',move,{passive:false}); addEventListener('touchend',up);
+
+    if(reduced){ autoV=0; draw(); } else { tick(); }
+  }
+})();
+</script>
+</body>
+</html>
