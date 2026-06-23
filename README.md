@@ -16,6 +16,8 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 | [`aether-engineering.html`](aether-engineering.html) | AETHER Vol. I — production-depth engineering (thermodynamics, maglev, geotechnics, life support) |
 | [`aether-financials.html`](aether-financials.html) | AETHER Vol. II — production-depth financial model (capex, tokenomics, 30-yr annual model, NPV/IRR, sensitivity) |
 | [`aether-bible.html`](aether-bible.html) | AETHER Vol. III — production-depth story bible (world, factions, characters, episode beats) |
+| [`aether-deck.html`](aether-deck.html) | AETHER investor deck — 16 cinematic, keyboard-navigable slides |
+| [`aether-pilot.html`](aether-pilot.html) | AETHER pilot screenplay — Episode 101, "First Light" (teaser + Act One) |
 | [`404.html`](404.html) | Custom not-found page, on brand |
 | `project/` | FileMayor design source files (deck, carousels, brand book) |
 | `assets/` | Favicon + generated Open Graph social cards |
