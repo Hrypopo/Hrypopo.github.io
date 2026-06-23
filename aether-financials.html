@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AETHER — Financial Model · Capex, Tokenomics &amp; ROI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AETHER Financial Model — production-depth economics: full capex and opex breakdown, per-stream revenue and unit economics, token supply schedule, a year-by-year 30-year cash-flow model, NPV/IRR, sensitivity analysis, and the financing structure.">
+<meta property="og:title" content="AETHER — Financial Model">
+<meta property="og:description" content="Production-depth economics: capex, opex, tokenomics, a 30-year annual model, NPV/IRR, and sensitivity.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hrypopo.github.io/aether-financials.html">
+<meta property="og:image" content="https://hrypopo.github.io/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05070d">
+<link rel="canonical" href="https://hrypopo.github.io/aether-financials.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aether.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="aether.html" class="logo"><span class="dot"></span>AETHER <small>Vol. II — Financials</small></a>
+    <div class="nav-r">
+      <a href="aether-whitepaper.html" class="ghost">← Whitepaper</a>
+      <a href="aether-engineering.html" class="ghost">Engineering</a>
+      <a href="aether-bible.html" class="ghost">Story Bible</a>
+      <a href="aether.html" class="cta">Overview</a>
+    </div>
+  </div>
+</nav>
+<div id="prog"></div>
+
+<header class="mast">
+  <p class="ey">Production-Depth Volume II · Financial Model · Concept Stage</p>
+  <h1>The Financial Model</h1>
+  <p class="deck">How a buried city pays for itself, then compounds.</p>
+  <p class="byline">
+    <b>AETHER Financial Model</b> — capex, opex, revenue, tokenomics, sensitivity<br>
+    A Chevza concept · Companion to the <a href="aether-whitepaper.html">Whitepaper</a><br>
+    Version 1.0 · 22 June 2026 · All figures illustrative
+  </p>
+  <div class="actions">
+    <a href="#cashflow" class="btn btn-solid">Jump to the 30-year model ↓</a>
+    <a href="aether-whitepaper.html" class="btn btn-line">Back to whitepaper</a>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="toc">
+    <p class="tl">Contents</p>
+    <ol>
+      <li><a href="#method">Methodology</a></li>
+      <li><a href="#capex">Capex Breakdown</a></li>
+      <li><a href="#opex">Opex &amp; Margin</a></li>
+      <li><a href="#revenue">Revenue Streams</a></li>
+      <li><a href="#units">Unit Economics</a></li>
+      <li><a href="#tokenomics">Token Supply &amp; Treasury</a></li>
+      <li><a href="#cashflow">30-Year Cash Flow</a></li>
+      <li><a href="#returns">NPV, IRR &amp; Payback</a></li>
+      <li><a href="#sensitivity">Sensitivity Analysis</a></li>
+      <li><a href="#siting">Siting Economics</a></li>
+      <li><a href="#raise">The Raise</a></li>
+      <li><a href="#assumptions">Assumptions &amp; Risk</a></li>
+    </ol>
+  </aside>
+
+  <article>
+
+    <section class="sec" id="method">
+      <p class="num">Vol. II · 01 — Methodology</p>
+      <h2>One model, three claims to defend.</h2>
+      <p class="lead">The financial case rests on three claims: capex is <em>large but bounded</em>, token issuance <em>front-runs</em> that capex, and reactor-cheap energy makes the exports <em>structurally high-margin</em>. This volume defends each with numbers you can audit.</p>
+      <p>All figures are in <strong>USD billions</strong> unless noted, real (inflation-adjusted), concept-stage. The model is a deterministic 30-year discounted cash flow with a token-issuance overlay. "Revenue" rows in the cash-flow table are <strong>operating cash flow</strong> (gross revenue net of opex); capex is shown separately.</p>
+      <div class="family">
+        <a href="aether-engineering.html"><div class="vk">Vol. I</div><h4>Engineering</h4><p>Physics &amp; systems.</p></a>
+        <a href="aether-financials.html" class="here"><div class="vk">Vol. II</div><h4>Financial Model</h4><p>You are here.</p></a>
+        <a href="aether-bible.html"><div class="vk">Vol. III</div><h4>Story Bible</h4><p>Lore, characters, beats.</p></a>
+      </div>
+      <div class="call warn">
+        <div class="k">Disclaimer</div>
+        <p>This is an illustrative concept model, <strong>not</strong> financial advice, a valuation, or an offer of securities. Numbers exist to show the model's <em>shape</em> and that it closes — every input must be replaced with diligence-grade data before any raise.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="capex">
+      <p class="num">Vol. II · 02 — Capex Breakdown</p>
+      <h2>Where the $39B goes.</h2>
+      <p>Two line items dominate — boring and structure — exactly as the engineering volume predicts. The reactor is large but a minority of total spend.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Line item</th><th>Driver</th><th class="num">Capex ($B)</th></tr></thead>
+          <tbody>
+            <tr><td>Boring &amp; excavation</td><td>TBMs, shafts, muck handling (Vol. I §11)</td><td class="num">12.0</td></tr>
+            <tr><td>Structural lining &amp; support</td><td>Lamé-sized linings (Vol. I §8)</td><td class="num">7.0</td></tr>
+            <tr><td>Reactor &amp; power island</td><td>SMR + steam cycle + grid-tie</td><td class="num">6.0</td></tr>
+            <tr><td>Maglev spine + pods</td><td>Guideway, LSM, fleet</td><td class="num">4.0</td></tr>
+            <tr><td>MEP / life support / water</td><td>Ventilation, scrubbing, MED desal</td><td class="num">4.0</td></tr>
+            <tr><td>Shell fit-out</td><td>Residential + commercial cores</td><td class="num">3.5</td></tr>
+            <tr><td>Compute &amp; data infrastructure</td><td>Liquid-cooled vaults</td><td class="num">1.5</td></tr>
+            <tr><td>Daylight optics + contingency</td><td>Sun pipes, misc.</td><td class="num">1.0</td></tr>
+            <tr class="tot"><td>Total capex</td><td></td><td class="num">39.0</td></tr>
+          </tbody>
+        </table>
+        <caption>Table II.1 — Lifetime capex (illustrative). ~49% is boring + structure.</caption>
+      </div>
+    </section>
+
+    <section class="sec" id="opex">
+      <p class="num">Vol. II · 03 — Opex &amp; Margin</p>
+      <h2>Reactor-cheap energy is the margin engine.</h2>
+      <p>Operating cost is dominated by reactor O&amp;M/fuel, staffing, and maintenance. Because the city makes its own power and reuses ~60% of waste heat, energy — the largest opex line for any data centre, farm, or desal plant — is near-marginal. We model a blended operating margin <strong>m</strong> on gross revenue:</p>
+      <div class="eq">
+        <span class="tag">(II.1)</span>
+        <div class="formula"><b>OCF</b> = Gross × m &nbsp;,&nbsp; m ≈ 0.55–0.65 at maturity</div>
+        <div class="where">OCF = operating cash flow (the "Revenue" column in §7). Energy self-supply lifts m well above surface-industry norms.</div>
+      </div>
+      <div class="kv">
+        <div>Reactor O&amp;M + fuel</div><div>largest opex line</div>
+        <div>Energy purchased</div><div>≈ 0 (net exporter)</div>
+        <div>Blended operating margin m</div><div>0.55–0.65</div>
+        <div>Maintenance reserve</div><div>per-ring sinking fund</div>
+      </div>
+    </section>
+
+    <section class="sec" id="revenue">
+      <p class="num">Vol. II · 04 — Revenue Streams</p>
+      <h2>Five streams, one shared cost base.</h2>
+      <p>Every stream is subsidised by the same cheap energy and shared infrastructure, so each carries high incremental margin. Mix at maturity (whitepaper Table 1):</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Stream</th><th>Pricing basis</th><th class="num">Share</th></tr></thead>
+          <tbody>
+            <tr><td>Tokenised tunnels</td><td>Lease + resale + usage fees</td><td class="num">38%</td></tr>
+            <tr><td>Compute &amp; data</td><td>$/GPU-hr, undercut on power</td><td class="num">24%</td></tr>
+            <tr><td>Agritech</td><td>Premium year-round yield</td><td class="num">18%</td></tr>
+            <tr><td>IP &amp; licensing</td><td>Per-city blueprint licence</td><td class="num">12%</td></tr>
+            <tr><td>Surplus power</td><td>$/MWh to surface grid</td><td class="num">8%</td></tr>
+          </tbody>
+        </table>
+        <caption>Table II.2 — Mature revenue mix.</caption>
+      </div>
+      <p>The ramp is occupancy-driven: usage revenue scales with filled strata (whitepaper Eq. 8.2, R = N·f̄). Early years are token-sale heavy; late years are export-heavy.</p>
+    </section>
+
+    <section class="sec" id="units">
+      <p class="num">Vol. II · 05 — Unit Economics</p>
+      <h2>The per-unit numbers under the totals.</h2>
+      <div class="kv">
+        <div>Levelised cost of energy (self-supply)</div><div>low $/MWh</div>
+        <div>Desal water cost (waste-heat MED)</div><div>&lt; surface RO $/m³</div>
+        <div>Compute power cost vs. surface DC</div><div>materially lower $/GPU-hr</div>
+        <div>Commercial tunnel — initial token price p₀</div><div>set by capacity pre-sale</div>
+        <div>Usage micro-fee f̄</div><div>per logistics/compute/energy txn</div>
+        <div>Revenue per resident (mature)</div><div>gross ÷ P</div>
+      </div>
+      <p>The defensible unit-economics claim is narrow and strong: <strong>AETHER does not need a pricing premium to win</strong>. It wins because its input cost — energy — is structurally below any surface competitor's. Premiums on agritech and habitability are upside, not the base case.</p>
+    </section>
+
+    <section class="sec" id="tokenomics">
+      <p class="num">Vol. II · 06 — Token Supply &amp; Treasury</p>
+      <h2>Issuance as construction finance.</h2>
+      <p>Container tokens are claims on commercial-tunnel capacity. Issuance is phased to track completed rings, so supply expands only as real, revenue-bearing space comes online — avoiding the speculative oversupply that breaks most asset tokens.</p>
+      <div class="eq">
+        <span class="tag">(II.2)</span>
+        <div class="formula"><b>I</b><sub>t</sub> = ΔS<sub>t</sub> · p<sub>t</sub> &nbsp;,&nbsp; Σ I<sub>t</sub> ≈ funds a large share of early capex</div>
+        <div class="where">ΔS<sub>t</sub> = tokens issued in year t (capacity completed); p<sub>t</sub> = price (rises with proven occupancy/yield).</div>
+      </div>
+      <ul>
+        <li><strong>Phased supply:</strong> tokens minted only against commissioned capacity.</li>
+        <li><strong>Treasury:</strong> a share of issuance + usage fees funds a maintenance/sinking reserve and buy-back stabilisation.</li>
+        <li><strong>Secondary liquidity:</strong> holders trade freely; the city captures a small transfer fee.</li>
+        <li><strong>Alignment:</strong> token value tracks real occupancy and yield, not pure speculation.</li>
+      </ul>
+      <div class="call warn">
+        <div class="k">Legal</div>
+        <p>These instruments are securities in most jurisdictions and require qualified structuring (offering exemptions, custody, KYC/AML). Out of scope for this concept model.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="cashflow">
+      <p class="num">Vol. II · 07 — 30-Year Cash Flow</p>
+      <h2>The full annual model.</h2>
+      <p>Year-by-year, USD billions. "OCF" is operating cash flow (gross net of opex). "Net" = OCF − Capex. Cumulative crosses zero around <strong>Year 13</strong>.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Yr</th><th class="num">Capex</th><th class="num">OCF</th><th class="num">Net</th><th class="num">Cum.</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="num">−5.0</td><td class="num">0.0</td><td class="num neg">−5.0</td><td class="num neg">−5.0</td></tr>
+            <tr><td>2</td><td class="num">−5.0</td><td class="num">0.5</td><td class="num neg">−4.5</td><td class="num neg">−9.5</td></tr>
+            <tr><td>3</td><td class="num">−4.0</td><td class="num">1.0</td><td class="num neg">−3.0</td><td class="num neg">−12.5</td></tr>
+            <tr><td>4</td><td class="num">−2.5</td><td class="num">1.8</td><td class="num neg">−0.7</td><td class="num neg">−13.2</td></tr>
+            <tr><td>5</td><td class="num">−1.5</td><td class="num">2.7</td><td class="num pos">+1.2</td><td class="num neg">−12.0</td></tr>
+            <tr><td>6</td><td class="num">−2.5</td><td class="num">2.0</td><td class="num neg">−0.5</td><td class="num neg">−12.5</td></tr>
+            <tr><td>7</td><td class="num">−2.0</td><td class="num">2.4</td><td class="num pos">+0.4</td><td class="num neg">−12.1</td></tr>
+            <tr><td>8</td><td class="num">−2.0</td><td class="num">2.8</td><td class="num pos">+0.8</td><td class="num neg">−11.3</td></tr>
+            <tr><td>9</td><td class="num">−1.5</td><td class="num">3.2</td><td class="num pos">+1.7</td><td class="num neg">−9.6</td></tr>
+            <tr><td>10</td><td class="num">−1.0</td><td class="num">3.6</td><td class="num pos">+2.6</td><td class="num neg">−7.0</td></tr>
+            <tr><td>11</td><td class="num">−1.5</td><td class="num">3.8</td><td class="num pos">+2.3</td><td class="num neg">−4.7</td></tr>
+            <tr><td>12</td><td class="num">−1.2</td><td class="num">4.4</td><td class="num pos">+3.2</td><td class="num neg">−1.5</td></tr>
+            <tr><td>13</td><td class="num">−1.0</td><td class="num">4.8</td><td class="num pos">+3.8</td><td class="num pos">+2.3</td></tr>
+            <tr><td>14</td><td class="num">−0.8</td><td class="num">5.4</td><td class="num pos">+4.6</td><td class="num pos">+6.9</td></tr>
+            <tr><td>15</td><td class="num">−0.5</td><td class="num">5.6</td><td class="num pos">+5.1</td><td class="num pos">+12.0</td></tr>
+            <tr><td>16</td><td class="num">−0.8</td><td class="num">6.2</td><td class="num pos">+5.4</td><td class="num pos">+17.4</td></tr>
+            <tr><td>17</td><td class="num">−0.7</td><td class="num">6.8</td><td class="num pos">+6.1</td><td class="num pos">+23.5</td></tr>
+            <tr><td>18</td><td class="num">−0.6</td><td class="num">7.2</td><td class="num pos">+6.6</td><td class="num pos">+30.1</td></tr>
+            <tr><td>19</td><td class="num">−0.5</td><td class="num">7.6</td><td class="num pos">+7.1</td><td class="num pos">+37.2</td></tr>
+            <tr><td>20</td><td class="num">−0.4</td><td class="num">8.2</td><td class="num pos">+7.8</td><td class="num pos">+45.0</td></tr>
+            <tr><td>21</td><td class="num">−0.5</td><td class="num">8.8</td><td class="num pos">+8.3</td><td class="num pos">+53.3</td></tr>
+            <tr><td>22</td><td class="num">−0.5</td><td class="num">9.4</td><td class="num pos">+8.9</td><td class="num pos">+62.2</td></tr>
+            <tr><td>23</td><td class="num">−0.4</td><td class="num">10.0</td><td class="num pos">+9.6</td><td class="num pos">+71.8</td></tr>
+            <tr><td>24</td><td class="num">−0.3</td><td class="num">10.6</td><td class="num pos">+10.3</td><td class="num pos">+82.1</td></tr>
+            <tr><td>25</td><td class="num">−0.3</td><td class="num">11.2</td><td class="num pos">+10.9</td><td class="num pos">+93.0</td></tr>
+            <tr><td>26</td><td class="num">−0.4</td><td class="num">11.8</td><td class="num pos">+11.4</td><td class="num pos">+104.4</td></tr>
+            <tr><td>27</td><td class="num">−0.4</td><td class="num">12.4</td><td class="num pos">+12.0</td><td class="num pos">+116.4</td></tr>
+            <tr><td>28</td><td class="num">−0.4</td><td class="num">13.0</td><td class="num pos">+12.6</td><td class="num pos">+129.0</td></tr>
+            <tr><td>29</td><td class="num">−0.4</td><td class="num">13.4</td><td class="num pos">+13.0</td><td class="num pos">+142.0</td></tr>
+            <tr><td>30</td><td class="num">−0.4</td><td class="num">13.4</td><td class="num pos">+13.0</td><td class="num pos">+155.0</td></tr>
+            <tr class="tot"><td>Σ</td><td class="num">−39.0</td><td class="num">194.0</td><td class="num"><span class="pos">+155.0</span></td><td class="num"><span class="pos">+155.0</span></td></tr>
+          </tbody>
+        </table>
+        <caption>Table II.3 — Full 30-year cash-flow model (USD B, illustrative). Crossover ≈ Y13.</caption>
+      </div>
+      <div class="fig">
+        <figure>
+          <div class="frame">
+            <div class="bars">
+              <i class="neg" style="height:9%"></i><i class="neg" style="height:16%"></i><i class="neg" style="height:21%"></i><i class="neg" style="height:22%"></i><i class="neg" style="height:20%"></i>
+              <i class="neg" style="height:21%"></i><i class="neg" style="height:20%"></i><i class="neg" style="height:19%"></i><i class="neg" style="height:16%"></i><i class="neg" style="height:12%"></i>
+              <i class="neg" style="height:8%"></i><i class="neg" style="height:3%"></i><i style="height:2%"></i><i style="height:5%"></i><i style="height:8%"></i>
+              <i style="height:12%"></i><i style="height:16%"></i><i style="height:20%"></i><i style="height:25%"></i><i style="height:30%"></i>
+              <i style="height:35%"></i><i style="height:41%"></i><i style="height:47%"></i><i style="height:54%"></i><i style="height:61%"></i>
+              <i style="height:68%"></i><i style="height:76%"></i><i style="height:84%"></i><i style="height:92%"></i><i class="peak" style="height:100%"></i>
+            </div>
+            <div class="bars-x"><span>Y1</span><span>Y10</span><span>Y13 ⟂</span><span>Y20</span><span>Y30</span></div>
+          </div>
+          <figcaption><b>Fig. II.1</b> — Cumulative position by year. Below zero through capex, crossing positive ≈ Y13, vertical thereafter.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec" id="returns">
+      <p class="num">Vol. II · 08 — NPV, IRR &amp; Payback</p>
+      <h2>The headline metrics.</h2>
+      <p>Discounting the annual net series (Table II.3) gives the returns. Computed at an 8% real discount rate:</p>
+      <div class="eq">
+        <span class="tag">(II.3)</span>
+        <div class="formula"><b>NPV</b> = Σ<sub>t=1</sub><sup>30</sup> Net<sub>t</sub>/(1+r)<sup>t</sup> ≈ <b>+$22B</b> &nbsp;at r = 8%</div>
+        <div class="formula"><b>IRR</b> ≈ 13% &nbsp;|&nbsp; <b>Payback</b> ≈ Year 13 (undiscounted)</div>
+        <div class="where">Illustrative, from the annual series. Terminal value beyond Y30 (the city keeps operating for centuries and the blueprint keeps licensing) is excluded — it is pure upside.</div>
+      </div>
+      <div class="kv">
+        <div>NPV @ 8%</div><div>≈ +$22B</div>
+        <div>IRR</div><div>≈ 13%</div>
+        <div>Undiscounted payback</div><div>≈ Year 13</div>
+        <div>30-yr cumulative net</div><div>+$155B</div>
+        <div>Terminal value (post-Y30)</div><div>excluded (upside)</div>
+      </div>
+    </section>
+
+    <section class="sec" id="sensitivity">
+      <p class="num">Vol. II · 09 — Sensitivity Analysis</p>
+      <h2>What moves the answer.</h2>
+      <p>NPV is most sensitive to the <strong>occupancy ramp</strong> (how fast strata fill) and the <strong>operating margin</strong> (how cheap the energy really is) — both downstream of engineering execution. Capex overruns hurt but are bounded by the phased, token-funded build.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Driver</th><th>Swing tested</th><th class="num">NPV impact</th></tr></thead>
+          <tbody>
+            <tr><td>Occupancy ramp speed</td><td>±2 yr to fill</td><td class="num">High (±)</td></tr>
+            <tr><td>Operating margin m</td><td>0.55 ↔ 0.65</td><td class="num">High (±)</td></tr>
+            <tr><td>Discount rate r</td><td>6% ↔ 10%</td><td class="num">High (∓)</td></tr>
+            <tr><td>Capex overrun</td><td>+25%</td><td class="num">Medium (−)</td></tr>
+            <tr><td>Token price p₀</td><td>±30%</td><td class="num">Medium (±)</td></tr>
+            <tr><td>Reuse fraction φ</td><td>0.5 ↔ 0.7</td><td class="num">Medium (±)</td></tr>
+            <tr><td>Power export price</td><td>±40%</td><td class="num">Low (±)</td></tr>
+          </tbody>
+        </table>
+        <caption>Table II.4 — Tornado-style sensitivity (directional, illustrative).</caption>
+      </div>
+      <p><strong>Read:</strong> the project lives or dies on <em>filling the city and keeping energy cheap</em> — i.e. on the engineering in Vol. I, not on financial engineering. That is the right place for the risk to sit.</p>
+    </section>
+
+    <section class="sec" id="siting">
+      <p class="num">Vol. II · 10 — Siting Economics</p>
+      <h2>Rock quality is a capex lever, not a detail.</h2>
+      <p>Per Vol. I §8, competent host rock carries load by arching and slashes lining demand — the single largest swing in the $19B boring+structure block. The ideal site combines: high-RMR rock, low seismicity, a desalination-friendly water source, and grid proximity for power export. Siting is therefore a financial decision as much as a geological one.</p>
+      <div class="kv">
+        <div>Host rock quality</div><div>high RMR/Q → lower lining capex</div>
+        <div>Seismicity</div><div>low → simpler connections</div>
+        <div>Water access</div><div>enables MED desal revenue</div>
+        <div>Grid proximity</div><div>enables power-export revenue</div>
+      </div>
+    </section>
+
+    <section class="sec" id="raise">
+      <p class="num">Vol. II · 11 — The Raise</p>
+      <h2>What the first cheque buys.</h2>
+      <p>The capital stack blends a patient anchor equity partner (the "thinks-in-centuries" investor), phased token issuance against completed capacity, and project debt secured on contracted export revenue. The first tranche funds the path to first revenue — not the whole city.</p>
+      <ul>
+        <li><strong>Phase A (this raise):</strong> production whitepaper, full 3D engine, film treatment, site selection, and a single-stratum engineering pilot.</li>
+        <li><strong>Phase B:</strong> reactor + first commissioned rings; begin token issuance against real capacity.</li>
+        <li><strong>Phase C:</strong> downward expansion self-funded by issuance + early export OCF.</li>
+      </ul>
+      <div class="actions">
+        <a href="mailto:hloninchefu@gmail.com?subject=AETHER%20—%20Investor%20enquiry" class="btn btn-solid">Request the full deck ↗</a>
+        <a href="aether.html" class="btn btn-line">Back to overview</a>
+      </div>
+    </section>
+
+    <section class="sec" id="assumptions">
+      <p class="num">Vol. II · 12 — Assumptions &amp; Risk</p>
+      <h2>The inputs, on the table.</h2>
+      <div class="kv">
+        <div>Currency / basis</div><div>USD B, real</div>
+        <div>Horizon</div><div>30 yr (terminal excluded)</div>
+        <div>Discount rate r</div><div>8% real</div>
+        <div>Operating margin m</div><div>0.55–0.65</div>
+        <div>Total capex</div><div>$39B (Table II.1)</div>
+        <div>Crossover</div><div>≈ Year 13</div>
+        <div>NPV @ 8% / IRR</div><div>≈ +$22B / ≈ 13%</div>
+      </div>
+      <p>Principal financial risks: <strong>slow occupancy ramp</strong>, <strong>capex overrun on boring</strong>, <strong>token regulatory friction</strong>, and <strong>margin erosion</strong> if energy reuse underperforms. Each maps directly to an engineering risk in Vol. I §12 — the financial and engineering risk registers are two views of the same list.</p>
+      <div class="call warn">
+        <div class="k">Final note</div>
+        <p>Replace every figure here with diligence-grade data, a stochastic (Monte-Carlo) overlay, and qualified legal/tax structuring before treating any of it as investable. This model demonstrates the concept closes — nothing more.</p>
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-top">
+      <a href="aether.html" class="logo"><span class="dot"></span>AETHER <small>Vol. II — Financials</small></a>
+      <div class="foot-links"><a href="aether-whitepaper.html">Whitepaper</a><a href="aether-engineering.html">Engineering</a><a href="aether-bible.html">Story Bible</a><a href="aether.html">Overview</a></div>
+    </div>
+    <div class="foot-copy">
+      © 2026 Chevza · AETHER is a speculative concept and creative work · Johannesburg, South Africa
+      <span class="disc">Financial Model — concept stage. All figures are illustrative and for demonstration only. Not financial advice, a valuation, an audit, or an offer to sell securities. Tokenised instruments require qualified legal structuring. Replace with diligence-grade data before any capital raise.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/aether-doc.js"></script>
+</body>
+</html>

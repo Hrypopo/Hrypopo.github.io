@@ -13,6 +13,9 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 | [`purplelens.html`](purplelens.html) | PurpleLens photography studio — portraits, commercial, weddings, prints |
 | [`aether.html`](aether.html) | AETHER — subterranean megacity concept, with an interactive 3D cross-section. Whitepaper → 3D model → film |
 | [`aether-whitepaper.html`](aether-whitepaper.html) | AETHER whitepaper — physics, math, economics, tokenomics & narrative, with TOC + scroll-spy |
+| [`aether-engineering.html`](aether-engineering.html) | AETHER Vol. I — production-depth engineering (thermodynamics, maglev, geotechnics, life support) |
+| [`aether-financials.html`](aether-financials.html) | AETHER Vol. II — production-depth financial model (capex, tokenomics, 30-yr annual model, NPV/IRR, sensitivity) |
+| [`aether-bible.html`](aether-bible.html) | AETHER Vol. III — production-depth story bible (world, factions, characters, episode beats) |
 | [`404.html`](404.html) | Custom not-found page, on brand |
 | `project/` | FileMayor design source files (deck, carousels, brand book) |
 | `assets/` | Favicon + generated Open Graph social cards |
