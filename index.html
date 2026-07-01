@@ -8,18 +8,18 @@
 <meta property="og:title" content="Chevza — Venture studio">
 <meta property="og:description" content="Privacy-first software, photography & music, from Johannesburg. FileMayor · PurpleLens · ChevzaMusiq.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://hrypopo.github.io/">
+<meta property="og:url" content="https://chevza.com/">
 <meta property="og:site_name" content="Chevza">
-<meta property="og:image" content="https://hrypopo.github.io/assets/og-card.png">
+<meta property="og:image" content="https://chevza.com/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Chevza — venture studio, Johannesburg. FileMayor · PurpleLens · privacy-first software.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Chevza — Venture studio">
 <meta name="twitter:description" content="Privacy-first software & bold creative ventures, from Johannesburg.">
-<meta name="twitter:image" content="https://hrypopo.github.io/assets/og-card.png">
+<meta name="twitter:image" content="https://chevza.com/assets/og-card.png">
 <meta name="author" content="Lehlohonolo 'Chevza' Nchefu">
-<link rel="canonical" href="https://hrypopo.github.io/">
+<link rel="canonical" href="https://chevza.com/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/og-card.png">
 <meta name="theme-color" content="#09080a">
@@ -29,10 +29,10 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://hrypopo.github.io/#person",
+      "@id": "https://chevza.com/#person",
       "name": "Lehlohonolo Nchefu",
       "alternateName": "Chevza",
-      "url": "https://hrypopo.github.io/",
+      "url": "https://chevza.com/",
       "email": "mailto:hloninchefu@gmail.com",
       "jobTitle": "Founder, Designer & Engineer",
       "address": { "@type": "PostalAddress", "addressLocality": "Johannesburg", "addressCountry": "ZA" },
@@ -41,7 +41,7 @@
     },
     {
       "@type": "MusicRecording",
-      "@id": "https://hrypopo.github.io/#mingo",
+      "@id": "https://chevza.com/#mingo",
       "name": "Mingo",
       "byArtist": { "@type": "MusicGroup", "name": "ChevzaMusiq" },
       "datePublished": "2026",
@@ -50,20 +50,20 @@
     },
     {
       "@type": "Organization",
-      "@id": "https://hrypopo.github.io/#studio",
+      "@id": "https://chevza.com/#studio",
       "name": "Chevza",
-      "url": "https://hrypopo.github.io/",
-      "logo": "https://hrypopo.github.io/assets/og-card.png",
-      "founder": { "@id": "https://hrypopo.github.io/#person" },
+      "url": "https://chevza.com/",
+      "logo": "https://chevza.com/assets/og-card.png",
+      "founder": { "@id": "https://chevza.com/#person" },
       "foundingDate": "2024",
       "foundingLocation": "Johannesburg, South Africa",
       "description": "A one-person venture studio building privacy-first software and bold creative brands. FileMayor · PurpleLens · ChevzaMusiq."
     },
     {
       "@type": "WebSite",
-      "url": "https://hrypopo.github.io/",
+      "url": "https://chevza.com/",
       "name": "Chevza — Venture studio",
-      "publisher": { "@id": "https://hrypopo.github.io/#studio" }
+      "publisher": { "@id": "https://chevza.com/#studio" }
     }
   ]
 }
@@ -284,6 +284,18 @@ h1.name{ font-family:var(--serif); font-weight:400; font-size:clamp(58px,12vw,18
 .vt.music::before{ background:radial-gradient(800px circle at var(--mx,50%) var(--my,0%), rgba(154,114,176,.16), transparent 45%); }
 .vt.music .vt-title .c{ color:var(--plum); }
 .vt.music .vt-stats .n .u{ color:var(--plum); }
+/* aether concept — subterranean city preview */
+.vt.aether::before{ background:radial-gradient(800px circle at var(--mx,50%) var(--my,0%), rgba(70,224,208,.16), transparent 45%); }
+.vt.aether .vt-title .c{ color:#46e0d0; }
+.vt.aether .vt-stats .n .u{ color:#46e0d0; }
+.pv-ae{ background:radial-gradient(120% 120% at 50% 18%, #0c1626, #04060b 72%); display:grid; place-items:center; }
+.pv-ae .geode{ position:relative; width:62%; aspect-ratio:1/1; }
+.pv-ae .geode i{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:1px solid rgba(150,170,205,.4); border-radius:50%; }
+.pv-ae .geode i:nth-child(1){ width:100%; height:100%; opacity:.4; }
+.pv-ae .geode i:nth-child(2){ width:74%; height:74%; opacity:.6; }
+.pv-ae .geode i:nth-child(3){ width:48%; height:48%; border-color:rgba(70,224,208,.6); }
+.pv-ae .geode i:nth-child(4){ width:22%; height:22%; border-color:#46e0d0; background:radial-gradient(circle,#67ffee,rgba(70,224,208,.2)); box-shadow:0 0 26px rgba(70,224,208,.7); animation:aepulse 3s var(--ease,ease) infinite alternate; }
+@keyframes aepulse{ from{ opacity:.65; } to{ opacity:1; } }
 @media(max-width:820px){ .vt{ grid-template-columns:1fr; } .vt .preview{ order:-1; } }
 
 /* ── sound / music section ─────────────────────────── */
@@ -436,7 +448,7 @@ footer{ padding:clamp(56px,8vw,90px) 0 40px; }
     <p class="m-lead" data-r data-d="1">Chevza builds things that <em>move the world</em> <span class="dim">one product, one frame, one file at a time.</span></p>
     <div class="m-grid">
       <div class="m-cell" data-r data-d="1"><div class="n" data-count="25" data-suffix="k+"><span class="u">0</span></div><div class="l">npm installs · FileMayor</div></div>
-      <div class="m-cell" data-r data-d="2"><div class="n" data-count="4" data-suffix=""><span class="u">0</span></div><div class="l">active ventures</div></div>
+      <div class="m-cell" data-r data-d="2"><div class="n" data-count="4" data-suffix=""><span class="u">0</span></div><div class="l">active ventures + 1 concept</div></div>
       <div class="m-cell" data-r data-d="3"><div class="n"><span class="u">∞</span></div><div class="l">privacy-first, by default</div></div>
     </div>
   </div>
@@ -447,7 +459,7 @@ footer{ padding:clamp(56px,8vw,90px) 0 40px; }
   <div class="wrap">
     <div class="work-head" data-r>
       <div><div class="kicker">Portfolio</div><h2 class="s-title">The <em class="c">ventures.</em></h2></div>
-      <div class="count">03 live · more soon</div>
+      <div class="count">03 live · 01 concept</div>
     </div>
 
     <div class="vts">
@@ -525,10 +537,32 @@ footer{ padding:clamp(56px,8vw,90px) 0 40px; }
         </div>
       </a>
 
+      <!-- AETHER -->
+      <a class="vt tilt aether" href="aether.html" data-cursor>
+        <div class="vt-info" data-r data-d="1">
+          <div class="vt-ix">04 &nbsp;·&nbsp; 2026 <span class="vt-st new">● Concept</span></div>
+          <h3 class="vt-title">AETHER<span class="c">.</span></h3>
+          <p class="vt-desc">A self-powered subterranean megacity — SMR thermal core, autonomous maglev, tokenised commercial tunnels, agritech &amp; IP exports. A $100B concept taken from whitepaper → 3D model → film.</p>
+          <div class="vt-tags"><span>Concept</span><span>3D model</span><span>Whitepaper</span><span>Sci-fi film</span></div>
+          <span class="vt-link">Enter the city <span class="a">↗</span></span>
+          <div class="vt-stats">
+            <div><div class="n">$<span class="u">100</span>B</div><div class="l">concept horizon</div></div>
+            <div><div class="n"><span class="u" data-count="30">0</span>yr</div><div class="l">ROI window</div></div>
+            <div><div class="n"><span class="u" data-count="9">0</span></div><div class="l">city strata</div></div>
+          </div>
+        </div>
+        <div class="preview" data-r data-d="2">
+          <div class="pv-bar"><i></i><i></i><i></i></div>
+          <div class="pv-body pv-ae">
+            <div class="geode"><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </a>
+
       <!-- teaser -->
       <a class="vt" href="#contact" data-cursor style="opacity:.6">
         <div class="vt-info" data-r data-d="1">
-          <div class="vt-ix">04+ &nbsp;·&nbsp; in the works</div>
+          <div class="vt-ix">05+ &nbsp;·&nbsp; in the works</div>
           <h3 class="vt-title" style="font-size:clamp(34px,4vw,52px);color:var(--muted)">PurpleBos · PurpleRugs · Praxis</h3>
           <p class="vt-desc">A whole-farm operations platform for African farmers, a tufting studio, and more — building quietly under the Chevza umbrella.</p>
           <span class="vt-link">Want to collaborate? <span class="a">↗</span></span>

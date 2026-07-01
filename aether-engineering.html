@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AETHER — Engineering Volume · Physics &amp; Systems</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AETHER Engineering Volume — production-depth physics and systems: reactor thermodynamics and exergy cascade, transient ground-heat dissipation, life support, water, maglev dynamics, geotechnical and structural design, daylight optics, power redundancy, and construction.">
+<meta property="og:title" content="AETHER — Engineering Volume">
+<meta property="og:description" content="Production-depth physics & systems for the subterranean city: thermodynamics, maglev dynamics, geotechnics, life support.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://chevza.com/aether-engineering.html">
+<meta property="og:image" content="https://chevza.com/assets/og-aether.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05070d">
+<link rel="canonical" href="https://chevza.com/aether-engineering.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aether.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="aether.html" class="logo"><span class="dot"></span>AETHER <small>Vol. I — Engineering</small></a>
+    <div class="nav-r">
+      <a href="aether-whitepaper.html" class="ghost">← Whitepaper</a>
+      <a href="aether-financials.html" class="ghost">Financials</a>
+      <a href="aether-bible.html" class="ghost">Story Bible</a>
+      <a href="aether.html" class="cta">Overview</a>
+    </div>
+  </div>
+</nav>
+<div id="prog"></div>
+
+<header class="mast">
+  <p class="ey">Production-Depth Volume I · Engineering · Concept Stage</p>
+  <h1>Physics &amp; Systems</h1>
+  <p class="deck">The deep verticals behind the render.</p>
+  <p class="byline">
+    <b>AETHER Engineering Volume</b> — reactor, thermal, transit, structure, life support<br>
+    A Chevza concept · Companion to the <a href="aether-whitepaper.html">Whitepaper</a><br>
+    Version 1.0 · 22 June 2026 · All figures concept-stage
+  </p>
+  <div class="actions">
+    <a href="#thermo" class="btn btn-solid">Jump to thermodynamics ↓</a>
+    <a href="aether-whitepaper.html" class="btn btn-line">Back to whitepaper</a>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="toc">
+    <p class="tl">Contents</p>
+    <ol>
+      <li><a href="#basis">Design Basis</a></li>
+      <li><a href="#thermo">Reactor &amp; Thermodynamics</a></li>
+      <li><a href="#dissipation">Transient Heat Dissipation</a></li>
+      <li><a href="#lifesupport">Atmosphere &amp; Life Support</a></li>
+      <li><a href="#water">Water &amp; Desalination</a></li>
+      <li><a href="#maglev">Maglev Dynamics</a></li>
+      <li><a href="#routing">Network &amp; Routing</a></li>
+      <li><a href="#geo">Geotechnical &amp; Structural</a></li>
+      <li><a href="#daylight">Daylight &amp; Circadian</a></li>
+      <li><a href="#power">Power &amp; Redundancy</a></li>
+      <li><a href="#construction">Construction Sequence</a></li>
+      <li><a href="#risk">Engineering Risk Register</a></li>
+    </ol>
+  </aside>
+
+  <article>
+
+    <section class="sec" id="basis">
+      <p class="num">Vol. I · 01 — Design Basis</p>
+      <h2>The reference frame everything is sized against.</h2>
+      <p class="lead">A whitepaper proves a concept closes. An engineering volume proves it <em>survives contact with physics</em>. This document fixes the design basis — the assumptions, loads, and budgets — that every later spreadsheet and set design inherits.</p>
+      <p>The reference city is a single AETHER node sized for a resident-plus-worker population on the order of <strong>P ≈ 250,000</strong>, descending to a representative mid-strata depth of <strong>≈ 300 m</strong> across nine load-bearing rings. All numbers below are order-of-magnitude design targets, not as-built guarantees.</p>
+      <div class="family">
+        <a href="aether-engineering.html" class="here"><div class="vk">Vol. I</div><h4>Engineering</h4><p>Physics &amp; systems — you are here.</p></a>
+        <a href="aether-financials.html"><div class="vk">Vol. II</div><h4>Financial Model</h4><p>Capex, opex, tokenomics, sensitivity.</p></a>
+        <a href="aether-bible.html"><div class="vk">Vol. III</div><h4>Story Bible</h4><p>Lore, characters, episode beats.</p></a>
+      </div>
+      <h4>Design basis quantities</h4>
+      <div class="kv">
+        <div>Reference population P</div><div>≈ 250,000</div>
+        <div>Strata / depth</div><div>9 rings · ~300 m</div>
+        <div>Reactor electrical P<sub>e</sub></div><div>300 MWe</div>
+        <div>Thermal efficiency η</div><div>0.33</div>
+        <div>Interior set-point</div><div>21 ± 1 °C</div>
+        <div>Design horizon</div><div>1,000 yr (100-yr major refit)</div>
+        <div>Seismic basis</div><div>site-specific; deep = attenuated</div>
+        <div>Air quality target</div><div>CO₂ &lt; 800 ppm occupied</div>
+      </div>
+      <div class="call warn">
+        <div class="k">Standing disclaimer</div>
+        <p>Every equation here is dimensionally correct and uses representative constants, but the inputs are illustrative. Treat outputs as sizing sanity-checks, not certified engineering. Production work requires site geotechnics, licensed nuclear design, and code-compliant structural analysis.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="thermo">
+      <p class="num">Vol. I · 02 — Reactor &amp; Thermodynamics</p>
+      <h2>An exergy budget, not just an energy budget.</h2>
+      <p>The reactor's value to AETHER is not only its electricity but the <strong>quality</strong> (exergy) of its heat. We track energy and exergy separately because the reuse cascade depends on temperature grade.</p>
+      <h4>Gross balance</h4>
+      <div class="eq">
+        <span class="tag">(I.1)</span>
+        <div class="formula"><b>Q</b><sub>th</sub> = P<sub>e</sub>/η = 300/0.33 ≈ <b>909 MW<sub>th</sub></b></div>
+        <div class="formula"><b>Q</b><sub>waste</sub> = Q<sub>th</sub> − P<sub>e</sub> ≈ <b>609 MW<sub>th</sub></b></div>
+        <div class="where">Carnot ceiling at hot/cold reservoirs T<sub>H</sub>, T<sub>C</sub>: η<sub>max</sub> = 1 − T<sub>C</sub>/T<sub>H</sub>. The 0.33 figure is conservative for an SMR steam cycle.</div>
+      </div>
+      <h4>The reuse cascade</h4>
+      <p>Waste heat is drawn down by temperature grade so each user receives the lowest grade it can use, maximising total reuse fraction φ:</p>
+      <ol class="deriv">
+        <li><b>High grade</b> (120–180 °C) → multi-effect desalination &amp; process heat. Allocation ≈ 30% of Q<sub>waste</sub>.</li>
+        <li><b>Mid grade</b> (60–90 °C) → agritech vapour-pressure-deficit control &amp; absorption chilling. ≈ 20%.</li>
+        <li><b>Low grade</b> (30–45 °C) → district climate &amp; domestic hot water. ≈ 10%.</li>
+        <li><b>Residual</b> → rejected to the rock shell (§3). With the above, φ ≈ 0.60 and Q<sub>reject</sub> ≈ 244 MW.</li>
+      </ol>
+      <div class="eq">
+        <span class="tag">(I.2)</span>
+        <div class="formula"><b>Q</b><sub>useful</sub> = φ·Q<sub>waste</sub> ≈ 0.60 × 609 ≈ <b>365 MW</b></div>
+        <div class="where">Each MW reused is a MW not purchased — the thermodynamic root of the export margin in Vol. II.</div>
+      </div>
+      <h4>Exergy check</h4>
+      <p>Exergy of a heat stream at temperature T relative to ambient T<sub>0</sub> is B = Q·(1 − T<sub>0</sub>/T). Cascading by grade preserves exergy that a single low-grade dump would destroy — the reason the cascade beats a cooling tower by a wide margin.</p>
+    </section>
+
+    <section class="sec" id="dissipation">
+      <p class="num">Vol. I · 03 — Transient Heat Dissipation</p>
+      <h2>The rock is a slow, enormous heat sink — but it does warm.</h2>
+      <p>Rejecting ~244 MW into the surrounding rock indefinitely is only safe if the rock's temperature rise reaches a tolerable steady state. We treat the shell as radial conduction into a semi-infinite medium.</p>
+      <h4>Steady conduction</h4>
+      <div class="eq">
+        <span class="tag">(I.3)</span>
+        <div class="formula"><b>q</b> = −k·A·(dT/dx) &nbsp;→&nbsp; ΔT = Q<sub>reject</sub>·R<sub>th</sub></div>
+        <div class="where"><b>k</b> ≈ 2.5 W/m·K, <b>A</b> = shell contact area, <b>R<sub>th</sub></b> = conductive resistance of the rejection annulus.</div>
+      </div>
+      <h4>Transient time constant</h4>
+      <p>The rock's thermal diffusivity α = k/(ρ·c<sub>p</sub>) governs how fast the heated zone spreads. The characteristic penetration depth after time t is:</p>
+      <div class="eq">
+        <span class="tag">(I.4)</span>
+        <div class="formula"><b>δ</b>(t) ≈ √(α·t) &nbsp;,&nbsp; α = k/(ρ·c<sub>p</sub>)</div>
+        <div class="where">ρ ≈ 2,500 kg/m³, c<sub>p</sub> ≈ 800 J/kg·K → α ≈ 1.25×10⁻⁶ m²/s. Over 30 yr, δ ≈ √(1.25e-6 × 9.46e8) ≈ <b>34 m</b> of rock engaged.</div>
+      </div>
+      <p>Because the engaged rock volume grows with √t, the effective thermal resistance rises slowly and the interface temperature trends toward a bounded asymptote rather than running away. <strong>Design rule:</strong> the rejection annulus must be sized so the worst-case interface stays below the structural temperature limit of the lining over the 100-year refit window; active borehole heat exchangers provide margin.</p>
+      <div class="call">
+        <div class="k">Why √t matters</div>
+        <p>If heat penetration grew linearly, the rock would saturate and the city would cook. The diffusion √t law is the physical reason a buried reactor-city is thermally sustainable at all — and why the rejection-annulus geometry is a first-order design parameter, not an afterthought.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="lifesupport">
+      <p class="num">Vol. I · 04 — Atmosphere &amp; Life Support</p>
+      <h2>An occupied volume that breathes.</h2>
+      <p>Unlike a surface city, AETHER must actively manage its atmosphere. The governing constraint is CO₂ removal at the occupied set-point.</p>
+      <div class="eq">
+        <span class="tag">(I.5)</span>
+        <div class="formula"><b>V̇</b><sub>fresh</sub> = (P · ṁ<sub>CO₂</sub>) / (C<sub>limit</sub> − C<sub>in</sub>)</div>
+        <div class="where">ṁ<sub>CO₂</sub> ≈ 1.0 kg/person/day metabolic; C<sub>limit</sub> = 800 ppm, C<sub>in</sub> = 420 ppm intake. Drives surface intake shaft sizing.</div>
+      </div>
+      <p>Ventilation is hybrid: fresh-air shafts to the surface cap for baseline, plus closed-loop scrubbing (molecular sieve / amine, reusing low-grade reactor heat for regeneration) for resilience and surge. Air changes target ≥ 6 ACH in occupied strata; agritech vaults double as biological CO₂ sinks and O₂ sources, partially closing the loop.</p>
+      <div class="kv">
+        <div>Metabolic CO₂ load (P=250k)</div><div>≈ 250 t/day</div>
+        <div>Occupied CO₂ target</div><div>&lt; 800 ppm</div>
+        <div>Air changes (occupied)</div><div>≥ 6 ACH</div>
+        <div>Scrubber regeneration</div><div>low-grade reactor heat</div>
+        <div>Biological offset</div><div>agritech vaults (L7)</div>
+      </div>
+    </section>
+
+    <section class="sec" id="water">
+      <p class="num">Vol. I · 05 — Water &amp; Desalination</p>
+      <h2>High-grade heat closes the water loop.</h2>
+      <p>The 30% of waste heat allocated to high-grade use drives multi-effect distillation (MED). Thermal desalination yield scales with the gain-output ratio (GOR) of the plant:</p>
+      <div class="eq">
+        <span class="tag">(I.6)</span>
+        <div class="formula"><b>ṁ</b><sub>water</sub> = GOR · Q<sub>HG</sub> / h<sub>fg</sub></div>
+        <div class="where">Q<sub>HG</sub> ≈ 0.30 × 609 ≈ 183 MW; h<sub>fg</sub> ≈ 2.26 MJ/kg; GOR ≈ 8 (MED) → ṁ<sub>water</sub> ≈ 8 × 183e6 / 2.26e6 ≈ <b>648 kg/s ≈ 56,000 m³/day</b>.</div>
+      </div>
+      <p>That covers municipal demand at ~220 L/person/day for P=250k (≈ 55,000 m³/day) with the agritech recycling greywater. Brine is managed via deep reinjection or mineral recovery (a secondary export). Potable polishing is by remineralisation + UV.</p>
+    </section>
+
+    <section class="sec" id="maglev">
+      <p class="num">Vol. I · 06 — Maglev Dynamics</p>
+      <h2>Levitation, propulsion, and the power it costs.</h2>
+      <p>Pods use electrodynamic suspension (EDS) along a passive guideway with a linear synchronous motor (LSM) for propulsion. Levitation force per unit area scales with the square of field strength:</p>
+      <div class="eq">
+        <span class="tag">(I.7)</span>
+        <div class="formula"><b>F</b><sub>lev</sub>/A = B²/(2μ₀)</div>
+        <div class="where">B = guideway flux density, μ₀ = 4π×10⁻⁷. Suspension is stable above the transition speed; wheels handle low-speed/standstill.</div>
+      </div>
+      <h4>Propulsion &amp; energy per trip</h4>
+      <p>At cruise the pod overcomes mainly aerodynamic and magnetic drag (rolling resistance ≈ 0 when levitated). Tractive power and per-trip energy:</p>
+      <div class="eq">
+        <span class="tag">(I.8)</span>
+        <div class="formula"><b>P</b><sub>trac</sub> = F<sub>drag</sub>·v &nbsp;,&nbsp; F<sub>drag</sub> = ½ρ<sub>air</sub>C<sub>d</sub>A v² + F<sub>mag</sub></div>
+        <div class="formula"><b>E</b><sub>trip</sub> = ∫ P<sub>trac</sub> dt &minus; E<sub>regen</sub></div>
+        <div class="where">Regenerative braking returns energy to the LSM. In sealed low-pressure transit tubes, ρ<sub>air</sub> can be reduced to cut C<sub>d</sub> losses dramatically.</div>
+      </div>
+      <p>Running the main spine inside a partially evacuated tube (a metro-scale hyperloop) is optional but collapses aero drag, raising practical cruise speed and slashing E<sub>trip</sub> — a lever the energy model in Vol. II can toggle.</p>
+    </section>
+
+    <section class="sec" id="routing">
+      <p class="num">Vol. I · 07 — Network &amp; Routing</p>
+      <h2>Autonomous flow as a control problem.</h2>
+      <p>The guideway is a directed graph G=(V,E). Demand is a time-varying origin–destination matrix. The controller solves a receding-horizon optimisation each tick, assigning pods to paths to minimise total weighted cost while honouring headway and capacity (Eq. 5.1 in the whitepaper).</p>
+      <h4>Throughput &amp; stability</h4>
+      <div class="eq">
+        <span class="tag">(I.9)</span>
+        <div class="formula"><b>C</b><sub>lane</sub> = v / s<sub>min</sub> &nbsp;,&nbsp; s<sub>min</sub> = v·t<sub>react</sub> + v²/(2a<sub>brake</sub>) + L<sub>pod</sub></div>
+        <div class="where">v=30 m/s, t<sub>react</sub>=0.2 s (machine), a<sub>brake</sub>=4 m/s², L<sub>pod</sub>=8 m → s<sub>min</sub> ≈ 0.2·30 + 900/8 + 8 ≈ 126 m → C ≈ 860 pods/h/lane at this conservative braking margin; tighter platooning multiplies this.</div>
+      </div>
+      <p>Vector-field guidance (Eq. 5.2) gives decentralised collision avoidance as a fallback if the central optimiser degrades — a graceful-degradation property required for a life-critical transit spine. Network capacity = Σ lanes × occupancy; freight rides the same graph at off-peak cost.</p>
+    </section>
+
+    <section class="sec" id="geo">
+      <p class="num">Vol. I · 08 — Geotechnical &amp; Structural</p>
+      <h2>Thick-walled cylinders, convergence, and seismic comfort.</h2>
+      <p>Overburden at depth h sets the primary load (whitepaper Eq. 6.1): σ<sub>v</sub> = ρ<sub>rock</sub>·g·h ≈ 7.4 MPa at 300 m. The lining is analysed as a thick-walled cylinder (Lamé) rather than a thin ring for the larger caverns.</p>
+      <div class="eq">
+        <span class="tag">(I.10)</span>
+        <div class="formula"><b>σ</b><sub>θ</sub>(r) = p<sub>i</sub>·(a²/(b²−a²))·(1+b²/r²) − p<sub>o</sub>·(b²/(b²−a²))·(1+a²/r²)</div>
+        <div class="where">a, b = inner/outer lining radii; p<sub>i</sub>, p<sub>o</sub> = internal/external pressures. Peak hoop stress at r=a governs lining thickness.</div>
+      </div>
+      <h4>Ground–support interaction</h4>
+      <p>Competent rock carries much of the load via arching; the convergence–confinement method sizes support against the ground reaction curve. Where rock quality (RMR/Q) is high, lining demand drops sharply — siting on competent host rock is a first-order capex lever (Vol. II §siting).</p>
+      <h4>Seismic</h4>
+      <p>Deep, embedded structures experience <strong>attenuated</strong> ground motion versus the free surface (no resonance amplification, motion moves with the rock). The design controls for fault crossing and shaft connections, not for surface-style sway. Per-ring isolation joints localise damage.</p>
+      <div class="kv">
+        <div>σ<sub>v</sub> @ 300 m</div><div>≈ 7.4 MPa</div>
+        <div>Analysis</div><div>Lamé + convergence–confinement</div>
+        <div>Rock quality target</div><div>high RMR/Q host</div>
+        <div>Seismic</div><div>attenuated; fault-crossing controlled</div>
+      </div>
+    </section>
+
+    <section class="sec" id="daylight">
+      <p class="num">Vol. I · 09 — Daylight &amp; Circadian</p>
+      <h2>Real sunlight, piped 300 m down.</h2>
+      <p>Surface heliostats/concentrators couple sunlight into large-core fibre or mirrored light-guides. Delivered illuminance at a terrace falls with collector area, optical efficiency, and guide losses:</p>
+      <div class="eq">
+        <span class="tag">(I.11)</span>
+        <div class="formula"><b>E</b><sub>v</sub> = (E<sub>sun</sub>·A<sub>coll</sub>·η<sub>opt</sub>·τ<sub>guide</sub>) / A<sub>floor</sub></div>
+        <div class="where">E<sub>sun</sub> ≈ 100,000 lx (direct); η<sub>opt</sub>, τ<sub>guide</sub> = collector + guide transmittance. Sized to deliver ≥ 300–500 lx daytime equivalent + tuned spectrum for circadian entrainment.</div>
+      </div>
+      <p>Where piping daylight is impractical, circadian LED lighting reproduces the daily colour-temperature curve. The combination preserves the diurnal cues that underground habitation otherwise destroys — a habitability requirement, not a luxury.</p>
+    </section>
+
+    <section class="sec" id="power">
+      <p class="num">Vol. I · 10 — Power &amp; Redundancy</p>
+      <h2>One reactor is a single point of failure — so it isn't the only thing.</h2>
+      <p>Baseload is the SMR, but the grid is engineered N+1: battery/flywheel storage for ride-through, an islanding controller, and a surface grid-tie that runs both ways (import on outage, export surplus for revenue — Vol. II §revenue). Critical life-support and transit buses have independent backup.</p>
+      <ul>
+        <li><strong>Ride-through:</strong> storage covers the reactor trip-to-backup gap; life support never loses power.</li>
+        <li><strong>Islanding:</strong> the city can disconnect from the surface grid and run autonomously.</li>
+        <li><strong>Bidirectional tie:</strong> surplus baseload is sold; deficits are covered — the tie is a financial hedge, not just a safety net.</li>
+        <li><strong>Refuel/refit:</strong> SMR modular design enables maintenance without full city shutdown.</li>
+      </ul>
+    </section>
+
+    <section class="sec" id="construction">
+      <p class="num">Vol. I · 11 — Construction Sequence</p>
+      <h2>Bored, not built — and timed by TBM throughput.</h2>
+      <p>Schedule is gated by tunnel-boring-machine advance rate and shaft logistics. Rough excavation time for a ring scales with bored volume over effective advance:</p>
+      <div class="eq">
+        <span class="tag">(I.12)</span>
+        <div class="formula"><b>t</b><sub>ring</sub> ≈ L<sub>ring</sub> / (v<sub>TBM</sub>·u)</div>
+        <div class="where">v<sub>TBM</sub> ≈ 10–15 m/day sustained; u = utilisation (≈ 0.4 incl. maintenance, muck-out). Parallel TBMs compress the critical path.</div>
+      </div>
+      <p>Sequence: (1) surface cap + main shaft, (2) reactor cavern + first strata in parallel, (3) downward strata expansion funded by token pre-sales as completed rings come online, (4) maglev spine commissioning. The phased fill is what lets revenue (Vol. II) begin before the city is complete.</p>
+    </section>
+
+    <section class="sec" id="risk">
+      <p class="num">Vol. I · 12 — Engineering Risk Register</p>
+      <h2>The honest list of what could break.</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr><td>Rock thermal saturation</td><td>High</td><td>√t diffusion (§3); sized rejection annulus + borehole exchangers</td></tr>
+            <tr><td>Reactor licensing / public acceptance</td><td>High</td><td>Proven SMR design; depth as inherent containment; transparency</td></tr>
+            <tr><td>Tunnel convergence / squeezing ground</td><td>High</td><td>Site on competent rock; convergence–confinement design; monitoring</td></tr>
+            <tr><td>Life-support failure</td><td>Critical</td><td>N+1 ventilation, closed-loop scrubbing, biological offset, storage</td></tr>
+            <tr><td>Water/brine management</td><td>Medium</td><td>MED + reinjection/mineral recovery</td></tr>
+            <tr><td>Transit single-spine dependence</td><td>Medium</td><td>Redundant lanes; decentralised vector-field fallback</td></tr>
+            <tr><td>Construction schedule slip</td><td>Medium</td><td>Parallel TBMs; token-funded phased fill decouples revenue from completion</td></tr>
+          </tbody>
+        </table>
+        <caption>Table I.1 — Top engineering risks and first-line mitigations.</caption>
+      </div>
+      <p>Each row above is a candidate for its own production sub-volume. The point of this register is intellectual honesty: AETHER's hardest problems are <strong>thermal saturation, nuclear licensing, and squeezing ground</strong> — and each has a credible, physics-grounded mitigation.</p>
+    </section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-top">
+      <a href="aether.html" class="logo"><span class="dot"></span>AETHER <small>Vol. I — Engineering</small></a>
+      <div class="foot-links"><a href="aether-whitepaper.html">Whitepaper</a><a href="aether-financials.html">Financials</a><a href="aether-bible.html">Story Bible</a><a href="aether.html">Overview</a></div>
+    </div>
+    <div class="foot-copy">
+      © 2026 Chevza · AETHER is a speculative concept and creative work · Johannesburg, South Africa
+      <span class="disc">Engineering Volume — concept stage. Equations are dimensionally correct with representative constants, but all inputs are illustrative. Not certified engineering, nuclear design, or geotechnical analysis. Production work requires site investigation, licensed reactor design, and code-compliant structural engineering.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/aether-doc.js"></script>
+</body>
+</html>

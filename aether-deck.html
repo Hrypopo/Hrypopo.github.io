@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AETHER — Investor Deck</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AETHER investor deck — the subterranean city. Whitepaper → 3D model → film. A $100B concept for builders who think in centuries.">
+<meta property="og:title" content="AETHER — Investor Deck">
+<meta property="og:description" content="The subterranean city — a $100B concept. Whitepaper → 3D → film.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chevza.com/aether-deck.html">
+<meta property="og:image" content="https://chevza.com/assets/og-aether.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#04060b">
+<link rel="canonical" href="https://chevza.com/aether-deck.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#04060b; --bg:#070a12; --panel:#0d1322;
+  --ink:#e9eefa; --ink-soft:#aeb9cf; --muted:#697389;
+  --rule:rgba(180,200,235,.13);
+  --reactor:#46e0d0; --plasma:#ff8a3d; --maglev:#6f8cff; --gold:#d9b46a;
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:"Geist",ui-sans-serif,system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; height:100%; background:var(--void); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+::selection{ background:rgba(70,224,208,.3); color:#fff; }
+a{ color:var(--reactor); }
+
+/* deck scroller */
+.deck{ height:100vh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-behavior:smooth; }
+.slide{ height:100vh; scroll-snap-align:start; position:relative; display:flex; align-items:center; justify-content:center;
+  padding:clamp(48px,7vw,120px); overflow:hidden; border-bottom:1px solid rgba(180,200,235,.05); }
+.slide-in{ max-width:1100px; width:100%; position:relative; z-index:2; }
+.slide::after{ content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(130% 100% at 50% 0%, transparent 55%, rgba(0,0,0,.55)); }
+.slide .grain{ position:absolute; inset:0; opacity:.05; mix-blend-mode:overlay; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+.eyebrow{ font-family:var(--mono); font-size:clamp(10px,1.1vw,13px); letter-spacing:.28em; text-transform:uppercase; color:var(--reactor); margin:0 0 22px; display:flex; align-items:center; gap:13px; }
+.eyebrow::before{ content:''; width:34px; height:1px; background:var(--reactor); }
+h1{ font-family:var(--serif); font-weight:400; line-height:.92; letter-spacing:-.01em; margin:0; }
+h2{ font-family:var(--serif); font-weight:400; font-size:clamp(34px,5.4vw,72px); line-height:1.0; letter-spacing:-.02em; margin:0 0 26px; }
+h2 em{ font-style:italic; color:var(--reactor); }
+p.big{ font-size:clamp(18px,2.1vw,27px); line-height:1.5; color:var(--ink-soft); max-width:24ch; }
+p.body{ font-size:clamp(15px,1.5vw,18px); line-height:1.65; color:var(--ink-soft); max-width:52ch; margin:0 0 16px; }
+.muted{ color:var(--muted); }
+
+/* title slide */
+.title h1{ font-size:clamp(80px,17vw,260px); text-transform:uppercase; letter-spacing:.02em;
+  background:linear-gradient(180deg,#fff,#5d7596); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.title .sub{ font-family:var(--serif); font-style:italic; font-size:clamp(22px,3.4vw,46px); color:var(--reactor); margin-top:8px; }
+.title .foot{ font-family:var(--mono); font-size:clamp(11px,1.2vw,14px); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:34px; line-height:2; }
+.title .glow{ position:absolute; left:50%; bottom:-34vh; transform:translateX(-50%); width:80vw; height:80vw; max-width:1000px; max-height:1000px; border-radius:50%; z-index:0;
+  background:radial-gradient(circle, rgba(70,224,208,.22), rgba(255,138,61,.05) 42%, transparent 64%); filter:blur(16px); }
+
+/* two-col */
+.cols{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,5vw,72px); align-items:center; }
+.cols.tight{ grid-template-columns:1.1fr .9fr; }
+@media(max-width:760px){ .cols,.cols.tight{ grid-template-columns:1fr; gap:28px; } }
+
+/* stat row */
+.stats{ display:flex; flex-wrap:wrap; gap:clamp(24px,4vw,56px); margin-top:8px; }
+.stat .n{ font-family:var(--serif); font-size:clamp(40px,6vw,84px); line-height:1; letter-spacing:-.02em; color:#fff; }
+.stat .n .u{ color:var(--reactor); }
+.stat .l{ font-family:var(--mono); font-size:clamp(10px,1.1vw,12px); letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:10px; max-width:18ch; }
+
+/* list */
+.points{ list-style:none; margin:0; padding:0; }
+.points li{ display:grid; grid-template-columns:auto 1fr; gap:16px; padding:16px 0; border-top:1px solid var(--rule); font-size:clamp(15px,1.6vw,19px); color:var(--ink-soft); }
+.points li:first-child{ border-top:0; }
+.points li b{ color:#fff; font-weight:500; }
+.points .ic{ font-family:var(--mono); color:var(--reactor); font-size:13px; }
+
+/* geode mini */
+.geode{ position:relative; width:min(42vh,420px); aspect-ratio:1/1; margin:0 auto; }
+.geode i{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:1px solid rgba(150,170,205,.4); border-radius:50%; }
+.geode i:nth-child(1){ width:100%; height:100%; opacity:.35; }
+.geode i:nth-child(2){ width:78%; height:78%; opacity:.5; }
+.geode i:nth-child(3){ width:56%; height:56%; opacity:.7; }
+.geode i:nth-child(4){ width:34%; height:34%; border-color:rgba(70,224,208,.6); }
+.geode i:nth-child(5){ width:15%; height:15%; border-color:var(--reactor); background:radial-gradient(circle,#67ffee,rgba(70,224,208,.2)); box-shadow:0 0 40px rgba(70,224,208,.8); }
+.geode .lbl{ position:absolute; right:-6px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--muted); transform:translateX(100%); white-space:nowrap; padding-left:10px; }
+.geode .l0{ top:2%; } .geode .l1{ top:24%; color:var(--gold); } .geode .l2{ top:46%; } .geode .l3{ top:64%; color:var(--reactor); }
+
+/* bars */
+.bars{ display:flex; align-items:flex-end; gap:6px; height:clamp(160px,30vh,300px); margin-top:18px; }
+.bars i{ flex:1; background:linear-gradient(180deg,var(--reactor),#0d3c3a); border-radius:4px 4px 0 0; min-height:4px; }
+.bars i.neg{ background:linear-gradient(180deg,#3a4660,#1a2032); }
+.bars i.peak{ background:linear-gradient(180deg,var(--plasma),#5a2e12); }
+.bars-x{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:var(--muted); margin-top:12px; }
+
+/* pipeline */
+.pipe{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:10px; }
+.pipe .ph{ border:1px solid var(--rule); border-radius:14px; padding:26px 22px; background:linear-gradient(180deg,var(--panel),var(--bg)); }
+.pipe .ph .n{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--reactor); margin-bottom:14px; }
+.pipe .ph h3{ font-family:var(--serif); font-weight:400; font-size:clamp(22px,2.6vw,30px); margin:0 0 8px; }
+.pipe .ph p{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0; }
+@media(max-width:760px){ .pipe{ grid-template-columns:1fr; } }
+
+.btn{ display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:15px 28px; border-radius:9px; border:1px solid transparent; transition:.25s var(--ease); }
+.btn:hover{ transform:translateY(-3px); }
+.btn-solid{ background:var(--reactor); color:var(--void); box-shadow:0 12px 44px -12px rgba(70,224,208,.6); }
+.btn-line{ color:var(--ink); border-color:rgba(180,200,235,.4); } .btn-line:hover{ border-color:var(--ink); }
+.cta-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+
+/* chrome */
+.chrome{ position:fixed; z-index:50; }
+.brand{ top:24px; left:28px; font-family:var(--serif); font-size:20px; letter-spacing:.05em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:9px; }
+.brand .dot{ width:8px; height:8px; border-radius:50%; background:var(--reactor); box-shadow:0 0 12px var(--reactor); }
+.counter{ top:26px; right:28px; font-family:var(--mono); font-size:12px; letter-spacing:.14em; color:var(--muted); }
+.counter b{ color:var(--reactor); font-weight:500; }
+.dots{ right:24px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:11px; }
+.dots button{ width:9px; height:9px; border-radius:50%; border:1px solid var(--muted); background:transparent; padding:0; cursor:pointer; transition:.2s; }
+.dots button.active{ background:var(--reactor); border-color:var(--reactor); transform:scale(1.3); box-shadow:0 0 10px var(--reactor); }
+.hint{ bottom:22px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); display:flex; align-items:center; gap:10px; }
+.progress{ position:fixed; bottom:0; left:0; height:3px; width:0; background:linear-gradient(90deg,var(--reactor),var(--maglev)); z-index:60; box-shadow:0 0 10px rgba(70,224,208,.6); transition:width .3s var(--ease); }
+@media(max-width:760px){ .dots{ display:none; } }
+@media(max-width:560px){ .counter,.hint{ display:none; } }
+@media(prefers-reduced-motion:reduce){ .deck{ scroll-behavior:auto; } * { animation:none !important; } }
+</style>
+</head>
+<body>
+
+<a href="aether.html" class="chrome brand"><span class="dot"></span>AETHER</a>
+<div class="chrome counter"><b id="cNow">01</b> / <span id="cTot">16</span></div>
+<div class="chrome dots" id="dots" aria-label="Slide navigation"></div>
+<div class="chrome hint">↑ ↓ / ← → to navigate</div>
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 01 TITLE -->
+  <section class="slide title" data-title="Title">
+    <div class="grain"></div><div class="glow"></div>
+    <div class="slide-in" style="text-align:center">
+      <p class="eyebrow" style="justify-content:center">A Chevza Concept · Confidential</p>
+      <h1>Aether</h1>
+      <p class="sub">The city we build downward.</p>
+      <p class="foot">A self-powered subterranean megacity<br>Whitepaper → 3D model → film · Concept v1.0</p>
+    </div>
+  </section>
+
+  <!-- 02 PROBLEM -->
+  <section class="slide" data-title="The problem">
+    <div class="grain"></div>
+    <div class="slide-in">
+      <p class="eyebrow">The problem</p>
+      <h2>Every megacity solves the same three problems <em>badly.</em></h2>
+      <ul class="points">
+        <li><span class="ic">01</span><span><b>Energy</b> — imported, carbon-heavy, price-volatile.</span></li>
+        <li><span class="ic">02</span><span><b>Land</b> — finite, speculative, endlessly sprawling.</span></li>
+        <li><span class="ic">03</span><span><b>Climate</b> — the building fights the weather every single day.</span></li>
+      </ul>
+      <p class="body muted" style="margin-top:24px">We've optimised the surface for a century. The variable no one questions is direction.</p>
+    </div>
+  </section>
+
+  <!-- 03 INSIGHT -->
+  <section class="slide" data-title="The insight">
+    <div class="grain"></div>
+    <div class="slide-in" style="text-align:center">
+      <p class="eyebrow" style="justify-content:center">The insight</p>
+      <h1 style="font-size:clamp(44px,8vw,118px)">Build <em style="font-style:italic;color:var(--reactor)">down.</em></h1>
+      <p class="big muted" style="max-width:40ch; margin:24px auto 0">Twenty metres down, the temperature is stable, the energy is free, and the land is infinite.</p>
+    </div>
+  </section>
+
+  <!-- 04 WHAT IT IS -->
+  <section class="slide" data-title="What it is">
+    <div class="grain"></div>
+    <div class="slide-in cols tight">
+      <div>
+        <p class="eyebrow">What it is</p>
+        <h2>A city built like a <em>geode.</em></h2>
+        <p class="body">A near-invisible surface cap over nine descending strata — residences, commercial tunnels, farms, data, and a reactor at the heart. Hard shell, luminous core.</p>
+      </div>
+      <div>
+        <div class="geode">
+          <i></i><i></i><i></i><i></i><i></i>
+          <span class="lbl l0">L0 · surface cap</span>
+          <span class="lbl l1">L1–3 · terraces</span>
+          <span class="lbl l2">L4–8 · commerce · farms · data</span>
+          <span class="lbl l3">L9 · reactor core</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ENERGY -->
+  <section class="slide" data-title="Energy">
+    <div class="grain"></div>
+    <div class="slide-in cols">
+      <div>
+        <p class="eyebrow">System 01 · Energy</p>
+        <h2>The waste heat is the <em>whole point.</em></h2>
+        <p class="body">One small modular reactor delivers constant baseload. Its waste heat — normally dumped — feeds climate, agritech, desalination, and compute.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n">300<span class="u">MWe</span></div><div class="l">baseload power</div></div>
+        <div class="stat"><div class="n"><span class="u">60</span>%</div><div class="l">waste heat reused</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 TRANSIT -->
+  <section class="slide" data-title="Transit">
+    <div class="grain"></div>
+    <div class="slide-in cols">
+      <div>
+        <p class="eyebrow">System 02 · Transit</p>
+        <h2>Autonomous <em>arteries.</em></h2>
+        <p class="body">People and freight ride one maglev spine, routed as a continuous flow problem. No surface roads. No signals. No traffic.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n"><span class="u">0</span></div><div class="l">surface roads</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">spine for transit + freight</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 STRUCTURE -->
+  <section class="slide" data-title="Structure">
+    <div class="grain"></div>
+    <div class="slide-in cols">
+      <div>
+        <p class="eyebrow">System 03 · Structure</p>
+        <h2>Bored, <em>not built.</em></h2>
+        <p class="body">Nine load-bearing rings carry the city in compression while the rock holds a stable 21°C the surface can never offer.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n"><span class="u">9</span></div><div class="l">load-bearing strata</div></div>
+        <div class="stat"><div class="n">21<span class="u">°C</span></div><div class="l">constant interior</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 ECONOMY -->
+  <section class="slide" data-title="Economy">
+    <div class="grain"></div>
+    <div class="slide-in cols">
+      <div>
+        <p class="eyebrow">System 04 · Economy</p>
+        <h2>Real estate as a <em>liquid asset.</em></h2>
+        <p class="body">Commercial tunnels are issued as tradable, revenue-bearing container tokens — funding construction from day one, before the city is finished.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n"><span class="u">Token</span></div><div class="l">per commercial tunnel</div></div>
+        <div class="stat"><div class="n">Day <span class="u">1</span></div><div class="l">capex offset begins</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 EXPORTS -->
+  <section class="slide" data-title="Exports">
+    <div class="grain"></div>
+    <div class="slide-in">
+      <p class="eyebrow">The output</p>
+      <h2>A city that <em>exports.</em></h2>
+      <ul class="points">
+        <li><span class="ic">38%</span><span><b>Tokenised tunnels</b> — lease, resale, usage fees.</span></li>
+        <li><span class="ic">24%</span><span><b>Compute &amp; data</b> — reactor-cheap, liquid-cooled.</span></li>
+        <li><span class="ic">18%</span><span><b>Agritech</b> — year-round yield on waste heat.</span></li>
+        <li><span class="ic">12%</span><span><b>IP &amp; licensing</b> — the blueprint, sold to the next city.</span></li>
+        <li><span class="ic">8%</span><span><b>Surplus power</b> — clean baseload to the grid.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10 PIPELINE -->
+  <section class="slide" data-title="Pipeline">
+    <div class="grain"></div>
+    <div class="slide-in">
+      <p class="eyebrow">The pipeline</p>
+      <h2>Whitepaper → 3D → <em>movie.</em></h2>
+      <div class="pipe">
+        <div class="ph"><div class="n">Phase 01</div><h3>Whitepaper</h3><p>Physics, economics, narrative — proven on paper. Foundation locked.</p></div>
+        <div class="ph"><div class="n">Phase 02</div><h3>3D Model</h3><p>The geometry becomes a navigable engine. Seed live; massing next.</p></div>
+        <div class="ph"><div class="n">Phase 03</div><h3>Film</h3><p>The set becomes story — a feature + series that reach a billion people.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 NUMBERS -->
+  <section class="slide" data-title="The numbers">
+    <div class="grain"></div>
+    <div class="slide-in">
+      <p class="eyebrow">The economics</p>
+      <h2>A city that <em>pays for itself.</em></h2>
+      <div class="stats" style="margin-top:18px">
+        <div class="stat"><div class="n">$<span class="u">39</span>B</div><div class="l">total capex</div></div>
+        <div class="stat"><div class="n">+$<span class="u">155</span>B</div><div class="l">30-yr cumulative net</div></div>
+        <div class="stat"><div class="n"><span class="u">~13</span>%</div><div class="l">illustrative IRR</div></div>
+        <div class="stat"><div class="n">Y<span class="u">13</span></div><div class="l">payback crossover</div></div>
+      </div>
+      <p class="body muted" style="margin-top:26px">Illustrative concept model. Full year-by-year in the <a href="aether-financials.html">Financial Model</a>.</p>
+    </div>
+  </section>
+
+  <!-- 12 CURVE -->
+  <section class="slide" data-title="ROI curve">
+    <div class="grain"></div>
+    <div class="slide-in">
+      <p class="eyebrow">30-year horizon</p>
+      <h2>Deep capex. Token recovery. <em>Then vertical.</em></h2>
+      <div class="bars">
+        <i class="neg" style="height:9%"></i><i class="neg" style="height:16%"></i><i class="neg" style="height:21%"></i><i class="neg" style="height:20%"></i><i class="neg" style="height:16%"></i>
+        <i class="neg" style="height:9%"></i><i style="height:4%"></i><i style="height:9%"></i><i style="height:16%"></i><i style="height:25%"></i>
+        <i style="height:35%"></i><i style="height:47%"></i><i style="height:61%"></i><i style="height:76%"></i><i style="height:92%"></i><i class="peak" style="height:100%"></i>
+      </div>
+      <div class="bars-x"><span>Y1</span><span>Y10 · crossover ≈ Y13</span><span>Y30 · +$155B</span></div>
+    </div>
+  </section>
+
+  <!-- 13 STORY -->
+  <section class="slide" data-title="The story">
+    <div class="grain"></div>
+    <div class="slide-in cols tight">
+      <div>
+        <p class="eyebrow">Distribution by story</p>
+        <h2>The blueprint convinces a boardroom. The <em>story</em> convinces a billion.</h2>
+        <p class="body">A feature, a series, and a novel turn AETHER into culture — and into IP that markets the real city. The 3D engine doubles as the film's set.</p>
+        <p class="body muted">Logline, characters &amp; beats in the <a href="aether-bible.html">Story Bible</a>.</p>
+      </div>
+      <div>
+        <p class="big" style="font-family:var(--serif);font-style:italic;color:var(--ink)">“When the surface becomes unlivable, one engineer bets everything on the city no one can see — and the world above does everything to bury it.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 ROADMAP -->
+  <section class="slide" data-title="Roadmap">
+    <div class="grain"></div>
+    <div class="slide-in">
+      <p class="eyebrow">Roadmap</p>
+      <h2>From blueprint to <em>broken ground.</em></h2>
+      <ul class="points">
+        <li><span class="ic">P0</span><span><b>Foundation</b> — whitepaper + 3 production volumes. <span class="muted">Done.</span></span></li>
+        <li><span class="ic">P1</span><span><b>Model</b> — navigable 3D engine. <span class="muted">In progress.</span></span></li>
+        <li><span class="ic">P2</span><span><b>Film</b> — treatment → pilot → pre-vis. <span class="muted">In development.</span></span></li>
+        <li><span class="ic">P3</span><span><b>Pilot site</b> — single-stratum engineering pilot &amp; siting. <span class="muted">This raise.</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 15 ASK -->
+  <section class="slide" data-title="The ask">
+    <div class="grain"></div>
+    <div class="slide-in" style="text-align:center">
+      <p class="eyebrow" style="justify-content:center">The ask</p>
+      <h2 style="margin-bottom:18px">One partner who thinks in <em>centuries.</em></h2>
+      <p class="big muted" style="max-width:46ch;margin:0 auto 8px">The first cheque funds the production whitepaper, the full 3D engine, the film treatment, site selection, and a single-stratum pilot — the path to first revenue.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a href="mailto:hloninchefu@gmail.com?subject=AETHER%20—%20Investor%20enquiry" class="btn btn-solid">Request the data room</a>
+        <a href="aether-whitepaper.html" class="btn btn-line">Read the whitepaper</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 CLOSE -->
+  <section class="slide title" data-title="Close">
+    <div class="grain"></div><div class="glow"></div>
+    <div class="slide-in" style="text-align:center">
+      <h1 style="font-size:clamp(56px,11vw,150px)">Build the <em style="font-style:italic;color:var(--reactor)">first one.</em></h1>
+      <p class="foot">AETHER · A Chevza concept · Johannesburg<br>hloninchefu@gmail.com</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dotsWrap=document.getElementById('dots');
+  var cNow=document.getElementById('cNow'), cTot=document.getElementById('cTot');
+  var progress=document.getElementById('progress');
+  var cur=0;
+  cTot.textContent=String(slides.length).padStart(2,'0');
+
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.setAttribute('aria-label','Go to slide '+(i+1)+': '+(s.dataset.title||''));
+    b.addEventListener('click',function(){ go(i); });
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+
+  function setActive(i){
+    cur=i;
+    dots.forEach(function(d,j){ d.classList.toggle('active',j===i); });
+    cNow.textContent=String(i+1).padStart(2,'0');
+    progress.style.width=((i)/(slides.length-1)*100)+'%';
+  }
+  function go(i){
+    i=Math.max(0,Math.min(slides.length-1,i));
+    slides[i].scrollIntoView({behavior:'smooth'});
+    setActive(i);
+  }
+
+  // track scroll position → active slide
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ setActive(slides.indexOf(e.target)); } });
+  },{root:deck,threshold:.55});
+  slides.forEach(function(s){ io.observe(s); });
+
+  // keyboard
+  addEventListener('keydown',function(e){
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); go(cur+1); }
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); go(cur-1); }
+    else if(e.key==='Home'){ e.preventDefault(); go(0); }
+    else if(e.key==='End'){ e.preventDefault(); go(slides.length-1); }
+  });
+  setActive(0);
+})();
+</script>
+</body>
+</html>

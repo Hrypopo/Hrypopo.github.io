@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AETHER — Teaser Trailer · Shot Board</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AETHER teaser trailer — a ~90-second shot board: timecoded visuals, sound design, and voiceover for the reveal of the first city built downward.">
+<meta property="og:title" content="AETHER — Teaser Trailer Shot Board">
+<meta property="og:description" content="The ~90-second AETHER teaser, shot by shot — visuals, sound, and voiceover.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://chevza.com/aether-trailer.html">
+<meta property="og:image" content="https://chevza.com/assets/og-aether.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05070d">
+<link rel="canonical" href="https://chevza.com/aether-trailer.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/aether.css">
+<style>
+/* trailer shot-board specifics */
+.board{ display:flex; flex-direction:column; gap:16px; margin:0 0 26px; }
+.shotc{ display:grid; grid-template-columns:150px 1fr; gap:0; border:1px solid var(--rule); border-radius:14px; overflow:hidden; background:var(--panel); }
+.shotc .frame{ position:relative; min-height:130px; background:radial-gradient(120% 120% at 50% 20%, #0c1626, var(--void)); display:grid; place-items:center; border-right:1px solid var(--rule); overflow:hidden; }
+.shotc .tc{ position:absolute; top:8px; left:9px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--reactor); z-index:3; }
+.shotc .shno{ position:absolute; bottom:8px; left:9px; font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--muted); z-index:3; }
+.shotc .body{ padding:16px 20px; }
+.shotc .vis{ font-size:15px; line-height:1.55; color:var(--ink); margin:0 0 12px; }
+.shotc .rows{ display:flex; flex-direction:column; gap:6px; }
+.shotc .r{ display:grid; grid-template-columns:64px 1fr; gap:12px; font-size:13px; line-height:1.5; }
+.shotc .r .k{ font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding-top:2px; }
+.shotc .r .v{ color:var(--ink-soft); }
+.shotc .r .v.vo{ font-family:var(--serif); font-style:italic; font-size:16px; color:var(--reactor); }
+.shotc .r .v.txt{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#cdd8ec; }
+/* mini frame motifs */
+.mf{ position:relative; width:78%; aspect-ratio:16/9; }
+.mf.black{ background:#04060b; }
+.mf .plain{ position:absolute; inset:0; background:linear-gradient(#0a0e18,#04060b); }
+.mf .beam{ position:absolute; left:50%; top:10%; width:8%; height:80%; transform:translateX(-50%); background:linear-gradient(var(--gold),rgba(217,180,106,0)); filter:blur(1px); }
+.mf .geo{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:1px solid rgba(70,224,208,.5); border-radius:50%; }
+.mf .core{ position:absolute; left:50%; top:50%; width:12%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(circle,#67ffee,rgba(70,224,208,0) 70%); box-shadow:0 0 20px rgba(70,224,208,.7); }
+.mf .strata i{ position:absolute; left:8%; right:8%; height:1px; background:rgba(150,170,205,.4); }
+.mf .wave i{ position:absolute; bottom:22%; width:3px; background:var(--maglev); border-radius:2px; }
+.mf .word{ font-family:var(--serif); text-transform:uppercase; letter-spacing:.14em; color:#fff; font-size:clamp(18px,3vw,30px); }
+@media(max-width:640px){ .shotc{ grid-template-columns:1fr; } .shotc .frame{ border-right:0; border-bottom:1px solid var(--rule); min-height:150px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="aether.html" class="logo"><span class="dot"></span>AETHER <small>Teaser — Shot Board</small></a>
+    <div class="nav-r">
+      <a href="aether-pilot.html" class="ghost">← Pilot</a>
+      <a href="aether-bible.html" class="ghost">Story Bible</a>
+      <a href="aether.html" class="cta">Overview</a>
+    </div>
+  </div>
+</nav>
+<div id="prog"></div>
+
+<header class="mast">
+  <p class="ey">The Film · Teaser Trailer · Shot Board</p>
+  <h1>The Teaser</h1>
+  <p class="deck">~90 seconds. From dead surface to a waking city.</p>
+  <p class="byline">
+    <b>AETHER — teaser trailer</b> · timecoded visuals, sound &amp; voiceover<br>
+    A Chevza Picture · Companion to the <a href="aether-pilot.html">Pilot</a> &amp; <a href="aether-bible.html">Story Bible</a><br>
+    Version 1.0 · 2.39:1 · concept-stage
+  </p>
+  <div class="actions">
+    <a href="#board" class="btn btn-solid">See the shots ↓</a>
+    <a href="aether-pilot.html" class="btn btn-line">Read the pilot</a>
+  </div>
+</header>
+
+<div class="shell" style="grid-template-columns:1fr;max-width:1000px;">
+  <article style="max-width:none;">
+
+    <section class="sec" style="border-top:0;padding-top:10px;">
+      <p class="num">Spec</p>
+      <h2>The one-breath promise.</h2>
+      <p class="lead">A teaser doesn't explain the city. It makes you <em>need</em> to see it. Ninety seconds: silence, a discovery, a descent, a montage of the impossible, a threat — then the title, and a door left open.</p>
+      <div class="kv">
+        <div>Runtime</div><div>~90 sec</div>
+        <div>Aspect</div><div>2.39:1 anamorphic</div>
+        <div>Score</div><div>sub-bass drone → choral swell</div>
+        <div>Source</div><div>3D engine pre-vis + plates</div>
+        <div>VO</div><div>The Founder (sparse)</div>
+      </div>
+      <div class="family">
+        <a href="aether-pilot.html"><div class="vk">Film</div><h4>Pilot Script</h4><p>“First Light” — full teaser + Acts I–III.</p></a>
+        <a href="aether-bible.html"><div class="vk">Film</div><h4>Story Bible</h4><p>World, characters, beats.</p></a>
+        <a href="aether.html#film"><div class="vk">Concept</div><h4>Overview</h4><p>The film section &amp; 3D model.</p></a>
+      </div>
+    </section>
+
+    <section class="sec" id="board">
+      <p class="num">The board · 16 shots</p>
+      <h2>Shot by shot.</h2>
+
+      <div class="board">
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:00</span><span class="shno">SH 01</span><div class="mf black"></div></div>
+          <div class="body">
+            <p class="vis">Pure black. Held three full seconds. Then a low sound felt before heard.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Silence → a sub-bass hum rising from below the frame.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">— nothing yet —</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:03</span><span class="shno">SH 02</span><div class="mf"><div class="plain"></div></div></div>
+          <div class="body">
+            <p class="vis">A dead, cracked plain under a bruise-coloured sky. Wind. Dust. The end of somewhere.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Wind. The hum persists underneath, wrong for an empty place.</span></div>
+              <div class="r"><span class="k">VO</span><span class="v vo">“They asked me why I'd build in the dark.”</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:09</span><span class="shno">SH 03</span><div class="mf"><div class="plain"></div><div class="beam"></div></div></div>
+          <div class="body">
+            <p class="vis">A single shaft of warm gold light punches up out of the earth. The only light for a hundred miles.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">A tone blooms under the hum — hopeful, alien.</span></div>
+              <div class="r"><span class="k">VO</span><span class="v vo">“So I'd have a reason to bring my own.”</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:15</span><span class="shno">SH 04</span><div class="mf"><div class="plain"></div><div class="beam" style="left:50%;width:22%;filter:blur(6px);opacity:.7"></div></div></div>
+          <div class="body">
+            <p class="vis">Camera drops <em>into</em> the shaft — surface falls away above, gold light rushing past. We're going down.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Whoosh of descent; hum climbs in pitch.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">Everyone builds up.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:22</span><span class="shno">SH 05</span><div class="mf"><div class="strata"><i style="top:20%"></i><i style="top:40%"></i><i style="top:60%"></i><i style="top:80%"></i></div></div></div>
+          <div class="body">
+            <p class="vis">Reveal: stratum after stratum of a city carved downward, terraces glowing, tiny figures moving. Vast.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">The hum resolves into a warm chord. First sign of life.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">He built down.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:30</span><span class="shno">SH 06</span><div class="mf"><div class="geo" style="width:70%;height:70%"></div><div class="geo" style="width:44%;height:44%"></div><div class="core"></div></div></div>
+          <div class="body">
+            <p class="vis">The heart: the reactor core behind glass, breathing cyan, a contained sun. Faces lit in awe.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Deep resonant pulse — the city's heartbeat.</span></div>
+              <div class="r"><span class="k">VO</span><span class="v vo">“Down here, there's no dark. We brought our own light.”</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:38</span><span class="shno">SH 07</span><div class="mf"><div class="wave"><i style="left:20%;height:30%"></i><i style="left:30%;height:55%"></i><i style="left:40%;height:40%"></i><i style="left:50%;height:70%"></i><i style="left:60%;height:45%"></i><i style="left:70%;height:60%"></i></div></div></div>
+          <div class="body">
+            <p class="vis">MONTAGE (fast): a maglev pod tears down the spine; vertical farms flush green; data vaults glow.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Rhythmic percussive build; each cut lands on a beat.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">Power. Water. Food. Air.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:48</span><span class="shno">SH 08</span><div class="mf"><div class="plain" style="background:linear-gradient(#16233a,#0a0e18)"></div></div></div>
+          <div class="body">
+            <p class="vis">Surface, boardroom glass, cold daylight. A powerful figure watches the glowing portal on a screen, unsmiling.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Music drops out to a single ominous note.</span></div>
+              <div class="r"><span class="k">VO</span><span class="v vo">“A city they can't tax. Can't zone. Can't switch off.”</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">00:56</span><span class="shno">SH 09</span><div class="mf"><div class="plain"></div><div class="beam" style="background:linear-gradient(var(--reactor),transparent);left:38%"></div><div class="beam" style="background:linear-gradient(var(--reactor),transparent);left:62%"></div></div></div>
+          <div class="body">
+            <p class="vis">Quick cuts of conflict: a hearing, a hand on a red-lined gauge, workers massing on the maglev spine.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Tension stabs; the hum turns anxious, detuned.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">They will try to bury it.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">01:04</span><span class="shno">SH 10</span><div class="mf black"><div class="core" style="width:8%"></div></div></div>
+          <div class="body">
+            <p class="vis">Hard cut to near-black — only the core's cyan glow, pulsing once, twice, like a held breath.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Everything drops to silence but the heartbeat.</span></div>
+              <div class="r"><span class="k">VO</span><span class="v vo">“Let them try.”</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">01:10</span><span class="shno">SH 11</span><div class="mf"><div class="strata"><i style="top:15%"></i><i style="top:33%"></i><i style="top:51%"></i><i style="top:69%"></i><i style="top:87%"></i></div><div class="core" style="bottom:6%;top:auto"></div></div></div>
+          <div class="body">
+            <p class="vis">The whole geode floods with light top-to-bottom at once — the money shot. Gold and cyan, every stratum alive.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Choral swell explodes; the full theme lands.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">The future isn't up there.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">01:20</span><span class="shno">SH 12</span><div class="mf black"><span class="word">Aether</span></div></div>
+          <div class="body">
+            <p class="vis">Cut to black. The wordmark resolves, lit from within by a cyan pulse. Hold.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Theme resolves to the sub-bass heartbeat alone.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">AETHER</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">01:26</span><span class="shno">SH 13</span><div class="mf black"><span class="word" style="font-style:italic;font-size:16px;color:var(--reactor)">It's down here.</span></div></div>
+          <div class="body">
+            <p class="vis">Tagline fades up beneath the mark, then a final coreward pulse and cut to black.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">One last heartbeat. Silence.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">The future isn't up there. It's down here.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shotc">
+          <div class="frame"><span class="tc">01:30</span><span class="shno">SH 14</span><div class="mf black"></div></div>
+          <div class="body">
+            <p class="vis">Black. A beat of nothing — then, faint, the hum returns for half a second before the true end. The city is still there.</p>
+            <div class="rows">
+              <div class="r"><span class="k">Sound</span><span class="v">Sub-bass flicker, cut.</span></div>
+              <div class="r"><span class="k">Text</span><span class="v txt">chevza.com</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="call">
+        <div class="k">Production note</div>
+        <p>Every frame above is buildable from the AETHER 3D engine (Vol. I §10 of the whitepaper) as pre-vis, then finished with plates and score. The teaser and the investor walkthrough share one asset pipeline — the model is the set.</p>
+      </div>
+
+      <div class="actions">
+        <a href="aether-pilot.html" class="btn btn-solid">Read the pilot ↗</a>
+        <a href="aether.html#film" class="btn btn-line">The film concept</a>
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-top">
+      <a href="aether.html" class="logo"><span class="dot"></span>AETHER <small>Teaser — Shot Board</small></a>
+      <div class="foot-links"><a href="aether-pilot.html">Pilot</a><a href="aether-bible.html">Story Bible</a><a href="aether-deck.html">Deck</a><a href="aether.html">Overview</a></div>
+    </div>
+    <div class="foot-copy">
+      © 2026 Chevza · AETHER is a speculative concept and creative work · Johannesburg, South Africa
+      <span class="disc">Teaser shot board — concept-stage creative treatment. Not a production commitment.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/aether-doc.js"></script>
+</body>
+</html>

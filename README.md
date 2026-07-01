@@ -1,8 +1,8 @@
-# Chevza — hrypopo.github.io
+# Chevza — chevza.com
 
 Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — solo founder from Johannesburg, South Africa, building privacy-first software and bold creative brands.
 
-**Live at [hrypopo.github.io](https://hrypopo.github.io)**
+**Live at [chevza.com](https://chevza.com)** · custom-domain setup in [`DOMAIN-SETUP.md`](DOMAIN-SETUP.md)
 
 ## Site map
 
@@ -11,6 +11,14 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 | [`index.html`](index.html) | Studio homepage — dark editorial, custom cursor, live venture previews |
 | [`filemayor.html`](filemayor.html) | FileMayor launch kit — pitch deck · social carousels · brand book |
 | [`purplelens.html`](purplelens.html) | PurpleLens photography studio — portraits, commercial, weddings, prints |
+| [`aether.html`](aether.html) | AETHER — subterranean megacity concept, with an interactive 3D cross-section. Whitepaper → 3D model → film |
+| [`aether-whitepaper.html`](aether-whitepaper.html) | AETHER whitepaper — physics, math, economics, tokenomics & narrative, with TOC + scroll-spy |
+| [`aether-engineering.html`](aether-engineering.html) | AETHER Vol. I — production-depth engineering (thermodynamics, maglev, geotechnics, life support) |
+| [`aether-financials.html`](aether-financials.html) | AETHER Vol. II — production-depth financial model (capex, tokenomics, 30-yr annual model, NPV/IRR, sensitivity) |
+| [`aether-bible.html`](aether-bible.html) | AETHER Vol. III — production-depth story bible (world, factions, characters, episode beats) |
+| [`aether-deck.html`](aether-deck.html) | AETHER investor deck — 16 cinematic, keyboard-navigable slides |
+| [`aether-pilot.html`](aether-pilot.html) | AETHER pilot screenplay — Episode 101, "First Light" (full teaser + Acts I–III) |
+| [`aether-trailer.html`](aether-trailer.html) | AETHER teaser-trailer shot board — ~90 sec, timecoded visuals · sound · VO |
 | [`404.html`](404.html) | Custom not-found page, on brand |
 | `project/` | FileMayor design source files (deck, carousels, brand book) |
 | `assets/` | Favicon + generated Open Graph social cards |
@@ -19,6 +27,7 @@ Personal portfolio & venture studio site of **Lehlohonolo 'Chevza' Nchefu** — 
 
 - **FileMayor** — AI-native file organisation for the command line. Local-first, privacy-first, six-layer security (The Chevza Doctrine). 25k+ npm installs. → [filemayor.com](https://filemayor.com)
 - **PurpleLens** — Johannesburg photography studio. Home of the *Iconoclast* black-and-white portrait series.
+- **AETHER** — a speculative $100B concept for a self-powered subterranean megacity (SMR core, autonomous maglev, tokenised tunnels). Taken from whitepaper → interactive 3D model → sci-fi film.
 - **PurpleBos · PurpleRugs · Praxis** — in the works.
 
 ## Engineering notes
